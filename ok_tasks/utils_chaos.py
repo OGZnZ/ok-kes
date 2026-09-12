@@ -358,12 +358,12 @@ def handle_battle_auto_check(task: TriggerTask):
 
 
 def handle_discovery_select(task: TriggerTask): #忘了按个页面要用
-    """发现选择页面：选择达到配置层级的存储数据，否则取消。"""
-    title = find_box_at_point(task, 0.498, 0.078)
-    if not (title and title.name == "获得法典"):
+    """发现选择页面：标题区域内出现「获得法典」文本即为该页面，选择达到配置层级的存储数据，否则取消。"""
+    title_text = _get_region_text(task, (0.313, 0.010, 0.670, 0.193))
+    if "获得法典" not in title_text:
         return False
 
-    task.log_info("检测到发现选择页面")
+    task.log_info(f"检测到发现选择页面，标题区域文本=「{title_text}」")
     required_level = int(
         _get_config_value(task, "存储数据价值大于等于多少层级", 12)
     )
