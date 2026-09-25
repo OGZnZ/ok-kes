@@ -2,7 +2,7 @@ name: "MBG-Kes"
 uac: true
 profiles:
   - name: "China"
-    git_url: "https://cnb.cool/baoxin1100/ok-kes.git"
+    git_url: "https://github.com/OGZnZ/ok-kes.git"
     admin: true
     main_script: "main.py"
     requires_python: "3.12"
