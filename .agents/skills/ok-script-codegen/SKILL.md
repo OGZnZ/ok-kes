@@ -45,13 +45,13 @@ Use the official API document as the source of truth when API details are needed
 Example:
 
 ```python
-import re  # 导入正则模块，用于 OCR 文本的部分匹配。
+import re  # Import regex for partial OCR text matching.
 
-def run(self):  # 定义任务运行入口。
-    self.log_info("开始执行任务")  # 记录任务开始执行。
-    start_button = self.wait_ocr(match="开始", time_out=5)  # 等待 OCR 精确匹配“开始”按钮。
-    if start_button:  # 如果找到了开始按钮，就继续执行点击。
-        self.click_box(start_button, after_sleep=0.5)  # 点击找到的按钮，并等待界面刷新。
+def run(self):  # Define the task entry point.
+    self.log_info("Starting task")  # Log that the task is starting.
+    start_button = self.wait_ocr(match="Start", time_out=5)  # Wait for an exact OCR match on the "Start" button.
+    if start_button:  # If the start button was found, click it.
+        self.click_box(start_button, after_sleep=0.5)  # Click the button and wait for the UI to refresh.
 ```
 
 ## Frame Refresh Rules
@@ -70,10 +70,10 @@ def run(self):  # 定义任务运行入口。
 
 - Full-screen OCR is relatively expensive. Prefer a smaller OCR region when the text location is known.
 - If screenshots are provided, infer OCR regions from the screenshot where practical.
-- Use `match="文本"` for exact string matching.
+- Use `match="Start"` for exact string matching.
 - String matches are exact matches.
-- For partial text matching, use regex, for example `re.compile("部分文本")`.
-- `match` supports strings and regex objects together, for example `match=["文本1", "文本2", regex1, regex2]`.
+- For partial text matching, use regex, for example `re.compile("partial text")`.
+- `match` supports strings and regex objects together, for example `match=["text1", "text2", regex1, regex2]`.
 - When detecting any one of several strings, use a list in `match` to complete matching in one OCR call.
 - When all target strings must be present, call OCR once and check the returned boxes with Python logic.
 - `ocr` returns all boxes that match the condition.
@@ -99,7 +99,7 @@ When screenshots are attached:
 - Prefer OCR or template matching when the screenshot shows stable text or a stable icon.
 - Use relative coordinates when the target is visual but no reliable OCR/template is available.
 - State in code comments when a coordinate is estimated from the screenshot.
-- Do not claim exact confidence; use cautious comments such as "根据截图估算".
+- Do not claim exact confidence; use cautious comments such as "estimated from screenshot".
 
 ## Error Handling
 

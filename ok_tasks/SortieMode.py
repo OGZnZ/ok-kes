@@ -20,8 +20,8 @@ class SortieMode(TriggerTask):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.name = "自动出击模式"
-        self.description = "1. 自动战斗依赖按键识别，请在游戏设置中打开快捷键显示，提升出牌准确率。\n2. 国际服玩家请将本模式配置中的\"游戏语言\"设置为繁体中文。"
+        self.name = "Auto Sortie Mode"
+        self.description = "1. Auto Battle relies on keybind recognition; enable shortcut key display in the game settings for better card-play accuracy.\n2. Global server players: set \"游戏语言\" to 繁体中文 in this mode's config."
         self.instructions = """<a href="https://github.com/ok-oldking/ok-py">ok-py</a>"""
         self.trigger_interval = 1
         self.all_texts = []
@@ -51,7 +51,7 @@ class SortieMode(TriggerTask):
         self.default_config["生命值大于多少优先闪光(百分比)"] = "60"
         self.default_config["路线优先级"] = ["休息", "事件", "小怪", "精英"]
         self.default_config["第几层boss前自动暂停"] = "不暂停"
-        # self.default_config["从右往左出牌"] = True
+        # self.default_config["从右往左出牌"] = True  # Play cards from right to left
         self.node_status = {"shop": False, "flash_or_rest": False, "reach_final_boss": False, "final_boss_battle": False, "pass_final_boss_count": 0, 
                             "total_rounds": 0, "success_rounds": 0, "node_count": 0, "enter_new_node": False, "node_type": "",
                             "is_escaped": False, "save_target_member": False,
@@ -71,23 +71,23 @@ class SortieMode(TriggerTask):
             '配置操作': {
                 'type': 'button',
                 'buttons': [
-                    {'text': '导入配置码', 'callback': make_import_callback(self)},
-                    {'text': '导出配置码', 'callback': make_export_callback(self)},
-                    {'text': '热门配置', 'callback': self._show_hot_configs},
-                    {'text': '保存配置', 'callback': make_save_local_config_callback(self, 'sortie')},
-                    {'text': '切换配置', 'callback': make_switch_local_config_callback(self, 'sortie')},
+                    {'text': 'Import Config Code', 'callback': make_import_callback(self)},
+                    {'text': 'Export Config Code', 'callback': make_export_callback(self)},
+                    {'text': 'Hot Configs', 'callback': self._show_hot_configs},
+                    {'text': 'Save Config', 'callback': make_save_local_config_callback(self, 'sortie')},
+                    {'text': 'Switch Config', 'callback': make_switch_local_config_callback(self, 'sortie')},
                 ],
             },
             '第几层boss前自动暂停': {'type': 'drop_down', 'options': ['不暂停', '1', '2', '3']},
         }
-        self.config_description['游戏语言'] = "国际服请设置为繁体中文"
+        self.config_description['游戏语言'] = "Global server players: set this to 繁体中文"
 
     def load_config(self):
         migrate_game_language_config_file(self)
         super().load_config()
 
     def enable(self):
-        """开启出击模式时自动禁用卡厄思模式，重置状态并迁移配置。"""
+        """Auto-disables Chaos Mode when Sortie Mode is enabled, resets status and migrates config."""
         from ChaosMode import ChaosMode
         chaos = og.executor.get_task_by_class(ChaosMode)
         if chaos and chaos.enabled:
@@ -107,5 +107,5 @@ class SortieMode(TriggerTask):
         for handle_page in utils_sortie.PAGE_HANDLERS:
             if handle_page(self):
                 return
-        # 帧末尾检查是否需要上传配置
+        # Check at end of frame whether the config needs uploading
         self._check_upload_if_needed()

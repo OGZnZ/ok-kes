@@ -29,17 +29,17 @@ import re
 import random
 
 
-# ------------------------- 卡厄思模式独有页面处理函数 -------------------------
+# ------------------------- Chaos Mode exclusive page handlers -------------------------
 
 
 def _match_storage_data_value(task: TriggerTask, text: str):
-    """匹配当前游戏语言中的“存储数据价值+数字”，不要求末尾层级文本。"""
+    """Match "storage-data value + number" in the current game language, without requiring trailing tier text."""
     storage_data_text = re.escape(_get_game_text(task, "存储数据"))
     return re.search(rf"{storage_data_text}价值\s*(\d+)", text)
 
 
 def handle_season_chaos_initial_page(task: TriggerTask):
-    """赛季卡厄思初始页面：存储数据价值层级不足时再次观测。"""
+    """Season Chaos entry page: observe again when the storage-data value tier is too low."""
     title_text = _get_region_text(task, (0.075, 0.014, 0.305, 0.090))
     if "卡厄思" not in title_text:
         return False
@@ -54,11 +54,11 @@ def handle_season_chaos_initial_page(task: TriggerTask):
     if not observe_boxes:
         return False
 
-    task.log_info("检测到赛季卡厄思初始页面")
+    task.log_info("Detected season Chaos entry page")
     value_text = _get_region_text(task, (0.684, 0.308, 0.982, 0.754))
     value_match = _match_storage_data_value(task, value_text)
     if not value_match:
-        task.log_info(f"未识别到存储数据价值层级，区域文本=「{value_text}」")
+        task.log_info(f"Storage-data value tier not recognized, region text=\"{value_text}\"")
         return False
 
     data_value_level = int(value_match.group(1))
@@ -66,20 +66,19 @@ def handle_season_chaos_initial_page(task: TriggerTask):
         _get_config_value(task, "存储数据价值大于等于多少层级", 12)
     )
     task.log_info(
-        f"当前存储数据价值={data_value_level}层级，"
-        f"要求大于等于{required_level}层级"
+        f"Current storage-data value={data_value_level} tiers, required >= {required_level} tiers"
     )
     if data_value_level >= required_level:
         return False
 
-    task.log_info("存储数据价值层级不足，点击再次观测")
+    task.log_info("Storage-data value tier too low, clicking observe again")
     task.click_box(observe_boxes[0])
     task.sleep(1)
     return True
 
 
 def handle_zero_system_initial_page(task: TriggerTask):
-    """零式系统初始页面：存储数据价值不足时进入重新合成。"""
+    """Zero System entry page: enter re-synthesis when the storage-data value is too low."""
     title_text = _get_region_text(task, (0.076, 0.011, 0.291, 0.106))
     if _get_game_text(task, "零式系统") not in title_text:
         return False
@@ -88,7 +87,7 @@ def handle_zero_system_initial_page(task: TriggerTask):
     if "进入" not in enter_text:
         return False
 
-    task.log_info("检测到零式系统初始页面")
+    task.log_info("Detected Zero System entry page")
     value_text = _get_region_text(task, (0.685, 0.317, 0.980, 0.825))
     value_match = _match_storage_data_value(task, value_text)
     required_level = int(
@@ -96,23 +95,20 @@ def handle_zero_system_initial_page(task: TriggerTask):
     )
     if value_match:
         data_value_level = int(value_match.group(1))
-        task.log_info(
-            f"零式系统当前存储数据价值={data_value_level}层级，"
-            f"要求大于等于{required_level}层级"
-        )
+        task.log_info(f"Zero System current save data value={data_value_level} tiers, required >= {required_level} tiers")
         if data_value_level >= required_level:
             return False
     else:
-        task.log_info(f"零式系统未识别到存储数据价值层级，区域文本=「{value_text}」")
+        task.log_info(f"Zero System: failed to recognize save data value tier, region text='{value_text}'")
 
-    task.log_info("存储数据价值未达要求，点击进入重新合成")
+    task.log_info("Save data value does not meet requirements, clicking enter to re-synthesize")
     _move_and_click(task, 0.968, 0.153)
     task.sleep(1)
     return True
 
 
 def handle_disable_adaptation_distortion(task: TriggerTask):
-    """刷空档时关闭已启用的适应畸变。"""
+    """When farming empty slots, disable mutation adaptation if enabled."""
     if _get_config_value(task, "刷空档", False) is not True:
         return False
 
@@ -133,21 +129,18 @@ def handle_disable_adaptation_distortion(task: TriggerTask):
         abs(actual - target)
         for actual, target in zip(rgb, target_rgb)
     ) <= 35
-    task.log_info(
-        f"适应畸变开关颜色RGB={rgb}，"
-        f"是否接近{target_rgb}={color_matches}"
-    )
+    task.log_info(f"Mutation adaptation toggle RGB={rgb}, close to {target_rgb}={color_matches}")
     if not color_matches:
         return False
 
-    task.log_info("刷空档检测到适应畸变已开启，点击关闭")
+    task.log_info("Empty-slot farming detected mutation adaptation enabled, clicking to disable")
     _move_and_click(task, relative_x, relative_y)
     task.sleep(1)
     return False
 
 
 def _save_runtime_feature(task: TriggerTask, feature_name: str, region, target_region=None):
-    """将当前帧指定区域保存为运行时特征，可按目标区域尺寸缩放。"""
+    """Save specified region of current frame as runtime feature, scalable by target region dimensions."""
     import os
     import cv2
     from ok.feature.Box import Box
@@ -162,7 +155,7 @@ def _save_runtime_feature(task: TriggerTask, feature_name: str, region, target_r
     bottom = round(y2 * task.height)
     feature_mat = task.frame[top:bottom, left:right, :3].copy()
     if feature_mat.size == 0:
-        task.log_error(f"保存特征「{feature_name}」失败：截图区域为空")
+        task.log_error(f"Failed to save feature '{feature_name}': cropped region is empty")
         return False
 
     if target_region is not None:
@@ -188,16 +181,14 @@ def _save_runtime_feature(task: TriggerTask, feature_name: str, region, target_r
     os.makedirs(config_folder, exist_ok=True)
     feature_path = os.path.join(config_folder, f"{feature_name}.png")
     if cv2.imwrite(feature_path, feature_mat):
-        task.log_info(
-            f"已将主战员头像保存为特征「{feature_name}」：{feature_path}"
-        )
+        task.log_info(f"Saved member portrait as feature '{feature_name}': {feature_path}")
     else:
-        task.log_info(f"保存特征图片失败：{feature_path}")
+        task.log_info(f"Failed to save feature image: {feature_path}")
     return True
 
 
 def handle_archive_target_member(task: TriggerTask):
-    """信息统计页面：按配置记录刷存档时使用的目标主战员特征。"""
+    """Info statistics page: record target member feature used for save-farming based on config."""
     search_box = task.box_of_screen(0.005, 0.018, 0.080, 0.343)
     member_info = task.find_one(
         feature_name=["memberinfo", "memberinfo2"], box=search_box
@@ -205,9 +196,7 @@ def handle_archive_target_member(task: TriggerTask):
     if not member_info:
         return False
 
-    task.log_info(
-        f"检测到信息统计页面，点击「{member_info.name}」，相似度={member_info.confidence:.4f}"
-    )
+    task.log_info(f"Detected info stats page, clicking '{member_info.name}', confidence={member_info.confidence:.4f}")
     task.click_box(member_info)
     task.sleep(0.5)
     _move_and_click(task, 0.201, 0.056)
@@ -215,7 +204,7 @@ def handle_archive_target_member(task: TriggerTask):
 
     target_name = _get_config_value(task, "刷存档主战员", "海德玛丽")
     if not target_name:
-        task.log_info("未配置刷存档主战员，关闭信息统计页面")
+        task.log_info("No save-farming member configured, closing stats page")
         _move_and_click(task, 0.960, 0.054)
         task.sleep(1)
         return True
@@ -231,7 +220,7 @@ def handle_archive_target_member(task: TriggerTask):
     for x, y in member_positions:
         name_box = find_box_at_point(task, x, y)
         member_names.append(name_box.name.strip() if name_box else "")
-    task.log_info(f"信息统计页面主战员：{member_names}")
+    task.log_info(f"Stats page members: {member_names}")
 
     for index, member_name in enumerate(member_names):
         if member_name and (target_name in member_name or member_name in target_name):
@@ -281,15 +270,13 @@ def handle_archive_target_member(task: TriggerTask):
                     member_regions[index],
                     target_region=(0.218, 0.320, 0.28675, 0.439444444),
                 )
-                task.log_info(
-                    f"第{index + 1}个主战员「{member_name}」命中刷存档主战员「{target_name}」"
-                )
+                task.log_info(f"Member {index + 1} '{member_name}' matched save-farming member '{target_name}'")
             task.node_status["save_target_member"] = True
             _move_and_click(task, 0.960, 0.054)
             task.sleep(1)
             return True
 
-    task.log_info(f"三个主战员均未命中刷存档主战员「{target_name}」")
+    task.log_info(f"None of the three members matched save-farming member '{target_name}'")
     _move_and_click(task, 0.960, 0.054)
     task.node_status["save_target_member"] = True
     task.sleep(1)
@@ -297,7 +284,7 @@ def handle_archive_target_member(task: TriggerTask):
 
 
 def handle_save_target_member(task: TriggerTask):
-    """主界面：进入信息统计页面获取刷存档目标主战员头像特征。"""
+    """Main screen: enter info stats page to capture save-farming target member portrait feature."""
     if not _get_current_hp_percent(task):
         return False
 
@@ -307,13 +294,13 @@ def handle_save_target_member(task: TriggerTask):
     if task.node_status.get("save_target_member", False):
         return False
 
-    task.log_info("前往获取刷存档主战员头像特征")
+    task.log_info("Navigating to capture save-farming member portrait feature")
     _move_and_click(task, 0.182, 0.081)
     task.sleep(2)
     return True
 
 def handle_battle_auto_check(task: TriggerTask):
-    """战斗页面: 检测手牌数并检查自动战斗是否开启，如关闭则开启。"""
+    """Battle screen: check hand card count and verify auto battle is enabled, enable if off."""
     box = find_box_at_point(task, 0.512, 0.969)
     if not (box and re.search(r'\d+/10', box.name)):
         return False
@@ -323,10 +310,7 @@ def handle_battle_auto_check(task: TriggerTask):
         box=task.box_of_screen(0.394, 0.779, 0.600, 0.858),
     )
     if attack_box:
-        task.log_info(
-            f"战斗页面检测到start_attack_event特征，"
-            f"相似度={attack_box.confidence:.4f}，点击发起攻击"
-        )
+        task.log_info(f"Battle screen detected start_attack_event feature, confidence={attack_box.confidence:.4f}, clicking to attack")
         task.click_box(attack_box)
         task.sleep(1)
         return True
@@ -344,26 +328,26 @@ def handle_battle_auto_check(task: TriggerTask):
         {'r': (255, 255), 'g': (255, 255), 'b': (255, 255)},
         box=auto_box
     )
-    task.log_info(f"自动战斗按钮区域白色占比: {white_ratio:.2%}")
+    task.log_info(f"Auto battle button region white ratio: {white_ratio:.2%}")
     if white_ratio > 0.02:
-        task.log_info("自动战斗处于关闭状态，点击开启")
+        task.log_info("Auto battle is disabled, clicking to enable")
         _move_and_click(task, 0.880, 0.056)
         task.sleep(0.5)
 
-    # 如果已到达最终boss节点，标记boss战状态
+    # If reached final boss node, mark boss battle status
     if hasattr(task, 'node_status') and task.node_status.get('reach_final_boss', False):
         task.node_status['final_boss_battle'] = True
-        task.log_info("检测到最终boss战斗开始，final_boss_battle=True")
+        task.log_info("Detected final boss battle start, final_boss_battle=True")
     return True
 
 
-def handle_discovery_select(task: TriggerTask): #忘了按个页面要用
-    """发现选择页面：标题区域内出现「获得法典」文本即为该页面，选择达到配置层级的存储数据，否则取消。"""
+def handle_discovery_select(task: TriggerTask):  # Page handler for discovery selection
+    """Discovery selection page: identified by '获得法典' in title area; select save data reaching configured tier, else cancel."""
     title_text = _get_region_text(task, (0.313, 0.010, 0.670, 0.193))
     if "获得法典" not in title_text:
         return False
 
-    task.log_info(f"检测到发现选择页面，标题区域文本=「{title_text}」")
+    task.log_info(f"Detected discovery selection page, title text='{title_text}'")
     required_level = int(
         _get_config_value(task, "存储数据价值大于等于多少层级", 12)
     )
@@ -376,39 +360,33 @@ def handle_discovery_select(task: TriggerTask): #忘了按个页面要用
         option_text = _get_region_text(task, region)
         level_match = _match_storage_data_value(task, option_text)
         if not level_match:
-            task.log_info(
-                f"发现选项{index + 1}未识别到存储数据价值层级，"
-                f"区域文本=「{option_text}」"
-            )
+            task.log_info(f"Discovery option {index + 1} save data value tier not recognized, region text='{option_text}'")
             continue
 
         data_value_level = int(level_match.group(1))
-        task.log_info(
-            f"发现选项{index + 1}存储数据价值={data_value_level}层级，"
-            f"要求大于等于{required_level}层级"
-        )
+        task.log_info(f"Discovery option {index + 1} save data value={data_value_level} tiers, required >= {required_level} tiers")
         if data_value_level < required_level:
             continue
 
         click_x = (region[0] + region[2]) / 2
         click_y = (region[1] + region[3]) / 2
-        task.log_info(f"发现选项{index + 1}满足层级要求，点击该选项")
+        task.log_info(f"Discovery option {index + 1} meets tier requirement, clicking option")
         _move_and_click(task, click_x, click_y)
         task.sleep(1)
         return True
 
-    task.log_info("没有发现选项满足存储数据价值层级要求，点击取消")
+    task.log_info("No discovery option meets save data tier requirement, clicking cancel")
     _move_and_click(task, 0.663, 0.924)
     task.sleep(1)
     return True
 
 
 def handle_zero_system_home(task: TriggerTask):
-    """零式系统首页: 点击法典。"""
+    """Zero System home: click Codex."""
     title = find_box_at_point(task, 0.120, 0.046)
     codex = find_box_at_point(task, 0.812, 0.469)
     if title and _get_game_text(task, '零式系统') in title.name and codex and codex.name == "法典":
-        task.log_info("检测到零式系统首页，点击法典")
+        task.log_info("Detected Zero System home, clicking Codex")
         task.click_box(codex)
         task.sleep(2)
         return True
@@ -416,21 +394,21 @@ def handle_zero_system_home(task: TriggerTask):
 
 
 def handle_codex_search(task: TriggerTask):
-    """法典搜索页面: 点击搜索新坐标。"""
+    """Codex search page: click search new coordinates."""
     title = find_box_at_point(task, 0.5, 0.438)
     if not (title and title.name == "法典"):
         return False
-    task.log_info("检测到法典搜索页面，点击搜索新坐标")
+    task.log_info("Detected Codex search page, clicking search new coordinates")
     _move_and_click(task, 0.5, 0.760)
     task.sleep(2)
     return True
 
 
 def handle_memory_elimination(task: TriggerTask):
-    """记忆消除页面: 点击记忆消除按钮。"""
+    """Memory elimination page: click memory elimination button."""
     box = find_box_at_point(task, 0.589, 0.703)
     if box and _get_game_text(task, '记忆消除') in box.name:
-        task.log_info("检测到记忆消除页面，点击记忆消除")
+        task.log_info("Detected memory elimination page, clicking memory elimination")
         task.click_box(box)
         task.sleep(0.5)
         return True
@@ -438,16 +416,16 @@ def handle_memory_elimination(task: TriggerTask):
 
 
 def handle_chaos_craft(task: TriggerTask):
-    """卡厄思合成页面: 检测"卡厄思合成"(0.774,0.925)或"免费合成"(0.563,0.922)按钮，点击并等待。"""
+    """Chaos craft page: detect '卡厄思合成' (0.774,0.925) or '免费合成' (0.563,0.922) button, click and wait."""
     box = find_box_at_point(task, 0.774, 0.925)
     if box and "卡厄思合成" in box.name:
-        task.log_info(f"检测到卡厄思合成页面，点击「{box.name}」")
+        task.log_info(f"Detected Chaos craft page, clicking '{box.name}'")
         task.click_box(box)
         task.sleep(2)
         return True
     box = find_box_at_point(task, 0.563, 0.922)
     if box and "免费合成" in box.name:
-        task.log_info(f"检测到卡厄思合成页面，点击「{box.name}」")
+        task.log_info(f"Detected Chaos craft page, clicking '{box.name}'")
         task.click_box(box)
         task.sleep(2)
         return True
@@ -455,31 +433,31 @@ def handle_chaos_craft(task: TriggerTask):
 
 
 def handle_conquer_difficulty(task: TriggerTask):
-    """征服新难度页面: 检测到'征服新难度'则点击空白处关闭。"""
+    """Conquer new difficulty page: detect '征服新难度' and click empty space to close."""
     box = find_box_at_point(task, 0.502, 0.572)
     if box and "征服新难度" in box.name:
-        task.log_info("检测到征服新难度页面，点击关闭")
+        task.log_info("Detected conquer new difficulty page, clicking to close")
         _move_and_click(task, 0.502, 0.943)
         task.sleep(1)
         return True
     return False
 
 
-# ------------------------- 卡厄思模式独有页面处理函数（续） -------------------------
+# ------------------------- Chaos Mode exclusive page handlers (cont.) -------------------------
 
 def handle_chaos_mask_engraving(task: TriggerTask):
-    """面具卡牌刻印获取页面: 如果0.499,0.126处文本包含"面具卡牌刻印"，则为该页面。
-    如果0.921,0.931处_clean_match"确认"后，检测0.495,0.221处是否包含"替换"：
-      - 有"替换"（A逻辑）：点击刻印1，获取刻印1描述；命中配置则点击刻印2再判断，
-        未命中则检查新刻印描述或刷新/跳过。
-      - 无"替换"（原逻辑）：直接检查刻印描述，命中则return False，否则刷新或跳过。"""
+    """Mask card engraving acquisition page: if text at (0.499, 0.126) contains '面具卡牌刻印', it is this page.
+    After _clean_match '确认' at (0.921, 0.931), check if (0.495, 0.221) contains '替换':
+      - With '替换' (Logic A): click Engraving 1, get description; if matched, click Engraving 2 and evaluate;
+        if not matched, check new engraving or reroll/skip.
+      - Without '替换' (original logic): check engraving description directly, return False if matched, else reroll/skip."""
     title_box = find_box_at_point(task, 0.499, 0.126)
     if not (title_box and "面具卡牌刻印" in title_box.name):
         return False
 
-    task.log_info("检测到面具卡牌刻印获取页面")
+    task.log_info("Detected mask card engraving acquisition page")
 
-    # 检查确认按钮是否可用
+    # Check if confirm button is available
     confirm_box = find_box_at_point(task, 0.921, 0.931)
     if not (confirm_box and _clean_match(confirm_box.name, "确认")):
         return False
@@ -488,117 +466,117 @@ def handle_chaos_mask_engraving(task: TriggerTask):
     new_desc_region = (0.589, 0.601, 0.902, 0.762)
     slot_desc_region = (0.589, 0.336, 0.898, 0.487)
 
-    # 检测是否处于替换模式
+    # Check if in replacement mode
     replace_box = find_box_at_point(task, 0.495, 0.221)
     if replace_box and _get_game_text(task, "替换") in replace_box.name:
-        task.log_info("检测到替换模式（A逻辑）")
+        task.log_info("Detected replacement mode (Logic A)")
 
-        # ===== A逻辑：刻印1 =====
-        task.log_info("点击刻印1")
+        # ===== Logic A: Engraving 1 =====
+        task.log_info("Clicking Engraving 1")
         _move_and_click(task, 0.399, 0.472)
         task.sleep(0.5)
 
         slot_desc = _get_region_text(task, slot_desc_region)
-        task.log_info(f"刻印1描述: {slot_desc}")
+        task.log_info(f"Engraving 1 description: {slot_desc}")
 
         if specify_text not in slot_desc:
-            # 刻印1未命中，检查新刻印
+            # Engraving 1 missed, check new engraving
             new_desc = _get_region_text(task, new_desc_region)
-            task.log_info(f"新刻印描述: {new_desc}")
+            task.log_info(f"New engraving description: {new_desc}")
             if specify_text in new_desc:
-                task.log_info(f"新刻印命中「{specify_text}」，交给确认按钮")
+                task.log_info(f"New engraving matched '{specify_text}', delegating to confirm button")
                 return False
-            # 检查刷新
+            # Check reroll
             refresh_box = find_box_at_point(task, 0.916, 0.810)
             if refresh_box:
                 match = re.search(r'(\d+)/3', refresh_box.name)
                 if match:
                     remaining = int(match.group(1))
-                    task.log_info(f"刻印1未命中，剩余刷新次数: {remaining}")
+                    task.log_info(f"Engraving 1 missed, remaining rerolls: {remaining}")
                     if remaining > 0:
-                        task.log_info(f"点击刷新")
+                        task.log_info("Clicking reroll")
                         _move_and_click(task, 0.916, 0.810)
                         task.sleep(1)
                         return True
-            # 无法刷新，点击跳过
-            task.log_info("无法刷新，点击跳过")
+            # Cannot reroll, click skip
+            task.log_info("Cannot reroll, clicking skip")
             _move_and_click(task, 0.747, 0.932)
             task.sleep(1)
             return True
 
-        # ===== 刻印1命中，继续刻印2 =====
-        task.log_info("刻印1命中，点击刻印2")
+        # ===== Engraving 1 matched, proceed to Engraving 2 =====
+        task.log_info("Engraving 1 matched, clicking Engraving 2")
         _move_and_click(task, 0.399, 0.610)
         task.sleep(0.5)
 
         slot2_desc = _get_region_text(task, slot_desc_region)
-        task.log_info(f"刻印2描述: {slot2_desc}")
+        task.log_info(f"Engraving 2 description: {slot2_desc}")
 
         if specify_text in slot2_desc:
-            # 刻印2也命中，点击跳过
-            task.log_info("刻印2也命中配置，点击跳过")
+            # Engraving 2 also matched, click skip
+            task.log_info("Engraving 2 also matched config, clicking skip")
             _move_and_click(task, 0.747, 0.932)
             task.sleep(1)
             return True
 
-        # 刻印2未命中，检查新刻印
+        # Engraving 2 missed, check new engraving
         new_desc = _get_region_text(task, new_desc_region)
-        task.log_info(f"新刻印描述: {new_desc}")
+        task.log_info(f"New engraving description: {new_desc}")
         if specify_text in new_desc:
-            task.log_info(f"新刻印命中「{specify_text}」，交给确认按钮")
+            task.log_info(f"New engraving matched '{specify_text}', delegating to confirm button")
             return False
 
-        # 检查刷新
+        # Check reroll
         refresh_box = find_box_at_point(task, 0.916, 0.810)
         if refresh_box:
             match = re.search(r'(\d+)/3', refresh_box.name)
             if match:
                 remaining = int(match.group(1))
-                task.log_info(f"刻印2未命中，剩余刷新次数: {remaining}")
+                task.log_info(f"Engraving 2 missed, remaining rerolls: {remaining}")
                 if remaining > 0:
-                    task.log_info(f"点击刷新")
+                    task.log_info("Clicking reroll")
                     _move_and_click(task, 0.916, 0.810)
                     task.sleep(1)
                     return True
 
-        # 无法刷新，点击跳过
-        task.log_info("无法刷新，点击跳过")
+        # Cannot reroll, click skip
+        task.log_info("Cannot reroll, clicking skip")
         _move_and_click(task, 0.747, 0.932)
         task.sleep(1)
         return True
 
-    # ===== 原逻辑：无替换模式 =====
-    task.log_info("无替换模式，执行原逻辑")
+    # ===== Original logic: Non-replacement mode =====
+    task.log_info("Non-replacement mode, executing original logic")
     desc_text = _get_region_text(task, (0.583, 0.463, 0.937, 0.621))
-    task.log_info(f"刻印描述: {desc_text}")
+    task.log_info(f"Engraving description: {desc_text}")
 
     if specify_text in desc_text:
-        task.log_info(f"刻印描述包含「{specify_text}」，交给确认按钮处理")
+        task.log_info(f"Engraving description contains '{specify_text}', delegating to confirm button")
         return False
 
-    # 未命中，检查可刷新次数
+    # Missed, check available rerolls
     refresh_box = find_box_at_point(task, 0.913, 0.667)
     if refresh_box:
         match = re.search(r'(\d+)/3', refresh_box.name)
         if match:
             remaining = int(match.group(1))
-            task.log_info(f"未命中指定刻印，剩余刷新次数: {remaining}")
+            task.log_info(f"Specified engraving missed, remaining rerolls: {remaining}")
             if remaining > 0:
-                task.log_info(f"剩余刷新次数{remaining}>0，点击刷新")
+                task.log_info(f"Remaining rerolls {remaining} > 0, clicking reroll")
                 _move_and_click(task, 0.913, 0.667)
                 task.sleep(1)
                 return True
 
-    task.log_info("无可刷新次数，跳过")
+    task.log_info("No rerolls available, skipping")
     return False
 
 
 def handle_mask_card(task: TriggerTask):
-    """面具获得卡牌页面: 根据0.507,0.090处的面具获得提示判断页面。
-    检测0.120,0.228,0.945,0.418范围内是否有三个"人格面具"文本，
-    如果不足三个则说明已选择过人格面具，点击跳过。
-    否则提取三张卡牌描述区域文本，匹配配置中"指定面具卡牌"内容。
-    匹配成功则点击对应卡牌，否则刷新或跳过。"""
+    """Mask card reward page: identified by mask acquisition prompt at (0.507, 0.090).
+    Check if 3 '人格面具' texts exist within (0.120, 0.228, 0.945, 0.418).
+    If fewer than 3, persona mask was already chosen; click skip.
+    Otherwise extract descriptions of 3 cards, matching config '指定面具卡牌'.
+    If matched, click card; else reroll or skip."""
     box = find_box_at_point(task, 0.507, 0.090)
     is_mask_card_page = (
         box
@@ -609,21 +587,21 @@ def handle_mask_card(task: TriggerTask):
     if not is_mask_card_page:
         return False
 
-    task.log_info("检测到面具卡牌获得页面")
+    task.log_info("Detected mask card reward page")
     specify_text = _get_config_value(task, '指定面具卡牌', "丢弃最多2张卡牌")
     specify_text = specify_text.strip() if isinstance(specify_text, str) else ""
     if not specify_text:
-        task.log_info("指定面具卡牌配置为空，直接点击跳过")
+        task.log_info("Designated mask card config is empty, clicking skip directly")
         skip_box = find_text(task, r'跳过')
         if skip_box:
             task.click_box(skip_box)
             task.sleep(0.5)
         return True
 
-    cards = recognize_cards(task, page="人格面具卡牌获得页面")
+    cards = recognize_cards(task, page="Persona mask card reward page")
     mask_cards = [card for card in cards if "人格面具" in card["name"]]
     if len(mask_cards) < 3:
-        task.log_info("已选择过人格面具，点击跳过")
+        task.log_info("Persona mask already selected, clicking skip")
         skip_box = find_text(task, r'跳过')
         if skip_box:
             task.click_box(skip_box)
@@ -631,15 +609,13 @@ def handle_mask_card(task: TriggerTask):
             # _move_and_click(task, 0.654, 0.626)
         return True
 
-    task.log_info("检测到3张人格面具卡牌")
+    task.log_info("Detected 3 Persona mask cards")
 
     mask_position = task.node_status.get("target_mask_card_position", -1)
     if mask_position == -1:
         target_region = task.box_of_screen(0.006, 0.010, 0.081, 0.131)
         for index, card in enumerate(mask_cards):
-            task.log_info(
-                f"人格面具卡牌归属检测: 长按从左到右第{index + 1}张卡牌"
-            )
+            task.log_info(f"Persona mask card ownership check: long-pressing card {index + 1} from left")
             click_x = int(card["x"] * task.width)
             click_y = int(card["y"] * task.height)
             task.move_relative(card["x"], card["y"])
@@ -656,52 +632,45 @@ def handle_mask_card(task: TriggerTask):
             if target_member:
                 task.node_status["target_mask_card_position"] = index
                 mask_position = index
-                task.log_info(
-                    f"人格面具卡牌归属检测: 第{index + 1}张属于目标主战员，"
-                    f"相似度={target_member.confidence:.4f}"
-                )
+                task.log_info(f"Persona mask card ownership check: card {index + 1} belongs to target member, confidence={target_member.confidence:.4f}")
             else:
-                task.log_info(
-                    f"人格面具卡牌归属检测: 第{index + 1}张不属于目标主战员"
-                )
+                task.log_info(f"Persona mask card ownership check: card {index + 1} does not belong to target member")
 
-            task.log_info("人格面具卡牌详情页面触发关闭事件，点击固定关闭位置")
+            task.log_info("Persona mask card details page triggered close event, clicking fixed close position")
             _move_and_click(task, 0.513, 0.931)
             task.sleep(2)
             if target_member:
                 break
 
     if not 0 <= mask_position < len(mask_cards):
-        task.log_info("未识别到目标主战员的人格面具卡牌，默认启用第一张")
+        task.log_info("Target member Persona mask card not recognized, defaulting to first card")
         mask_position = 0
     enabled_mask_cards = [mask_cards[mask_position]]
-    task.log_info(f"本次启用从左到右第{mask_position + 1}张人格面具卡牌")
+    task.log_info(f"Enabling Persona mask card {mask_position + 1} from left")
 
     for card in enabled_mask_cards:
         desc_text = card["description"]
-        task.log_info(f"卡牌{mask_position + 1}描述: {desc_text}")
+        task.log_info(f"Card {mask_position + 1} description: {desc_text}")
         if is_subsequence(specify_text, desc_text):
-            task.log_info(
-                f"卡牌{mask_position + 1}描述子序列命中「{specify_text}」，点击该卡牌"
-            )
+            task.log_info(f"Card {mask_position + 1} description subsequence matched '{specify_text}', clicking card")
             _move_and_click(task, card["x"], card["y"])
             task.sleep(0.5)
             return True
 
-    # 未匹配到指定卡牌，检查剩余刷新次数
+    # Specified card not matched, check remaining rerolls
     refresh_box = find_box_at_point(task, 0.313, 0.931)
     if refresh_box:
         match = re.search(r'(\d+)/3', refresh_box.name)
         if match:
             remaining = int(match.group(1))
-            task.log_info(f"未匹配到指定面具卡牌，剩余刷新次数: {remaining}")
+            task.log_info(f"Specified mask card not matched, remaining rerolls: {remaining}")
             if remaining > 0:
-                task.log_info(f"剩余刷新次数{remaining}>0，点击刷新")
+                task.log_info(f"Remaining rerolls {remaining} > 0, clicking reroll")
                 _move_and_click(task, 0.313, 0.931)
                 task.sleep(1)
                 return True
 
-    task.log_info("无刷新次数或无需刷新，点击跳过")
+    task.log_info("No rerolls remaining or none needed, clicking skip")
     skip_box = find_text(task, r'跳过')
     if skip_box:
         task.click_box(skip_box)
@@ -711,14 +680,14 @@ def handle_mask_card(task: TriggerTask):
 
 
 def handle_data_collected(task: TriggerTask):
-    """存储数据收集完成页面：按存档价值阈值决定是否删除。"""
+    """Save data collection complete page: decide whether to delete based on save value threshold."""
     box = find_box_at_point(task, 0.505, 0.111)
     if box and _get_game_text(task, '存储数据收集完成') in box.name:
         retain_threshold = _get_config_value(
             task, '保留大于多少TB的存档', 62000
         )
         if retain_threshold <= 0:
-            task.log_info("保留大于多少TB的存档设置为0，保留全部存档")
+            task.log_info("Keep Save Data Above (TB) is set to 0, retaining all saves")
             return False
 
         for feature_name in ["deletecards", "deletecards2", "deletecards3"]:
@@ -737,42 +706,34 @@ def handle_data_collected(task: TriggerTask):
                 )
                 archive_value = int(value_match.group()) if value_match else None
                 if archive_value is not None and archive_value > retain_threshold:
-                    task.log_info(
-                        f"{feature_name}对应存档价值{archive_value}TB高于保留阈值"
-                        f"{retain_threshold}TB，跳过删除"
-                    )
+                    task.log_info(f"{feature_name} save value {archive_value}TB is above retention threshold {retain_threshold}TB, skipping deletion")
                     continue
                 if archive_value is None:
-                    task.log_info(
-                        f"{feature_name}未识别到存档价值，按原逻辑点击删除"
-                    )
+                    task.log_info(f"{feature_name} save value not recognized, clicking delete as default")
                 else:
-                    task.log_info(
-                        f"{feature_name}对应存档价值{archive_value}TB不高于阈值"
-                        f"{retain_threshold}TB，点击删除"
-                    )
+                    task.log_info(f"{feature_name} save value {archive_value}TB is not above threshold {retain_threshold}TB, clicking delete")
                 task.click_box(feature)
                 task.sleep(1)
                 return True
-        task.log_info("检测到存储数据收集完成，由通用按钮处理")
+        task.log_info("Detected save data collection complete, handled by general button")
         return False
     return False
 
 
 def handle_stage_end_data_details(task: TriggerTask):
-    """关卡结束数据详情页面：检测到存储数据后关闭详情。"""
+    """Stage end data details page: close details after detecting save data."""
     page_text = _get_region_text(task, (0.111, 0.103, 0.338, 0.243))
     if _get_game_text(task, "存储数据") not in page_text:
         return False
 
-    task.log_info("检测到关卡结束数据详情页面，点击关闭")
+    task.log_info("Detected stage end data details page, clicking to close")
     _move_and_click(task, 0.883, 0.156)
     task.sleep(1)
     return True
 
 
 # def handle_cares_tip(task: TriggerTask):
-#     """卡厄思 TIP 提示页面: 点击关闭。"""
+#     """Chaos TIP prompt page: click to close."""
 #     box = find_box_at_point(task, 0.502, 0.286)
 #     if box and box.name == "TIP":
 #         _move_and_click(task, 0.884, 0.915)
@@ -781,24 +742,24 @@ def handle_stage_end_data_details(task: TriggerTask):
 
 
 def handle_expedition_unlock(task: TriggerTask):
-    """解锁探险记录页面: 点击确定。"""
+    """Unlock expedition record page: click confirm."""
     box = find_box_at_point(task, 0.5, 0.151)
     if box and _get_game_text(task, '解锁的探险记录') in box.name:
-        task.log_info("检测到解锁探险记录页面，点击页面")
+        task.log_info("Detected unlock expedition record page, clicking page")
         _move_and_click(task, 0.5, 0.95)
         task.sleep(1)
         return True
     return False
 
 
-# ------------------------- 精神崩溃/创伤中心（卡厄思模式特有） -------------------------
+# ------------------------- Mental Breakdown / Trauma Center (Chaos Mode Exclusive) -------------------------
 
 def handle_mental_breakdown(task: TriggerTask):
-    """精神崩溃发生页面: 根据配置决定是否治疗崩溃。"""
+    """Mental breakdown occurred page: decide whether to treat breakdown based on config."""
     box = find_box_at_point(task, 0.496, 0.186)
     if box and _get_game_text(task, '精神崩溃发生') in box.name:
         if _get_config_value(task, '治疗崩溃', True):
-            task.log_info("检测到精神崩溃发生，去创伤中心治疗")
+            task.log_info("Detected mental breakdown occurred, going to Trauma Center for treatment")
             _move_and_click(task, 0.706, 0.915)
             task.sleep(1)
             return True
@@ -806,11 +767,11 @@ def handle_mental_breakdown(task: TriggerTask):
 
 
 def handle_trauma_center(task: TriggerTask):
-    """创伤中心: 优先使用旅行券治疗；若配置"优先使用金币治疗"为True，则始终使用金币治疗。"""
+    """Trauma Center: prioritize travel voucher for healing; if config '优先使用金币治疗' is True, always use gold."""
     box = find_box_at_point(task, 0.125, 0.049)
     if not (box and _get_game_text(task, '创伤中心') in box.name):
         return False
-    task.log_info("检测到创伤中心，采取策略，优先使用旅行券")
+    task.log_info("Detected Trauma Center, executing strategy, prioritizing travel voucher")
     if find_text(task, _get_game_text(task, '没有恢复中的战员')):
         _move_and_click(task, 0.044, 0.046)
         return True
@@ -821,7 +782,7 @@ def handle_trauma_center(task: TriggerTask):
         has_ticket = int(travel_ticket[0].name[0]) > 0
         prefer_gold = _get_config_value(task, '优先使用金币治疗', False)
         if prefer_gold:
-            task.log_info("优先使用金币治疗配置为True，点击金币治疗")
+            task.log_info("Prioritize gold for healing is True, clicking gold treatment")
             _move_and_click(task, 0.702, 0.924)
         else:
             _move_and_click(task, 0.798 if has_ticket else 0.702, 0.924)
@@ -830,63 +791,63 @@ def handle_trauma_center(task: TriggerTask):
 
 
 def handle_treating(task: TriggerTask):
-    """治疗进行中页面: 选择治疗方法。"""
+    """Treatment in progress page: select treatment method."""
     if find_text(task, _get_game_text(task, '选择哪种方法进行治疗')):
-        task.log_info("检测到治疗进行中")
+        task.log_info("Detected treatment in progress")
         _move_and_click(task, 0.765, 0.500)
         return True
     return False
 
 
 def handle_treat_approve(task: TriggerTask):
-    """治疗完成页面: 点击批准。"""
+    """Treatment complete page: click approve."""
     if find_text(task, _get_game_text(task, '点击批准')):
-        task.log_info("检测到治疗完成，点击批准")
+        task.log_info("Detected treatment complete, clicking approve")
         _move_and_click(task, 0.768, 0.810)
         return True
     return False
 
 
 def handle_go_to_chaos_core(task: TriggerTask):
-    """前往卡厄思核心按钮。"""
+    """Go to Chaos Core button."""
     box = find_box_at_point(task, 0.945, 0.918)
     if box and _clean_match(box.name, "前往卡厄思核心"):
         if is_button_active(task, box):
-            task.log_info("检测到前往卡厄思核心按钮，点击进入")
+            task.log_info("Detected Go to Chaos Core button, clicking to enter")
             task.click_box(box)
             task.sleep(1)
             return True
         else:
-            task.log_info("前往卡厄思核心按钮未激活（灰色），跳过点击")
+            task.log_info("Go to Chaos Core button is inactive (gray), skipping click")
             return False
     return False
 
 
 def handle_chaos_reward_claim(task: TriggerTask):
-    """卡厄思模式奖励领取页面: 如果0.568,0.711处文本包含"获得"，则为奖励领取页面。
-    识别0.959,0.281处"\\d/\\d"作为当前/最大战利品验证卡，
-    如果验证卡大于0则点击获得，否则重置"领取奖励(只使用验证卡)"为False并取消。"""
+    """Chaos mode reward claim page: if text at (0.568, 0.711) contains '获得', it is this page.
+    Recognize '\\d/\\d' at (0.959, 0.281) as current/max loot verification cards.
+    If cards > 0, click claim; else reset '领取奖励(只使用验证卡)' to False and cancel."""
     claim_box = find_box_at_point(task, 0.568, 0.711)
     if not (claim_box and "获得" in claim_box.name):
         return False
 
-    task.log_info("检测到卡厄思模式奖励领取页面")
+    task.log_info("Detected Chaos Mode reward claim page")
 
-    # 读取0.959,0.281处的战利品验证卡文本，格式如 "2/3"
+    # Read loot verification card text at (0.959, 0.281), format like "2/3"
     verify_box = find_box_at_point(task, 0.959, 0.281)
     if verify_box and re.search(r'(\d+)/(\d+)', verify_box.name):
         match = re.search(r'(\d+)/(\d+)', verify_box.name)
         current_cards = int(match.group(1))
         max_cards = int(match.group(2))
-        task.log_info(f"战利品验证卡: {current_cards}/{max_cards}")
+        task.log_info(f"Loot verification cards: {current_cards}/{max_cards}")
 
         if current_cards > 0:
-            task.log_info(f"当前战利品验证卡{current_cards}>0，点击获得")
+            task.log_info(f"Current verification cards {current_cards} > 0, clicking claim")
             task.click_box(claim_box)
             task.sleep(1)
             return True
         else:
-            task.log_info("当前战利品验证卡为0，将领取奖励(只使用验证卡)设置为False，点击取消")
+            task.log_info("Verification cards count is 0, setting 'Claim Rewards (Verification Cards Only)' to False, clicking cancel")
             task.config['领取奖励(只使用验证卡)'] = False
             from ok.gui.Communicate import communicate
             communicate.task_list_updated.emit()
@@ -894,39 +855,39 @@ def handle_chaos_reward_claim(task: TriggerTask):
             task.sleep(1)
             return True
     else:
-        task.log_info("未检测到战利品验证卡信息，点击取消")
+        task.log_info("Verification card info not detected, clicking cancel")
         _move_and_click(task, 0.352, 0.708)
         task.sleep(1)
         return True
 
 
 def handle_chaos_reward_settlement(task: TriggerTask):
-    """卡厄思奖励结算页面: 如果0.552,0.067处包含"结算"，则为卡厄思奖励结算页面。
-    如果0.851,0.389处包含"获得"且当前战利品验证卡>0，则点击获得按钮。
-    如果领取奖励关闭且只打第一层完成，则退出结算页面。"""
+    """Chaos reward settlement page: if (0.552, 0.067) contains '结算', it is this page.
+    If (0.851, 0.389) contains '获得' and verification cards > 0, click claim button.
+    If reward claim is disabled and floor 1 complete, exit settlement page."""
     title_box = find_box_at_point(task, 0.552, 0.067)
     if not (title_box and "结算" in title_box.name):
         return False
 
-    task.log_info("检测到卡厄思奖励结算页面")
+    task.log_info("Detected Chaos reward settlement page")
 
     if not _get_config_value(task, '领取奖励(只使用验证卡)', False):
-        task.log_info("领取奖励(只使用验证卡)配置为False")
+        task.log_info("Claim rewards (verification cards only) is configured as False")
         return False if task.node_status.get('is_escaped', False) else _finish_only_first_layer(task)
 
-    # 检查0.851,0.389处是否有"获得"按钮
+    # Check if 'Claim' button exists at (0.851, 0.389)
     reward_box = find_box_at_point(task, 0.851, 0.389)
     if not (reward_box and "获得" in reward_box.name):
-        task.log_info("未检测到获得按钮")
+        task.log_info("Claim button not detected")
         return False if task.node_status.get('is_escaped', False) else _finish_only_first_layer(task)
 
-    task.log_info("检测到获得按钮，点击获得")
+    task.log_info("Claim button detected, clicking claim")
     task.click_box(reward_box)
     task.sleep(1)
     return True
 
 
-# 卡厄思模式 PAGE_HANDLERS
+# Chaos Mode PAGE_HANDLERS
 PAGE_HANDLERS = [
     handle_auto_stop,
     handle_save_target_member,
@@ -934,37 +895,37 @@ PAGE_HANDLERS = [
     # handle_stage_clear,
     log_credit,
     log_node_status,
-    handle_stuck_log, #画面卡住检测及兜底处理
-    handle_close_page, #点击屏幕关闭页面，优先于其他普通页面处理
+    handle_stuck_log,  # Screen stuck detection and fallback handling
+    handle_close_page,  # Tap screen to close page, prioritized over normal page handling
 
-    handle_refine_equipment_credit, #提炼装备信用点页面，优先于确认按钮
-    handle_center_confirm, #页面中央确认按钮
-    handle_archive_target_member, #信息统计页面，记录刷存档目标主战员
-    handle_chaos_mask_engraving, #面具卡牌刻印获取页面
-    handle_equipment, #装备选择
+    handle_refine_equipment_credit,  # Refine equipment credit page, prioritized over confirm button
+    handle_center_confirm,  # Center confirm button
+    handle_archive_target_member,  # Info stats page, record save-farming target member
+    handle_chaos_mask_engraving,  # Mask card engraving acquisition page
+    handle_equipment,  # Equipment selection
     handle_card_assign,
-    handle_confirm, #确认按钮
-    handle_mask_card, #面具卡牌获得页面
-    handle_convert, #转换按钮
-    handle_shop, #德朗商店
-    handle_rest, #休息/商店入口
-    handle_close_button, #关闭按钮
-    handle_remove, #移除按钮
-    handle_three_choice_card_remove, #三选一卡牌移除页面（低优先级兜底）
-    handle_flash, #闪光按钮
-    handle_reflash, #重新闪光按钮
-    handle_grant_flash, #赋予闪光按钮
-    handle_copy, #复制按钮
-    handle_leave, #离开按钮
-    handle_mental_breakdown, #精神崩溃，优先级高于下一步按钮
-    handle_data_collected, #存储数据收集完成，优先级高于下一步按钮
-    # handle_battle_failed, #战斗失败，优先级高于下一步
-    handle_expedition_result, #探险结果页面，优先级高于下一步
-    handle_next_step, #下一步按钮
-    handle_craft, #合成按钮
-    handle_select, #选择按钮
-    handle_go_to_chaos_core, #前往卡厄思核心
-    handle_equipment_recast, #装备重铸按钮
+    handle_confirm,  # Confirm button
+    handle_mask_card,  # Mask card reward page
+    handle_convert,  # Convert button
+    handle_shop,  # Delang shop
+    handle_rest,  # Rest / shop entrance
+    handle_close_button,  # Close button
+    handle_remove,  # Remove button
+    handle_three_choice_card_remove,  # 3-choice card removal page (low-priority fallback)
+    handle_flash,  # Flash button
+    handle_reflash,  # Re-flash button
+    handle_grant_flash,  # Grant flash button
+    handle_copy,  # Duplicate button
+    handle_leave,  # Leave button
+    handle_mental_breakdown,  # Mental breakdown, prioritized over next-step button
+    handle_data_collected,  # Save data collection complete, prioritized over next-step button
+    # handle_battle_failed,  # Battle failed, prioritized over next-step
+    handle_expedition_result,  # Expedition result page, prioritized over next-step
+    handle_next_step,  # Next-step button
+    handle_craft,  # Craft button
+    handle_select,  # Select button
+    handle_go_to_chaos_core,  # Go to Chaos Core
+    handle_equipment_recast,  # Equipment recast button
 
     handle_minimizemap,
     handle_weakness_info,
@@ -980,12 +941,12 @@ PAGE_HANDLERS = [
     handle_convert_card,
     handle_discovery_select,
     handle_negotiation,
-    handle_chaos_reward_settlement, #卡厄思奖励结算页面，优先级高于继续按钮
-    handle_chaos_reward_claim, #卡厄思模式奖励领取页面
+    handle_chaos_reward_settlement,  # Chaos reward settlement page, prioritized over continue button
+    handle_chaos_reward_claim,  # Chaos mode reward claim page
     handle_continue,
-    handle_season_chaos_initial_page, #赛季卡厄思初始页面，优先于进入按钮
-    handle_zero_system_initial_page, #零式系统初始页面，优先于进入按钮
-    handle_disable_adaptation_distortion, #刷空档时关闭适应畸变，优先于进入按钮
+    handle_season_chaos_initial_page,  # Season Chaos initial page, prioritized over enter button
+    handle_zero_system_initial_page,  # Zero System initial page, prioritized over enter button
+    handle_disable_adaptation_distortion,  # Disable mutation adaptation when farming empty slot, prioritized over enter button
     handle_enter,
     handle_obtain_reward,
     handle_view_original,
@@ -1004,5 +965,5 @@ PAGE_HANDLERS = [
     handle_event_task,
     handle_held_cards_page,
     handle_escape,
-    handle_stage_end_data_details, #关卡结束数据详情页面，低优先级
+    handle_stage_end_data_details,  # Stage end data details page, low priority
 ]

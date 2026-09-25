@@ -1,8 +1,8 @@
-# 开发指南
+# Development Guide
 
-## 环境
+## Environment
 
-项目使用 Python 3.12，维护时使用 Miniconda 的 `oknikke` 环境。
+The project uses Python 3.12; maintenance uses the Miniconda `oknikke` environment.
 
 ```powershell
 conda activate oknikke
@@ -10,46 +10,46 @@ python -m pip install -r requirements.txt --upgrade
 python main_debug.py
 ```
 
-## 测试
+## Tests
 
 ```powershell
 .\run_tests.ps1
 ```
 
-也可以运行指定的 unittest 测试模块：
+You can also run a specific unittest module:
 
 ```powershell
 python -m unittest tests.TestMain
 ```
 
-## 文档网站
+## Docs Site
 
-安装文档依赖并启动本地预览：
+Install the docs dependencies and start a local preview:
 
 ```powershell
 python -m pip install -r requirements-docs.txt
 python -m mkdocs serve
 ```
 
-执行严格构建：
+Run a strict build:
 
 ```powershell
 python -m mkdocs build --strict
 ```
 
-HTML 文件生成在 `site/` 目录。推送涉及文档的修改到 `master` 后，GitHub Actions 会构建并发布 GitHub Pages。
+HTML files are generated in the `site/` directory. After pushing doc-related changes to `master`, GitHub Actions builds and publishes GitHub Pages.
 
-## 构建应用
+## Building the App
 
-当前正式版本通过 GitHub Actions 构建。具体的历史打包说明保存在仓库根目录的 [`BUILD.md`](https://github.com/baoxin1100/ok-kes/blob/master/BUILD.md)。
+Current official releases are built with GitHub Actions. The historical packaging notes are kept in [`BUILD.md`](https://github.com/baoxin1100/ok-kes/blob/master/BUILD.md) at the repo root.
 
-## 项目设计
+## Project Design
 
-任务模块、配置同步、页面处理器和运行环境说明见[软件需求与设计](../srd.md)。
+Task modules, config sync, page handlers, and runtime notes are described in the [software requirements and design](../srd.md).
 
-## 提交修改
+## Submitting Changes
 
-- 保持提交范围清晰，不要混入日志、缓存、个人配置或无关生成文件。
-- 修改识别逻辑时说明适用页面、识别区域、阈值和测试素材。
-- 修改用户可见行为时补充截图、日志或清晰的复现步骤。
-- 提交 PR 前运行相关测试，并在 PR 描述中写明结果。
+- Keep the change scope clear; do not mix in logs, caches, personal configs, or unrelated generated files.
+- When changing recognition logic, note the affected page, recognition region, thresholds, and test assets.
+- When changing user-visible behavior, add screenshots, logs, or clear reproduction steps.
+- Run the relevant tests before submitting a PR, and report the results in the PR description.

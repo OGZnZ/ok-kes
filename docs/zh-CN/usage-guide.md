@@ -1,143 +1,144 @@
-# ok-kes 使用说明
+# ok-kes Usage Guide
 
-本文介绍 ok-kes 的下载安装、界面操作、游戏设置，以及卡厄思模式和出击模式的配置方法。
+This guide covers downloading and installing ok-kes, the app UI, game settings, and how to configure Chaos Mode and Sortie Mode.
 
-## 下载安装
+## Download & Install
 
-1. 下载软件。本软件支持自动更新，下载旧版本后，启动时会自动更新到最新版本。下载方式：[GitHub](https://github.com/baoxin1100/ok-kes/releases)、[Mirror酱](https://mirrorchyan.com/zh/projects?rid=ok-kes)、[夸克网盘](https://pan.quark.cn/s/13b266aa8e80)。
-2. 将工具安装到全英文目录。
+1. Download the app. The app supports auto-update: after downloading an older version, it updates to the latest version on launch. Download from: [GitHub](https://github.com/baoxin1100/ok-kes/releases), [MirrorChyan](https://mirrorchyan.com/zh/projects?rid=ok-kes), or [Quark cloud drive](https://pan.quark.cn/s/13b266aa8e80).
+2. Install the tool into a pure-English directory path.
 
-## 软件界面介绍
+## App UI Overview
 
-![软件启动界面](../images/usage-guide/software-interface.png)
+![App launch screen](../images/usage-guide/software-interface.png)
 
-- 启动游戏并以**窗口模式运行**；在选择窗口区选择游戏窗口；交互方式选择 **PostMessage**，然后点击**开始**。
-- **导出日志**可以导出工具运行日志。如果遇到 Bug，请将日志导出后在 QQ 交流群中 @群主。
-- 工具左下角**设置**内可以选择 OCR 后端。默认选择“自动”：内存大于等于 12 GB 时使用 OpenVINO，小于 12 GB 时使用 ONNX Runtime。OpenVINO 会占用更多内存，约 6～8 GB；ONNX Runtime 内存占用较小，约 1～2 GB，但 CPU 占用更高。
+- Launch the game in **windowed mode**; pick the game window in the window-selection area; set the interaction method to **PostMessage**, then click **Start**.
+- **Export Logs** exports the tool's runtime logs. If you hit a bug, export the logs and @ the group owner in the QQ group.
+- Under **Settings** in the bottom-left corner you can pick the OCR backend. The default is "Auto": OpenVINO when memory is 12 GB or more, ONNX Runtime when below 12 GB. OpenVINO uses more memory (about 6–8 GB); ONNX Runtime uses less memory (about 1–2 GB) but more CPU.
 
-## 功能界面介绍
+## Mode UI Overview
 
-![功能界面](../images/usage-guide/mode-interface.png)
+![Mode screen](../images/usage-guide/mode-interface.png)
 
-- 本工具包含三个功能：**自动卡厄思模式**（赛季卡厄思、零式系统、卡厄思具象）、**自动出击模式**和**半自动剧情模式**。
-- 请分别进入对应模式的界面后再开启功能。可以在包含“进入”按钮的界面开启，也可以进入对应模式后开启。在游戏主页面开启功能将无效并自动关闭按钮，防止脚本意外点击。
+- The tool has three modes: **Auto Chaos Mode** (Season Chaos, Zero System, Chaos Manifestation), **Auto Sortie Mode**, and **Semi-Auto Story Mode**.
+- Open the matching mode's screen before enabling it. You can enable it on a screen with an "Enter" button, or after entering the mode. Enabling it on the game's main page does nothing and the toggle switches itself off, preventing accidental clicks.
+- **Config actions**: the tool supports **Import Config Code**, **Export Config Code**, **Hot Configs**, **Save Config**, and **Switch Config**. Hot configs are uploaded automatically by tool users. If you do not want to upload anything, disable uploading in the tool settings; hot configs become unavailable after that.
 
-![半自动剧情模式入口](../images/usage-guide/story-mode.png)
+![Semi-auto story mode entry](../images/usage-guide/story-mode.png)
 
-- **半自动剧情模式**需要在上图所示的界面开启。遇到战斗关卡时，需要手动点击配队人选，否则会卡在选人界面（不必关闭功能）；遇到卡厄思关卡时，需要手动打开“自动卡厄思模式”。
+- **Semi-Auto Story Mode** must be enabled on the screen shown above. On battle stages, manually click your team members or it gets stuck on the member-selection screen (no need to disable the mode); on chaos stages, manually enable "Auto Chaos Mode".
 
-## 游戏设置
+## Game Settings
 
-![开启快捷键显示](../images/usage-guide/shortcut-display.png)
+![Enable hotkey display](../images/usage-guide/shortcut-display.png)
 
-- PC 端出击模式的自动战斗依赖按键识别。请按照上图进入游戏设置，将**快捷键显示**设置为 ON，这会明显提高出牌准确率和战斗胜率。
+- On PC, Sortie Mode's Auto Battle depends on key recognition. Open the game settings as shown above and set **Hotkey Display** to ON — this noticeably improves card-play accuracy and battle win rates.
 
-![开启自动对话](../images/usage-guide/auto-dialogue.png)
+![Enable auto dialogue](../images/usage-guide/auto-dialogue.png)
 
-- 进入游戏后，在游戏内右上角**手动开启自动对话**。
+- After entering the game, **manually enable auto dialogue** in the top-right corner of the game.
 
-![删除 MuMu 模拟器手牌区数字映射](../images/usage-guide/mumu-key-mapping.png)
+![Remove number mappings in the hand area on the MuMu emulator](../images/usage-guide/mumu-key-mapping.png)
 
-- 使用 MuMu 模拟器时，请**手动删除手牌区的数字映射**，如上图所示。
+- On the MuMu emulator, **manually remove the number mappings in the hand area**, as shown above.
 
-## 配置介绍
+## Config Reference
 
-### 卡厄思模式配置介绍
+### Chaos Mode Config
 
-!!! note "国服与国际服配置说明"
+!!! note "CN vs. international server configs"
 
-    国服和国际服的翻译不同，不同战员的配置无法通用。国际服在修改对应国服配置时，无需将简体改成繁体（简繁均可）。例如，国服卡牌【剑雨】对应国际服卡牌【劍之雨】，填写国际服配置时可以写【劍之雨】或者【剑之雨】，但不能直接写【剑雨】。
+    The CN and international servers use different translations, so member configs do not transfer between them. When adapting a CN config for the international server, either Simplified or Traditional text works (no need to convert Simplified to Traditional). Example: the CN card 【剑雨】 matches the international card 【劍之雨】; an international config can use 【劍之雨】 or 【剑之雨】, but not 【剑雨】 directly.
 
-- **配置操作**：工具支持**导入配置码**、**导出配置码**、**热门配置**、**保存配置**和**切换配置**。热门配置由使用本工具的用户自动上传。如果不愿意上传任何信息，可以在工具设置内关闭上传功能；关闭后将无法使用热门配置功能。
-- **游戏语言**：国服对应简体中文，国际服对应繁体中文。
-- **刷存档主战员**：只能填写一名主战员。后续的装备分配、卡牌复制、闪光、移除等功能默认优先该主战员。卡厄思模式不支持自动选择配队，需要**手动配队**，填写的名字应为三名主战员之一。
+- **Config actions**: the tool supports **Import Config Code**, **Export Config Code**, **Hot Configs**, **Save Config**, and **Switch Config**. Hot configs are uploaded automatically by tool users. If you do not want to upload anything, disable uploading in the tool settings; hot configs become unavailable after that.
+- **Game Language**: Simplified Chinese for the CN server, Traditional Chinese for the international server.
+- **Save-data farming member**: accepts exactly one battle member. Later equipment assignment, card copying, flashing, removal, and similar features prioritize that member by default. Chaos Mode cannot auto-pick teams — **pick the team manually**, and the name entered must be one of the three battle members.
 
-![刷存档主战员配置](../images/usage-guide/target-member-config.png)
+![Save-data farming member config](../images/usage-guide/target-member-config.png)
 
-- **存储数据价值大于等于多少层级**：对应下图的数据价值层级；如果不满足要求，会自动刷新。
+- **Minimum save-data value tier**: matches the data-value tiers shown below; tiers below the requirement refresh automatically.
 
-| 赛季卡厄思 | 零式系统 |
+| Season Chaos | Zero System |
 | :---: | :---: |
-| ![赛季卡厄思存储数据价值](../images/usage-guide/save-data-level-chaos.png) | ![零式系统存储数据价值](../images/usage-guide/save-data-level-zero-system.png) |
+| ![Season Chaos save-data value](../images/usage-guide/save-data-level-chaos.png) | ![Zero System save-data value](../images/usage-guide/save-data-level-zero-system.png) |
 
-- **保留大于多少TB的存档**：低于该配置值的存档会自动回收为金币。
-- **领取奖励（只使用验证卡）**：如果想使用体力领取奖励，需要手动将体力转为验证卡。验证卡不足时，会自动关闭该功能，然后继续刷卡厄思。
-- **任务优先级**：对应下图的选项卡内容。可以填写标题和内容中的任意部分字段，但所有字段必须符合原文顺序，标题和内容之间不要添加任何符号。填写关键字段即可；写得太完整，反而可能因为 OCR 漏识别文字而匹配不上。
+- **Keep save data above TB value**: save data below this value is recycled into gold automatically.
+- **Claim rewards (verification cards only)**: to claim rewards with stamina, manually convert stamina into verification cards first. When verification cards run out, the feature switches itself off and Chaos farming continues.
+- **Task priority**: matches the option-card content shown below. You can enter any partial fields from the title or body, but all fields must follow the original text order, with no symbols added between the title and body. Key fields are enough — overly complete text can fail to match when OCR drops characters.
 
-![事件任务选项](../images/usage-guide/event-options.png)
+![Event task options](../images/usage-guide/event-options.png)
 
-> 例如上图，如果仅配置【移除】，那么能匹配第一个和第三个选项。按照从左到右的优先顺序，会优先选择第一个选项。如果想优先选择第三个选项，可以配置成【“移除2张”，“移除”】。
+> Example: with only 【移除】 configured, the first and third options match. From left to right, the first option wins. To prefer the third option instead, configure 【"移除2张","移除"】.
 
-![事件任务子序列匹配示例](../images/usage-guide/event-option-subsequence.png)
+![Event task sub-sequence matching example](../images/usage-guide/event-option-subsequence.png)
 
-> 再举一个容易犯错的例子：如上图所示，如果配置【随机获得1张欲望卡牌】，那么会优先匹配第一个选项，而不是第二个选项。因为【随机获得1张欲望卡牌】是【随机获得1张欲望：控制卡牌】这段文字的子序列，所以第一个选项也算“命中”。如果想命中第二个选项，应该填写第一个选项中没有的文字。这时可以考虑加入标题，配置成【裹挟欲望卡牌】。其中“裹挟”是标题，“欲望卡牌”是描述，能够精准命中第二个选项。
+> A common mistake: with 【随机获得1张欲望卡牌】 configured, the first option matches instead of the second — because 【随机获得1张欲望卡牌】 is a sub-sequence of 【随机获得1张欲望：控制卡牌】, so the first option counts as a "hit". To hit the second option, use text the first option lacks. Adding the title works here: 【裹挟欲望卡牌】, where "裹挟" is the title and "欲望卡牌" is the description, hitting the second option precisely.
 
-- **拉黑任务**：有些任务选项可能会无限重复，例如某些增加压力的事件；拉黑的选项不会被选择。
-- **闪光优先级**：配置卡牌发生闪光时的选择优先级。对应出现如下界面时，决定优先选择哪张卡牌。描述写成“卡牌名 + 卡牌描述”，不需要填写完整内容，只要字段能正确区分卡牌即可。写得太完整，反而可能因为 OCR 漏识别文字而匹配不上。建议不要填写符号，例如【剑雨伤害次数增加】已经能精准匹配第三张闪光。**注意**：当前文字识别容易漏掉“一”字，遇到时尽量不要填写，例如将“一缕光芒”写成“缕光芒”。
+- **Blacklisted tasks**: some task options can repeat forever (e.g. certain stress-gaining events); blacklisted options are never picked.
+- **Flash priority**: sets the pick priority when cards flash. When the screen below appears, it decides which card to take. Write "card name + card description" — incomplete text is fine as long as it distinguishes the card. Overly complete text can fail to match when OCR drops characters. Avoid symbols: 【剑雨伤害次数增加】 already matches the third flash precisely. **Note**: OCR currently drops the character "一" easily, so avoid entering it — write "一缕光芒" as "缕光芒".
 
-![闪光优先级示例](../images/usage-guide/flash-priority.png)
+![Flash priority example](../images/usage-guide/flash-priority.png)
 
-- **移除卡牌列表**：在牌库中删牌时的优先级，建议填写完整卡牌名。
-- **闪光卡牌列表**：在牌库中选择卡牌闪光时的优先级，建议填写完整卡牌名。
-- **复制卡牌列表**：在牌库中选择卡牌复制时的优先级，建议填写完整卡牌名。
-- **需要冥想的卡牌**：填写需要通过冥想重新获取闪光的卡牌，建议填写完整卡牌名。当列表中的卡牌没有获得“闪光优先级”指定的闪光时，工具会记录该卡牌需要冥想，并在后续休息区尝试选择冥想。
-- **多少信用点以上冥想**：只有当前信用点同时大于该配置值和本次冥想费用时，才会选择冥想。如果休息和冥想都可以选择，当前生命值低于 50% 时优先休息，否则选择冥想。
-- **装备1-3号位优先级**：按照优先级列表替换装备。未配置的传说装备无法替换配置中的普通装备；配置中的普通装备会替换未配置的传说装备；遇到未配置的装备时，高品质装备会替换低品质装备。
-- **卡牌奖励优先级**：中立卡牌、欲望卡牌的优先级，例如梦之边境、装备包等。未配置的中立卡牌会跳过选择。
-- **首层刷特定闪光**：默认刷“闪光优先级”中的第一张，可刷神闪；第一层没有刷出时会自动逃脱并重新刷。例如想刷小丑“恶魔骰子”的减一费神闪，可以将“闪光优先级”的第一个配置为【恶魔骰子此卡费用减少】。
-- **刷空档**：用于给某个战员刷空档，参考配置见[娜迦空档配置](https://pd.qq.com/s/cnchz38cl)。开启此功能时，请保证“刷初始卡牌”配置为空。
-- **优先使用金币治疗**：开启后使用金币治疗崩溃角色；关闭后会优先使用旅行券治疗。
-- **治疗崩溃**：角色崩溃后是否前往创伤中心治疗。
-- **优先移除基础牌**：如果“移除卡牌列表”中的卡牌都删完了，会优先删除主战员的基础牌；否则会跳过删牌。
-- **进入商店**：是否进入商店删牌、购买商品。
-- **指定面具卡牌**：用于幻想剧场地图中的面具卡牌选择。填写时不需要完整卡牌描述，只需填写能区分不同卡牌的关键字段。
-- **面具卡牌刻印**：选择面具卡牌的刻印。填写想刷的刻印的部分描述即可，目前仅支持刷一种刻印。
-- **刷初始卡牌**：配置卡牌名字后，会在进入卡厄思的第一个事件中反复刷新“传说卡牌3选1”选项，直到刷到配置的卡牌，例如“梦之边境”。
-- **只打第一层**：刷材料时可以开启，提高刷卡厄思材料的效率。
-- **路线优先级**：一般不需要修改。工具会根据配置顺序选择事件最多或休息最多的路线；如果主要刷材料，也可以自行调整，例如将精英节点提前。
-- **几轮后停止（0为不停止）**：设置刷几轮卡厄思。
-- **第几层boss前自动暂停**：在 Boss 前自动暂停，一般用不到。
+- **Remove card list**: removal priority in the deck; full card names recommended.
+- **Flash card list**: flash priority in the deck; full card names recommended.
+- **Copy card list**: copy priority in the deck; full card names recommended.
+- **Cards needing meditation**: cards that should re-gain their flash through meditation; full card names recommended. When a listed card lacks its "Flash priority" flash, the tool records it as needing meditation and tries to pick meditation at later rest areas.
+- **Meditate above credit amount**: meditation is picked only when current credits exceed both this value and the meditation cost. When both rest and meditation are available, rest wins below 50% HP, otherwise meditation wins.
+- **Equipment slot 1–3 priorities**: gear is replaced following the priority lists. Unlisted legendary gear cannot replace listed common gear; listed common gear replaces unlisted legendary gear; for unlisted gear, higher quality replaces lower quality.
+- **Card-reward priority**: priority for neutral and desire cards such as Dream Frontier and equipment packs. Unlisted neutral cards are skipped.
+- **Farm specific flash on first floor**: farms the first entry of "Flash priority" by default and can farm god-tier flashes; if it does not drop on the first floor, the tool escapes and retries automatically. Example: to farm the cost-reduction god flash of the Jester's "Demon Dice", set the first "Flash priority" entry to 【恶魔骰子此卡费用减少】.
+- **Farm empty slots**: farms empty slots for a member; see the [Naga empty-slot config](https://pd.qq.com/s/cnchz38cl) for a reference. Keep the "Farm starting card" config empty while this is on.
+- **Prefer gold for healing**: when on, breakdowns are healed with gold; when off, travel passes are used first.
+- **Treat breakdowns**: whether broken-down members visit the trauma center.
+- **Prefer removing basic cards**: when every card in "Remove card list" is gone, the farming member's basic cards are removed first; otherwise removal is skipped.
+- **Enter shop**: whether to enter shops to remove cards and buy goods.
+- **Designated mask card**: mask card selection on the Fantasy Theater map. No need for the full card text — key fields that distinguish the cards are enough.
+- **Mask card engraving**: picks the mask card engraving. Partial text of the wanted engraving is enough; only one engraving can be farmed for now.
+- **Farm starting card**: after configuring a card name, the first event's "legendary card pick-1-of-3" is refreshed until the configured card appears, e.g. "Dream Frontier".
+- **First floor only**: enable when farming materials to clear Chaos materials faster.
+- **Route priority**: usually needs no changes. The tool picks the route with the most events or most rest areas following the configured order; material farmers can adjust it, e.g. moving elite nodes earlier.
+- **Stop after N rounds (0 = never)**: sets how many Chaos rounds to farm.
+- **Auto-pause before floor boss**: auto-pauses before a boss; rarely needed.
 
-### 出击模式配置介绍
+### Sortie Mode Config
 
-- **配置操作**：工具支持**导入配置码**、**导出配置码**、**热门配置**、**保存配置**和**切换配置**。热门配置由使用本工具的用户自动上传。如果不愿意上传任何信息，可以在工具设置内关闭上传功能；关闭后将无法使用热门配置功能。
-- **游戏语言**：国服对应简体中文，国际服对应繁体中文。
-- **出战主战员优先级**：选择由谁带队出击。一般只填写一名主战员，但由于 OCR 可能不准确，也可以填写多个名字。例如，“九”可能被识别成“力”，配置时可以填写【“九”，“力”】。
-- **战员优先级**：队友的优先级，可以填写多个；采用严格匹配，请填写完整名字。
-- **领取奖励**：开启后会自动消耗脑子领取出击奖励；脑子消耗完后，会自动消耗体力领取奖励；体力消耗完后，会自动关闭按钮并继续刷出击模式。
-- **出牌优先级**：自动战斗的出牌优先级。
-- **获得卡牌优先级**：战斗后获卡事件中的卡牌选择优先级。如果没有命中配置中的卡牌，会跳过选择。
-- **移除卡牌列表**：在牌库中删牌时的优先级，建议填写完整卡牌名。
-- **闪光卡牌列表**：在牌库中选择卡牌闪光时的优先级，建议填写完整卡牌名。
-- **复制卡牌列表**：在牌库中选择卡牌复制时的优先级，建议填写完整卡牌名。
-- **装备1-3号位优先级**：按照优先级列表替换装备。未配置的传说装备无法替换配置中的普通装备；配置中的普通装备会替换未配置的传说装备；遇到未配置的装备时，高品质装备会替换低品质装备。
-- **只打第一层**：默认开启，打完第一层 Boss、领取奖励后自动逃脱。
-- **进入商店**：是否进入商店删牌、购买商品。
-- **优先移除基础牌**：如果“移除卡牌列表”中的卡牌都删完了，会优先删除主战员的基础牌；否则会跳过删牌。
-- **几轮后停止（0为不停止）**：设置刷几轮出击。
-- **卡牌奖励优先级**：遇到中立卡牌选择事件时的优先级；没有命中则跳过。
-- **丢弃卡牌优先级**：战斗中触发弃牌事件时的优先级，例如慢板等。
-- **任务优先级**：事件选项优先级。可以填写标题和内容中的任意部分字段，但所有字段必须符合原文顺序，标题和内容之间不要添加符号。填写关键字段即可；写得太完整，反而可能因为 OCR 漏识别文字而匹配不上。
-- **拉黑任务**：出击模式对胜率要求较高，一般会拉黑“咒术卡牌”“压力增加”等选项。
-- **拉黑主战员**：需要拉黑的队友。由于适配问题，可能存在部分战员的卡牌功能未适配，或者部分队友失败率较高，可以选择拉黑。
-- **生命值大于多少优先闪光（百分比）**：休息区可以选择闪光或休息，工具会根据血量百分比调整选择。
-- **路线优先级**：一般不需要修改，工具会自动规划最优路线。
-- **第几层boss前自动暂停**：一般用不到。可以在 Boss 前暂停并手动接管，以提高 Boss 战胜率。
+- **Config actions**: the tool supports **Import Config Code**, **Export Config Code**, **Hot Configs**, **Save Config**, and **Switch Config**. Hot configs are uploaded automatically by tool users. If you do not want to upload anything, disable uploading in the tool settings; hot configs become unavailable after that.
+- **Game Language**: Simplified Chinese for the CN server, Traditional Chinese for the international server.
+- **Sortie member priority**: picks who leads the sortie. Usually one battle member is enough, but OCR can misread names, so multiple names are allowed. Example: 【九】 ("Nine") may be recognized as 【力】, so configure both variants.
+- **Member priority**: teammate priority; multiple names allowed with strict matching — use full names.
+- **Claim rewards**: when on, sortie rewards are claimed with "brains" first; after brains run out, stamina is consumed; after stamina runs out, the toggle switches itself off and Sortie farming continues.
+- **Card-play priority**: Auto Battle play priority.
+- **Card-gain priority**: card pick priority for post-battle card-gain events. If no configured card matches, the pick is skipped.
+- **Remove card list**: removal priority in the deck; full card names recommended.
+- **Flash card list**: flash priority in the deck; full card names recommended.
+- **Copy card list**: copy priority in the deck; full card names recommended.
+- **Equipment slot 1–3 priorities**: gear is replaced following the priority lists. Unlisted legendary gear cannot replace listed common gear; listed common gear replaces unlisted legendary gear; for unlisted gear, higher quality replaces lower quality.
+- **First floor only**: on by default — escapes automatically after the first-floor boss and reward claim.
+- **Enter shop**: whether to enter shops to remove cards and buy goods.
+- **Prefer removing basic cards**: when every card in "Remove card list" is gone, the farming member's basic cards are removed first; otherwise removal is skipped.
+- **Stop after N rounds (0 = never)**: sets how many Sortie rounds to farm.
+- **Card-reward priority**: priority for neutral card pick events; no match means skip.
+- **Discard card priority**: priority for in-battle discard events such as Adagio.
+- **Task priority**: event option priority. You can enter any partial fields from the title or body, but all fields must follow the original text order, with no symbols between the title and body. Key fields are enough — overly complete text can fail to match when OCR drops characters.
+- **Blacklisted tasks**: Sortie Mode demands high win rates, so options like curse cards and stress gain are usually blacklisted.
+- **Blacklisted members**: teammates to blacklist. Some members' cards may be unsupported, or some teammates may fail too often — blacklist them here.
+- **HP threshold for flash priority (percent)**: rest areas offer flash or rest; the tool adjusts the pick by HP percentage.
+- **Route priority**: usually needs no changes — the tool plans the best route automatically.
+- **Auto-pause before floor boss**: rarely needed. Pause before a boss and take over manually for better boss win rates.
 
-## 工具社区
+## Tool Community
 
-本工具的官方社区为 [QQ 频道](https://pd.qq.com/s/eopggnxcu)，也可以通过频道号 `pd66522118` 搜索，或者使用 QQ 扫描下方二维码。QQ 频道会发布工具更新消息，用户也可以分享卡厄思模式和出击模式配置。
+The tool's official community is the [QQ channel](https://pd.qq.com/s/eopggnxcu), also searchable by channel ID `pd66522118`, or scan the QR code below with QQ. The QQ channel posts tool update news, and users can share Chaos Mode and Sortie Mode configs there.
 
-![QQ频道二维码](../images/usage-guide/qq-channel-qr-code.png)
+![QQ channel QR code](../images/usage-guide/qq-channel-qr-code.png)
 
-![QQ频道](../images/usage-guide/qq-channel.png)
+![QQ channel](../images/usage-guide/qq-channel.png)
 
-### 导入社区配置码
+### Importing a Community Config Code
 
-例如下图中的帖子：展开帖子并复制完整配置码，点击对应模式的“导入配置码”。弹出的对话框会自动填充最近复制到剪贴板的内容，点击 OK 即可导入对应配置。
+For a post like the one below: expand the post and copy the full config code, then click "Import Config Code" for the matching mode. The popup dialog auto-fills the latest clipboard content — click OK to import the config.
 
-![社区配置帖子](../images/usage-guide/config-post.png)
+![Community config post](../images/usage-guide/config-post.png)
 
-![复制完整配置码](../images/usage-guide/config-code.png)
+![Copy the full config code](../images/usage-guide/config-code.png)
 
-频道鼓励用户发布自己的配置、讨论游戏日常，并向工具提出建议。
+The channel encourages users to post their configs, chat about the game, and suggest tool improvements.

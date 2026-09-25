@@ -1,158 +1,156 @@
 <div align="center">
   <h1 align="center">
-    <img src="icons/icon.png" width="200" alt="ok-kes logo"/>
+    <img src="icons/icon.png" width="200" alt="MBG-Kes logo"/>
     <br/>
-    ok-kes
-  </h1> 
-  
+    MBG-Kes
+  </h1>
+
   <p>
-    一个基于图像识别的卡厄思梦境自动化辅助工具，支持后台运行，基于 <a href="https://github.com/ok-oldking/ok-script">ok-script</a> 开发。
-    <br />
-    An image-recognition-based automation tool for Chaos Zero Nightmare (卡厄思梦境), with background mode support, developed with <a href="https://github.com/ok-oldking/ok-script">ok-script</a>.
+    An image-recognition-based automation tool for Chaos Zero Nightmare, with background mode support, developed with <a href="https://github.com/ok-oldking/ok-script">ok-script</a>.
   </p>
-  
-  <p><i>通过 Windows 接口模拟用户进行操作，无内存读取、无文件修改</i></p>
-  <p><b>✅ 支持国际服繁体中文、国服 PC 客户端及安卓模拟器</b></p>
+
+  <p><i>Operates by simulating the Windows user interface, with no memory reading or file modification.</i></p>
+  <p><b>✅ Supports the international Traditional Chinese client, the CN PC client, and Android emulators</b></p>
 </div>
 
 <!-- Badges -->
 <div align="center">
-  
-![平台](https://img.shields.io/badge/platform-Windows-blue)
+
+![Platform](https://img.shields.io/badge/platform-Windows-blue)
 [![GitHub release](https://img.shields.io/github/v/release/baoxin1100/ok-kes)](https://github.com/baoxin1100/ok-kes/releases)
 
 </div>
 
-### [English Readme](README_en.md) | 中文说明
+> This is the English fork — `README.md` and `README_en.md` are both in English.
 
-> 📖 **第一次使用？请先阅读：[完整使用文档](docs/zh-CN/usage-guide.md)**
-
----
-
-## ⚠️ 免责声明
-
-本软件为外部辅助工具，旨在自动化《卡厄思梦境》的部分游戏流程。它完全通过模拟常规用户界面与游戏交互，遵循相关法律法规。本项目旨在简化用户的重复性操作，不会破坏游戏平衡或提供不公平优势，也绝不会修改任何游戏文件或数据。
-
-本软件开源、免费，仅供个人学习与交流使用，请勿用于任何商业或营利性目的。开发者团队拥有本项目的最终解释权。因使用本软件而产生的任何问题，均与本项目及开发者无关。
-
-**使用本软件即表示您已阅读、理解并同意以上声明，并自愿承担一切潜在风险。**
-
-## 🚀 快速开始
-
-1. **下载安装包**：前往 [GitHub Releases](https://github.com/baoxin1100/ok-kes/releases) 下载最新的安装程序。
-2. **安装并运行**：安装程序，启动后会自动更新到最新版本；启动游戏并连接游戏窗口，然后选择需要的功能运行。
-
-## ✨ 主要功能
-
-<img src="docs/images/image_1.png" alt="功能界面" />
-
-### 自动出击模式
-- 🎮 自动战斗：基于按键识别的智能出牌，支持玩家配置出牌优先级
-- 🃏 自动选牌：自动获取、移除、复制、闪光卡牌
-- ⚔️ 主战员选择：自动按优先级选择出站主战员
-- 🛣️ 路线选择：智能识别节点类型，按优先级自动前进
-- 🏪 商店处理：自动进入德朗商店移除卡牌
-- 💊 以太补充检测：检测体力不足时自动退出
-- 支持自定义卡牌优先级、移除/复制/闪光列表等配置
-
-### 自动卡厄思模式
-- 🃏 自动卡牌管理：移除、复制、闪光、赋予闪光、转换等
-- 🛣️ 路线选择：自动识别休息/事件/boss/小怪节点
-- 🏥 精神崩溃治疗：自动前往创伤中心治疗
-- 📦 存储数据处理：自动删除存档（可配置保留）
-- 🏪 商店处理：自动进入德朗商店
-- 🌀 零式系统支持：自动处理法典搜索
-- 更多功能持续开发中...
-
-### 半自动剧情模式
-- 💬 自动对话：跳过剧情对话
-- ⚠️ 遇到战斗或卡厄思关卡时可手动切换对应模式
-
-### 配置导入导出
-- 📤 **导出配置**：一键将当前模式配置编码为文本并复制到剪贴板，可分享给他人
-- 📥 **导入配置**：粘贴他人分享的配置编码即可应用配置，支持不同版本间互相导入
-
-### 配置同步与热门配置 (v1.3.5+)
-- 📡 **自动上传配置**：每5分钟自动上传匿名的配置信息和胜率到云端，帮助统计热门配置
-- 🌟 **热门配置**：在卡厄思模式/出击模式的配置页中点击"热门配置"按钮
-  - 浏览其他高胜率玩家分享的配置（支持按胜率或使用人数排序）
-  - 一键应用热门配置到本地
-  - 需开启配置上传功能才能使用（防止只下载不贡献）
-- 🔒 **隐私说明**：不上传任何个人信息、游戏账号、截图、IP地址
-
-### 通用功能
-- 🖥️ **高分辨率支持**: 支持 1920x1080 / 1600x900 / 1280x720 等 16:9 分辨率
-- 🔄 **后台模式**: 支持游戏窗口最小化或被遮挡时在后台运行
-- 🌏 **多语言游戏支持**: 支持简体中文、繁体中文客户端（在自动模式配置中设置对应的“游戏语言”）
-
-## 🔧 使用说明
-
-1. **国际服玩家必读**：请在所使用的自动模式配置中将“游戏语言”设置为繁体中文
-2. **自动战斗**：依赖按键识别，请在游戏设置中打开快捷键显示，提升出牌准确率
-3. **卡厄思模式**：请主动打开游戏内自动战斗和自动剧情功能
-4. **剧情模式**：战斗关卡可手动开启出击模式调用自动战斗功能；遇到卡厄思关卡请手动打开卡厄思模式；战斗关卡队伍需手动配置
-
-## 🔧 疑难解答 (Troubleshooting)
-
-如果遇到问题，请在提问前按以下步骤逐一排查：
-
-1. **杀毒软件**：将软件所在目录添加到杀毒软件（包括 Windows Defender）的**信任区或白名单**中，以防文件被误删或拦截。
-2. **显示设置**：
-   * 关闭所有显卡滤镜（如 NVIDIA Game Filter）和锐化功能。
-   * 使用游戏默认的亮度设置。
-   * 关闭任何在游戏画面上显示信息的叠加层。
-3. **游戏分辨率**：请确保游戏分辨率设置为 16:9 比例。
-4. **软件版本**：检查并确保您使用的是最新版本。
-5. **寻求帮助**：如果以上步骤都无法解决您的问题，请通过社区渠道提交详细的错误报告。
+> 📖 **New user? Start with the [Complete Usage Guide](docs/zh-CN/usage-guide.md).**
 
 ---
 
-## 💖 赞赏支持
+## ⚠️ Disclaimer
 
-如果喜欢这个工具，可以赞赏up主持续开发~感谢
+This software is an external auxiliary tool designed to automate parts of the gameplay for Chaos Zero Nightmare. It interacts with the game solely by simulating standard user interface actions, in compliance with relevant laws and regulations. This project aims to simplify repetitive user tasks and does not disrupt game balance or provide an unfair advantage. It will never modify any game files or data.
+
+This software is open-source and free, intended for personal learning and communication purposes only. Do not use it for any commercial or profit-making activities. The development team reserves the right of final interpretation. Any issues arising from the use of this software are not the responsibility of this project or its developers.
+
+**By using this software, you acknowledge that you have read, understood, and agreed to the above statement, and you voluntarily assume all potential risks.**
+
+## 🚀 Quick Start
+
+1. **Download the Installer**: Go to [GitHub Releases](https://github.com/baoxin1100/ok-kes/releases) and download the latest installer.
+2. **Install and Run**: Install the program. It updates automatically after launch; start the game, connect its window, and select a feature to run.
+
+## ✨ Main Features
+
+<img src="docs/images/image_1.png" alt="Feature UI" />
+
+### Sortie Mode (Auto Battle)
+- 🎮 **Auto Battle**: Intelligent card play based on key recognition, with customizable play priority
+- 🃏 **Auto Card Management**: Auto obtain, remove, copy, and flash cards
+- ⚔️ **Member Selection**: Auto select battle members based on priority configuration
+- 🛣️ **Route Selection**: Intelligent node type recognition, auto advance by priority
+- 🏪 **Shop Handling**: Auto enter Derang Shop to remove cards
+- 💊 **Stamina Detection**: Detect low stamina and exit automatically
+- Fully customizable card priorities, remove/copy/flash lists, etc.
+
+### Chaos Mode
+- 🃏 **Auto Card Management**: Remove, copy, flash, grant flash, and convert cards
+- 🛣️ **Route Selection**: Auto identify rest/event/boss/normal enemy nodes
+- 🏥 **Mental Breakdown Treatment**: Auto visit trauma center for treatment
+- 📦 **Save Data Handling**: Auto delete save data (configurable retention)
+- 🏪 **Shop Handling**: Auto enter Derang Shop
+- 🌀 **Zero System Support**: Auto handle Codex search
+- More features under development...
+
+### Story Mode (Semi-Auto)
+- 💬 **Auto Dialogue**: Skip story dialogues automatically
+- ⚠️ **Manual Mode Switching**: Switch to Sortie/Chaos mode when encountering battles or chaos stages
+
+### Config Export & Import
+- 📤 **Export Config**: One-click encode your current mode configuration as text and copy to clipboard for sharing
+- 📥 **Import Config**: Paste a shared configuration code to apply it, compatible across different versions
+
+### Config Sync & Hot Configs (v1.3.5+)
+- 📡 **Auto Upload Config**: Automatically uploads anonymous config info and win rates to the cloud every 5 minutes to help compile popular configurations
+- 🌟 **Hot Configs**: Click the "Hot Configs" button in Chaos/Sortie Mode config pages
+  - Browse high-win-rate configurations shared by other players (sortable by win rate or user count)
+  - One-click apply a hot config to your local setup
+  - Requires config upload to be enabled (prevents downloading without contributing)
+- 🔒 **Privacy**: Uploads no personal info, game accounts, screenshots, or IP addresses
+
+### General Features
+- 🖥️ **High-Resolution Support**: Supports 1920x1080 / 1600x900 / 1280x720 and other 16:9 resolutions
+- 🔄 **Background Mode**: Supports running in the background while the game window is minimized or obscured
+- 🌏 **Multi-Language Client Support**: Supports Simplified Chinese and Traditional Chinese game clients (set "Game Language" in each automation mode)
+
+## 🔧 Usage Notes
+
+1. **International Server Players**: Set "Game Language" to Traditional Chinese in the automation mode you use
+2. **Auto Battle**: Depends on keybind recognition; enable shortcut key display in game settings for better accuracy
+3. **Chaos Mode**: Enable auto-battle and auto-story features within the game
+4. **Story Mode**: Manually enable Sortie Mode for battle stages; manually enable Chaos Mode for chaos stages; battle stage teams must be configured manually
+
+## 🔧 Troubleshooting
+
+If you encounter issues, please check the following steps one by one before asking for help:
+
+1. **Antivirus Software**: Add the software's installation directory to the **exceptions or whitelist** of your antivirus software (including Windows Defender) to prevent files from being mistakenly deleted or blocked.
+2. **Display Settings**:
+   * Turn off all graphics card filters (like NVIDIA Game Filter) and sharpening features.
+   * Use the game's default brightness settings.
+   * Disable any overlays that display information on the game screen.
+3. **Game Resolution**: Ensure the game resolution is set to a 16:9 aspect ratio.
+4. **Software Version**: Check and ensure you are using the latest version.
+5. **Getting Help**: If the steps above do not solve your problem, please submit a detailed bug report through our community channels.
+
+---
+
+## 💖 Donations
+
+If you like this tool, consider donating to support continued development. Thank you!
 
 <p align="center">
-  <img src="docs/images/wechat_reward_code.png" alt="微信赞赏码" width="300">
-  <img src="docs/images/alipay_reward_code.png" alt="支付宝赞赏码" width="300">
+  <img src="docs/images/wechat_reward_code.png" alt="WeChat donation QR code" width="300">
+  <img src="docs/images/alipay_reward_code.png" alt="Alipay donation QR code" width="300">
 </p>
 
 ---
 
-## 💻 开发者专区
+## 💻 Developer Zone
 
-### 从源码运行 (Python)
+### Running from Source (Python)
 
 ```bash
-# 安装或更新依赖
+# Install or update dependencies
 pip install -r requirements.txt --upgrade
 
-# 运行 Release 版本
+# Run Release version
 python main.py
 
-# 运行 Debug 版本
+# Run Debug version
 python main_debug.py
 ```
 
-## 💬 加入我们
+## 💬 Join Us
 
-- **QQ 交流群**: `1040800032` (入群答案: `烟火焚`)
-- **QQ 频道**: [点击加入](https://pd.qq.com/s/eopggnxcu)
-- **ok-kes 官网**: [https://ok-script.com/ok-kes](https://ok-script.com/ok-kes)
+- **QQ Group**: `1040800032` (Join answer: `烟火焚`)
+- **QQ Channel**: [Click to join](https://pd.qq.com/s/eopggnxcu)
+- **ok-kes Website**: [https://ok-script.com/ok-kes](https://ok-script.com/ok-kes)
 
-本项目基于 [ok-script](https://github.com/ok-oldking/ok-script) 框架开发，简单易维护。欢迎有兴趣的开发者使用 [ok-script](https://github.com/ok-oldking/ok-script) 开发您自己的自动化项目。
+This project is developed based on the [ok-script](https://github.com/ok-oldking/ok-script) framework. It is simple and easy to maintain. Developers interested in creating their own automation projects are welcome to use [ok-script](https://github.com/ok-oldking/ok-script).
 
-## 🔗 使用ok-script的项目：
+## 🔗 Projects using ok-script:
 
-* 卡厄思梦境 [https://github.com/baoxin1100/ok-kes](https://github.com/baoxin1100/ok-kes)
-* 鸣潮 [https://github.com/ok-oldking/ok-wuthering-wave](https://github.com/ok-oldking/ok-wuthering-waves)
-* 少前2 [https://github.com/ok-oldking/ok-gf2](https://github.com/ok-oldking/ok-gf2)
-* 星痕共鸣 [https://github.com/Sanheiii/ok-star-resonance](https://github.com/Sanheiii/ok-star-resonance)
-* 二重螺旋 [https://github.com/BnanZ0/ok-duet-night-abyss](https://github.com/BnanZ0/ok-duet-night-abyss)
-* 明日方舟：终末地 [https://github.com/AliceJump/ok-end-field](https://github.com/AliceJump/ok-end-field)
-* 异环 [https://github.com/BnanZ0/ok-nte](https://github.com/BnanZ0/ok-nte)
-* 阴阳师 [https://ok-script.com/ok-onmyoji](https://ok-script.com/ok-onmyoji)
+* Chaos Zero Nightmare: [https://github.com/baoxin1100/ok-kes](https://github.com/baoxin1100/ok-kes)
+* Wuthering Waves: [https://github.com/ok-oldking/ok-wuthering-waves](https://github.com/ok-oldking/ok-wuthering-waves)
+* Girls' Frontline 2: [https://github.com/ok-oldking/ok-gf2](https://github.com/ok-oldking/ok-gf2)
+* Starsee: [https://github.com/Sanheiii/ok-star-resonance](https://github.com/Sanheiii/ok-star-resonance)
+* Duet Night Abyss: [https://github.com/BnanZ0/ok-duet-night-abyss](https://github.com/BnanZ0/ok-duet-night-abyss)
+* Arknights: Endfield: [https://github.com/AliceJump/ok-end-field](https://github.com/AliceJump/ok-end-field)
+* Neverness to Everness: [https://github.com/BnanZ0/ok-nte](https://github.com/BnanZ0/ok-nte)
+* Onmyoji: [https://ok-script.com/ok-onmyoji](https://ok-script.com/ok-onmyoji)
 
-## ❤️ 致谢
+## ❤️ Credits
 
 * [ok-script](https://github.com/ok-oldking/ok-script)
 * [OnnxOCR](https://github.com/ok-oldking/OnnxOCR)

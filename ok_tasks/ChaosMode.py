@@ -20,12 +20,12 @@ class ChaosMode(TriggerTask):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.name = "自动卡厄思模式"
-        self.description = "1. 请主动打开游戏内自动战斗和自动剧情功能。\n2. 国际服玩家请将本模式配置中的\"游戏语言\"设置为繁体中文。"
+        self.name = "Auto Chaos Mode"
+        self.description = "1. Please enable Auto Battle and Auto Story in the game settings.\n2. Global server players: set \"游戏语言\" to 繁体中文 in this mode's config."
         self.instructions = """<a href="https://github.com/ok-oldking/ok-py">ok-py</a>"""
         self.trigger_interval = 1
         self.all_texts = []
-        # 默认关闭，由用户在界面中手动启停，保持 TriggerTask 自己作为主任务运行
+        # Off by default; the user toggles it in the UI. The TriggerTask runs as its own main task.
         self.default_config['_enabled'] = False
         self.default_config['配置操作'] = ""
         self.default_config['游戏语言'] = "简体中文"
@@ -33,10 +33,10 @@ class ChaosMode(TriggerTask):
         self.default_config['存储数据价值大于等于多少层级'] = 12
         self.default_config['保留大于多少TB的存档'] = 62000
         self.default_config['领取奖励(只使用验证卡)'] = False
-        # 事件任务优先级列表, 匹配到包含对应文字的选项时会优先选择
+        # Event task priority list; options containing these texts are preferred
         self.default_config['任务优先级'] = ["复制","信用点增加", "移除"]
         self.default_config['拉黑任务'] = ["咒术卡牌", "压力"]
-        # 闪光卡牌优先级配置，按列表顺序匹配卡牌名称与描述的组合文本
+        # Flash card priority config, matched against card name + description text in list order
         self.default_config['闪光优先级'] = [
             "剑雨感应：生成2张极光剑",
             "剑雨赋予其回收",
@@ -46,7 +46,7 @@ class ChaosMode(TriggerTask):
             "展开极光安息唯一",
             "展开极光200%",
         ]
-        # 卡牌策略配置 (列表)
+        # Card strategy configs (lists)
         self.default_config['移除卡牌列表'] = ["剑幕", "剑光", "水之伞", "海潮的庇护", "作战分析"]
         self.default_config['闪光卡牌列表'] = ["展开极光", "剑雨", "缕光芒", "一缕光芒", "万众英雄"]
         self.default_config['复制卡牌列表'] = ["展开极光", "剑雨", "缕光芒", "一缕光芒", "万众英雄"]
@@ -66,7 +66,7 @@ class ChaosMode(TriggerTask):
         self.default_config['面具卡牌刻印'] = "自身攻击卡牌伤害总量提升30%"
         self.default_config['刷初始卡牌'] = ""
         self.default_config['只打第一层'] = False
-        # 路线节点优先级 (列表), 越靠前优先级越高
+        # Route node priority (list), earlier entries have higher priority
         self.default_config['路线优先级'] = ["休息", "事件", "小怪", "精英"]
         self.default_config['几轮后停止(0为不停止)'] = 0
         self.default_config['第几层boss前自动暂停'] = "不暂停"
@@ -92,28 +92,28 @@ class ChaosMode(TriggerTask):
             '配置操作': {
                 'type': 'button',
                 'buttons': [
-                    {'text': '导入配置码', 'callback': make_import_callback(self)},
-                    {'text': '导出配置码', 'callback': make_export_callback(self)},
-                    {'text': '热门配置', 'callback': self._show_hot_configs},
-                    {'text': '保存配置', 'callback': make_save_local_config_callback(self, 'chaos')},
-                    {'text': '切换配置', 'callback': make_switch_local_config_callback(self, 'chaos')},
+                    {'text': 'Import Config Code', 'callback': make_import_callback(self)},
+                    {'text': 'Export Config Code', 'callback': make_export_callback(self)},
+                    {'text': 'Hot Configs', 'callback': self._show_hot_configs},
+                    {'text': 'Save Config', 'callback': make_save_local_config_callback(self, 'chaos')},
+                    {'text': 'Switch Config', 'callback': make_switch_local_config_callback(self, 'chaos')},
                 ],
             },
             '第几层boss前自动暂停': {'type': 'drop_down', 'options': ['不暂停', '1', '2']},
             '存储数据价值大于等于多少层级': {'min': 0, 'max': 15},
         }
-        self.config_description['游戏语言'] = "国际服请设置为繁体中文"
+        self.config_description['游戏语言'] = "Global server players: set this to 繁体中文"
         self.config_description['闪光优先级'] = (
-            "卡牌名称和描述无需完整填写，输入几个关键字即可，但顺序须与游戏原文一致。"
+            "Card names and descriptions can be partial keywords, but their order must match the game text."
         )
         self.config_description['刷初始卡牌'] = (
-            "填写目标卡牌名称后反复刷新初始卡牌；不能与“刷空档”同时使用。"
+            "After entering a target card name, the starting cards are rerolled until it appears; cannot be used together with \"刷空档\"."
         )
         self.config_description['刷空档'] = (
-            "初始任务必须包含“移除2张”，否则重新开始；不能与“刷初始卡牌”同时使用。"
+            "The starting tasks must include \"移除2张\", otherwise the run restarts; cannot be used together with \"刷初始卡牌\"."
         )
         self.config_description['首层刷特定闪光'] = (
-            "默认刷闪光优先级第一张，可刷神闪，第一层没刷出自动逃脱"
+            "Rerolls the first flash-priority card by default (divine flash possible); auto evacuates if it is not obtained on floor 1"
         )
 
     def load_config(self):
@@ -122,7 +122,7 @@ class ChaosMode(TriggerTask):
         super().load_config()
 
     def enable(self):
-        """开启卡厄思模式时自动禁用出击模式，重置状态并迁移配置。"""
+        """Auto-disables Sortie Mode when Chaos Mode is enabled, resets status and migrates config."""
         from SortieMode import SortieMode
         sortie = og.executor.get_task_by_class(SortieMode)
         if sortie and sortie.enabled:
@@ -138,11 +138,11 @@ class ChaosMode(TriggerTask):
         show_hot_configs_dialog(self, "chaos")
 
     def run(self):
-        # 每帧执行一次 OCR 并转简体, 供各页面处理函数复用
+        # Run OCR once per frame and convert to Simplified, shared by all page handlers
         self.all_texts = _simplify_texts(self.ocr())
-        # 依次尝试各页面处理函数, 命中(返回 True)即结束本次循环
+        # Try each page handler in order; a hit (True) ends this frame
         for handle_page in utils_chaos.PAGE_HANDLERS:
             if handle_page(self):
                 return
-        # 帧末尾检查是否需要上传配置
+        # Check at end of frame whether the config needs uploading
         self._check_upload_if_needed()

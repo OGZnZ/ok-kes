@@ -1,12 +1,12 @@
 <div align="center">
   <h1 align="center">
-    <img src="icons/icon.png" width="200" alt="ok-kes logo"/>
+    <img src="icons/icon.png" width="200" alt="MBG-Kes logo"/>
     <br/>
-    ok-kes
+    MBG-Kes
   </h1> 
   
   <p>
-    An image-recognition-based automation tool for Chaos Zero Nightmare (卡厄思梦境), with background mode support, developed with <a href="https://github.com/ok-oldking/ok-script">ok-script</a>.
+    An image-recognition-based automation tool for Chaos Zero Nightmare, with background mode support, developed with <a href="https://github.com/ok-oldking/ok-script">ok-script</a>.
   </p>
   
   <p><i>Operates by simulating the Windows user interface, with no memory reading or file modification.</i></p>
@@ -20,15 +20,15 @@
 
 </div>
 
-English | [中文说明](README.md)
+> This is the English fork — `README.md` and `README_en.md` are both in English.
 
-> 📖 **New user? Start with the [Complete Usage Guide (Chinese)](docs/zh-CN/usage-guide.md).**
+> 📖 **New user? Start with the [Complete Usage Guide](docs/zh-CN/usage-guide.md).**
 
 ---
 
 ## ⚠️ Disclaimer
 
-This software is an external auxiliary tool designed to automate parts of the gameplay for Chaos Zero Nightmare (卡厄思梦境). It interacts with the game solely by simulating standard user interface actions, in compliance with relevant laws and regulations. This project aims to simplify repetitive user tasks and does not disrupt game balance or provide an unfair advantage. It will never modify any game files or data.
+This software is an external auxiliary tool designed to automate parts of the gameplay for Chaos Zero Nightmare. It interacts with the game solely by simulating standard user interface actions, in compliance with relevant laws and regulations. This project aims to simplify repetitive user tasks and does not disrupt game balance or provide an unfair advantage. It will never modify any game files or data.
 
 This software is open-source and free, intended for personal learning and communication purposes only. Do not use it for any commercial or profit-making activities. The development team reserves the right of final interpretation. Any issues arising from the use of this software are not the responsibility of this project or its developers.
 
@@ -52,7 +52,7 @@ This software is open-source and free, intended for personal learning and commun
 - 💊 **Ether Supply Detection**: Detect low stamina and exit automatically
 - Fully customizable card priorities, remove/copy/flash lists, etc.
 
-### Chaos Mode (卡厄思模式)
+### Chaos Mode
 - 🃏 **Auto Card Management**: Remove, copy, flash, grant flash, convert cards
 - 🛣️ **Route Selection**: Auto identify rest/event/boss/normal enemy nodes
 - 🏥 **Mental Breakdown Treatment**: Auto visit trauma center for treatment
@@ -84,7 +84,7 @@ This software is open-source and free, intended for personal learning and commun
 
 ## 🔧 Usage Guide
 
-1. **International Server Players**: Set "Game Language" to "繁体中文" (Traditional Chinese) in the automation mode you use
+1. **International Server Players**: Set "Game Language" to Traditional Chinese in the automation mode you use
 2. **Auto Battle**: Depends on keybind recognition; enable shortcut key display in game settings for better accuracy
 3. **Chaos Mode**: Enable auto-battle and auto-story features within the game
 4. **Story Mode**: Manually enable Sortie Mode for battle stages; manually enable Chaos Mode for chaos stages; battle stage teams must be configured manually

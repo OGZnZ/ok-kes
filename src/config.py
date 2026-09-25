@@ -7,7 +7,7 @@ import numpy as np
 from ok import ConfigOption
 
 version = "dev"
-#不需要修改version, Github Action打包会自动修改
+# Do not modify version; the GitHub Action updates it automatically when packaging
 
 OCR_BACKEND_AUTO = "自动"
 OCR_BACKEND_ONNX = "ONNX Runtime"
@@ -15,14 +15,14 @@ OCR_BACKEND_OPENVINO = "OpenVINO"
 
 
 def _get_config_folder():
-    """返回本次启动实际使用的配置目录。"""
+    """Return the config directory actually used for this launch."""
     if getattr(sys, "frozen", False):
         return os.path.join(os.path.dirname(sys.executable), "configs")
     return os.path.join(os.getcwd(), "configs")
 
 
 def _read_ocr_backend():
-    """OCR 在 GUI 初始化前创建，因此需要提前读取全局配置文件。"""
+    """OCR is created before GUI init, so read the global config file early."""
     config_path = os.path.join(_get_config_folder(), "OCR设置.json")
     try:
         with open(config_path, "r", encoding="utf-8") as config_file:
@@ -43,7 +43,7 @@ def _openvino_is_available():
 
 
 def _auto_use_openvino():
-    """自动模式保持保守：仅在资源充足的 Intel 设备上启用 OpenVINO。"""
+    """Auto mode stays conservative: only enable OpenVINO on Intel devices with ample resources."""
     processor = " ".join(filter(None, (
         platform.processor(),
         os.environ.get("PROCESSOR_IDENTIFIER", ""),
@@ -63,29 +63,29 @@ def resolve_use_openvino():
     backend = _read_ocr_backend()
     if backend == OCR_BACKEND_OPENVINO:
         if _openvino_is_available():
-            print("OCR 后端：OpenVINO（用户指定）")
+            print("OCR backend: OpenVINO (user specified)")
             return True
-        print("OpenVINO 不可用，OCR 后端自动回退到 ONNX Runtime")
+        print("OpenVINO unavailable, OCR backend falls back to ONNX Runtime")
         return False
     if backend == OCR_BACKEND_AUTO:
         use_openvino = _auto_use_openvino()
         selected_backend = OCR_BACKEND_OPENVINO if use_openvino else OCR_BACKEND_ONNX
-        print(f"OCR 后端：{selected_backend}（自动选择）")
+        print(f"OCR backend: {selected_backend} (auto selected)")
         return use_openvino
-    print("OCR 后端：ONNX Runtime（用户指定）")
+    print("OCR backend: ONNX Runtime (user specified)")
     return False
 
-key_config_option = ConfigOption('Game Hotkey Config', { #全局配置示例
+key_config_option = ConfigOption('Game Hotkey Config', { # Global config example
     'Echo Key': 'q',
     'Liberation Key': 'r',
     'Resonance Key': 'e',
     'Tool Key': 't',
 }, description='In Game Hotkey for Skills')
 
-# 配置上传选项
+# Config upload options
 upload_config_option = ConfigOption('配置上传', {
     '是否上传配置': True,
-}, description='开启后每5分钟自动上传匿名的配置信息和胜率，帮助统计热门配置。\n不上传任何个人信息、游戏账号、截图、IP地址等隐私数据。\n仅上传配置内容和胜率统计数据。')
+}, description='Automatically uploads anonymous config info and win rates every 5 minutes to help compile popular configs.\nUploads no personal info, game accounts, screenshots, IP addresses, or other private data.\nOnly config contents and win-rate statistics are uploaded.')
 
 ocr_backend_option = ConfigOption('OCR设置', {
     'OCR后端': OCR_BACKEND_AUTO,
@@ -94,10 +94,10 @@ ocr_backend_option = ConfigOption('OCR设置', {
         'type': 'drop_down',
         'options': [OCR_BACKEND_AUTO, OCR_BACKEND_ONNX, OCR_BACKEND_OPENVINO],
     },
-}, description='自动模式仅在内存不少于12GB的Intel设备上使用OpenVINO，其他设备使用ONNX Runtime。修改后重启程序生效。')
+}, description='Auto mode uses OpenVINO only on Intel devices with at least 12GB of RAM; other devices use ONNX Runtime. Takes effect after restart.')
 
 
-def make_bottom_right_black(frame): #可选. 某些游戏截图时遮挡UID使用
+def make_bottom_right_black(frame): # Optional. Masks the UID in screenshots for some games
     """
     Changes a portion of the frame's pixels at the bottom right to black.
 
@@ -133,68 +133,68 @@ def make_bottom_right_black(frame): #可选. 某些游戏截图时遮挡UID使�
 config = {
     'custom_tasks':True, # enable creating and editing custom tasks
     'debug': False,  # Optional, default: False
-    'use_gui': True, # 目前只支持True
-    'config_folder': 'configs', #最好不要修改
+    'use_gui': True, # Only True is supported for now
+    'config_folder': 'configs', # Prefer not to modify
     'global_configs': [key_config_option, upload_config_option, ocr_backend_option],
-    'screenshot_processor': make_bottom_right_black, # 在截图的时候对frame进行修改, 可选
-    'gui_icon': 'icons/icon.png', #窗口图标, 最好不需要修改文件名
+    'screenshot_processor': make_bottom_right_black, # Modifies the frame when taking screenshots, optional
+    'gui_icon': 'icons/icon.png', # Window icon, prefer keeping the file name unchanged
     'wait_until_before_delay': 0,
     'wait_until_check_delay': 0,
-    'wait_until_settle_time': 0, #调用 wait_until时候, 在第一次满足条件的时候, 会等待再次检测, 以避免某些滑动动画没到预定位置就在动画路径中被检测到
-    'ocr': { #可选, 使用的OCR库
+    'wait_until_settle_time': 0, # When wait_until first meets its condition, it waits and checks again to avoid detecting sliding animations mid-path before they settle
+    'ocr': { # Optional, OCR library in use
         'lib': 'onnxocr',
-        'auto_simplify': True, #自动繁体转简体, 需要ppocrv5等可以识别繁体的库
+        'auto_simplify': True, # Auto-convert Traditional to Simplified Chinese, requires a library that recognizes Traditional such as ppocrv5
         'params': {
             'use_openvino': resolve_use_openvino(),
         }
     },
-    'windows': {  # Windows游戏请填写此设置
+    'windows': {  # Fill in these settings for Windows games
         'exe': ['ssr-xcent.exe', 'ssr-stove-shield.exe'],
         # optional, if set, will search the exe only
-        # 'hwnd_class': 'UnrealWindow', #增加重名检查准确度
-        'interaction': ['PostMessage'], # Genshin:某些操作可以后台, 部分游戏支持 PostMessage:可后台点击, 极少游戏支持 ForegroundPostMessage:前台使用PostMessage Pynput/PyDirect:仅支持前台使用
-        'capture_method': ['WGC', 'BitBlt_RenderFull', 'BitBlt'],  # Windows版本支持的话, 优先使用WGC, 否则使用BitBlt_Full. 支持的capture有 BitBlt, WGC, BitBlt_RenderFull, DXGI
-        'check_hdr': False, #当用户开启AutoHDR时候提示用户, 但不禁止使用
-        'force_no_hdr': False, #True=当用户开启AutoHDR时候禁止使用
-        'require_bg': True # 要求使用后台截图
+        # 'hwnd_class': 'UnrealWindow', # Improves duplicate-name check accuracy
+        'interaction': ['PostMessage'], # Genshin: some actions can run in the background. Some games support PostMessage: background clicks. Very few games support ForegroundPostMessage: PostMessage in the foreground. Pynput/PyDirect: foreground only
+        'capture_method': ['WGC', 'BitBlt_RenderFull', 'BitBlt'],  # Prefer WGC when the Windows version supports it, otherwise use BitBlt_Full. Supported captures: BitBlt, WGC, BitBlt_RenderFull, DXGI
+        'check_hdr': False, # Warn the user when AutoHDR is on, but do not block usage
+        'force_no_hdr': False, # True = block usage when the user has AutoHDR on
+        'require_bg': True # Require background capture
     },
-    'adb': {  # Windows游戏请填写此设置, mumu模拟器使用原生截图和input,速度极快. 其他模拟器和真机使用adb,截图速度较慢
+    'adb': {  # Fill in these settings for Windows games. The MuMu emulator uses native capture and input, which is very fast. Other emulators and real devices use adb, with slower capture
         # optional, if set, will start the pacakge and ensure installed
         #'packages': ['com.abc.efg1', 'com.abc.efg1']
     },
     'start_timeout': 120,  # default 60
-    'window_size': { #ok-script窗口大小
+    'window_size': { # ok-script window size
         'width': 1200,
         'height': 800,
         'min_width': 600,
         'min_height': 450,
     },
     'supported_resolution': {
-        'ratio': '16:9', #支持的游戏分辨率
-        'resize_to': [(2560, 1440), (1920, 1080), (1600, 900), (1280, 720)], #比例或最低分辨率不满足时，按顺序尝试调整Windows窗口
-        'min_size': (1280, 720), #只要求16:9且不低于720p，满足条件时不强制调整窗口
-        'force_ratio': True, #不弹分辨率报错弹窗，由resize_to处理
+        'ratio': '16:9', # Supported game resolutions
+        'resize_to': [(2560, 1440), (1920, 1080), (1600, 900), (1280, 720)], # When the ratio or minimum resolution is not met, try resizing the Windows window in order
+        'min_size': (1280, 720), # Only requires 16:9 and at least 720p; the window is not forced to resize when the condition is met
+        'force_ratio': True, # No resolution error popup; handled by resize_to
     },
-    'links': { # 关于里显示的链接, 可选
+    'links': { # Links shown in the About page, optional
             'default': {
                 'github': 'https://github.com/baoxin1100/ok-kes',
-                'share': 'github：https://github.com/baoxin1100/ok-kes/releases；Mirror酱：https://mirrorchyan.com/zh/projects?rid=ok-kes；百度网盘：https://pan.baidu.com/s/156h76VWpUwPIffkZqFy_dw?pwd=okes；夸克网盘：https://pan.quark.cn/s/13b266aa8e80',
+                'share': 'GitHub: https://github.com/baoxin1100/ok-kes/releases; MirrorChyan: https://mirrorchyan.com/zh/projects?rid=ok-kes; Baidu Netdisk: https://pan.baidu.com/s/156h76VWpUwPIffkZqFy_dw?pwd=okes; Quark Netdisk: https://pan.quark.cn/s/13b266aa8e80',
                 'qq_channel': 'https://pd.qq.com/s/eopggnxcu',
                 'faq': 'https://github.com/baoxin1100/ok-kes',
                 'sponsor': 'local'
             }
         },
-    'screenshots_folder': "screenshots", #截图存放目录, 每次重新启动会清空目录
-    'gui_title': 'ok-kes',  #窗口名
-    'template_matching': { # 可选, 如使用OpenCV的模板匹配
-        'coco_feature_json': os.path.join('ok_tasks/assets', 'coco_annotations.json'), #coco格式标记, 需要png图片, 在debug模式运行后, 会对进行切图仅保留被标记部分以减少图片大小
-        'default_horizontal_variance': 0.002, #默认x偏移, 查找不传box的时候, 会根据coco坐标, match偏移box内的
-        'default_vertical_variance': 0.002, #默认y偏移
-        'default_threshold': 0.8, #默认threshold
+    'screenshots_folder': "screenshots", # Screenshot folder; cleared on every restart
+    'gui_title': 'MBG-Kes',  # Window title
+    'template_matching': { # Optional, for OpenCV template matching
+        'coco_feature_json': os.path.join('ok_tasks/assets', 'coco_annotations.json'), # COCO-format annotations, requires PNG images. After running in debug mode, images are cropped to keep only annotated parts to reduce size
+        'default_horizontal_variance': 0.002, # Default x variance; when find is called without a box, it matches within the box offset from the COCO coordinates
+        'default_vertical_variance': 0.002, # Default y variance
+        'default_threshold': 0.8, # Default threshold
     },
-    'version': version, #版本
-    'my_app': ['src.globals', 'Globals'], #可选. 全局单例对象, 可以存放加载的模型, 使用og.my_app调用
-    'onetime_tasks': [  # 用户点击触发的任务
+    'version': version, # Version
+    'my_app': ['src.globals', 'Globals'], # Optional. Global singleton object; can hold loaded models, accessed via og.my_app
+    'onetime_tasks': [  # Tasks triggered by user clicks
         ["src.tasks.MyOneTimeTask", "MyOneTimeTask"],
         ["ok", "DiagnosisTask"],
     ],

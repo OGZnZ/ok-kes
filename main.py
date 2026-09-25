@@ -8,7 +8,7 @@ from src.ui.SponsorDialog import install_sponsor_dialog
 if __name__ == '__main__':
     try:
         install_sponsor_dialog()
-        # PyInstaller --onefile mode: 切换数据目录，但配置文件保存在 exe 所在位置
+        # PyInstaller --onefile mode: switch the data directory, but keep config files next to the exe
         if getattr(sys, 'frozen', False):
             exe_dir = os.path.dirname(sys.executable)
             os.chdir(sys._MEIPASS)

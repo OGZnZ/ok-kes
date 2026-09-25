@@ -1,8 +1,9 @@
-# 繁体中文客户端文本映射
-# 国际服繁体中文经 OpenCC jp2t → t2s 转换后，仍有部分词汇与国服简体不同，
-# 此处记录这些差异，将国际服用词映射回国服用词，以匹配代码中的搜索文本。
+# Traditional Chinese client text map
+# After OpenCC jp2t -> t2s conversion, some Traditional (global server) words
+# still differ from CN Simplified wording. These differences are recorded here,
+# mapping global-server wording back to CN wording to match search text in code.
 #
-# 格式: { "国服搜索词": "国际服OCR识别词（t2s转换后）" }
+# Format: { "CN search word": "global server OCR word (after t2s conversion)" }
 
 SERVER_TEXT_MAP = {
     "点击屏幕": "点击画面",

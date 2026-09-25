@@ -1,5 +1,5 @@
-site_name: ok-kes
-site_description: Documentation for the ok-kes Chaos Zero Nightmare automation tool
+site_name: MBG-Kes
+site_description: Documentation for the MBG-Kes Chaos Zero Nightmare automation tool
 site_url: https://baoxin1100.github.io/ok-kes/
 repo_url: https://github.com/baoxin1100/ok-kes
 repo_name: baoxin1100/ok-kes
@@ -24,24 +24,24 @@ theme:
       accent: deep purple
       toggle:
         icon: material/brightness-7
-        name: 切换到深色模式
+        name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: deep purple
       accent: deep purple
       toggle:
         icon: material/brightness-4
-        name: 切换到浅色模式
+        name: Switch to light mode
 
 nav:
-  - 首页: index.md
-  - 简体中文:
-      - 项目介绍: zh-CN/index.md
-      - 使用说明: zh-CN/usage-guide.md
+  - Home: index.md
+  - Guide:
+      - Project Overview: zh-CN/index.md
+      - Usage Guide: zh-CN/usage-guide.md
   - English: en/index.md
-  - 开发文档:
-      - 开发指南: development/index.md
-      - 软件需求与设计: srd.md
+  - Development:
+      - Development Guide: development/index.md
+      - Requirements & Design: srd.md
 
 markdown_extensions:
   - admonition

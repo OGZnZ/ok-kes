@@ -1,7 +1,7 @@
-# 游戏客户端文本映射
-# 将不同语言游戏客户端的OCR文本映射回国服简体文本
-# 
-# 各语言映射文件说明：
-#   zh_tw.py - 繁体中文客户端（繁→简转换后仍有词汇差异的映射）
-#   ja.py    - 日文客户端（待补充）
-#   en.py    - 英文客户端（待补充）
+# Game client text maps
+# Map OCR text from other-language game clients back to CN Simplified text
+#
+# Map file notes:
+#   zh_tw.py - Traditional Chinese client (wording that still differs after t2s conversion)
+#   ja.py    - Japanese client (TODO)
+#   en.py    - English client (TODO)

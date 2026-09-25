@@ -4,220 +4,54 @@ msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: you@example.com\n"
 "Last-Translator: you@example.com\n"
-"Language-Team: English\n"
+"Language-Team: Chinese\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "一键日常"
+msgid "1"
+msgstr "1"
+
+msgid ""
+"1. 自动战斗依赖按键识别，请在游戏设置中打开快捷键显示，提升出牌准确率。\n"
+"2. 国际服玩家请将本模式配置中的\"游戏语言\"设置为繁体中文。"
 msgstr ""
+"1. 自动战斗依赖按键识别，请在游戏设置中打开快捷键显示，提升出牌准确率。\n"
+"2. 国际服玩家请将本模式配置中的\"游戏语言\"设置为繁体中文。"
 
-msgid "从要推的图的最左边开始"
+msgid ""
+"1. 请主动打开游戏内自动战斗和自动剧情功能。\n"
+"2. 国际服玩家请将本模式配置中的\"游戏语言\"设置为繁体中文。"
 msgstr ""
+"1. 请主动打开游戏内自动战斗和自动剧情功能。\n"
+"2. 国际服玩家请将本模式配置中的\"游戏语言\"设置为繁体中文。"
 
-msgid "体力本"
+msgid ""
+"1.剧情内战斗关卡可手动开启出击模式调用自动战斗功能。\n"
+"2. 遇到卡厄思关卡请手动打开卡厄思模式。\n"
+"3. 剧情战斗关卡队伍需手动配置"
 msgstr ""
+"1.剧情内战斗关卡可手动开启出击模式调用自动战斗功能。\n"
+"2. 遇到卡厄思关卡请手动打开卡厄思模式。\n"
+"3. 剧情战斗关卡队伍需手动配置"
 
-msgid "公共区"
-msgstr ""
+msgid "2"
+msgstr "2"
 
-msgid "兵棋推演"
-msgstr ""
+msgid "3"
+msgstr "3"
 
-msgid "军备解析"
-msgstr ""
+msgid "After entering a target card name, the starting cards are rerolled until it appears; cannot be used together with \"刷空档\"."
+msgstr "输入目标卡牌名称后，将重投初始卡牌直到出现；不能与\"刷空档\"同时使用。"
 
-msgid "冲锋"
-msgstr ""
+msgid "Auto Chaos Mode"
+msgstr "自动卡厄思模式"
 
-msgid "决策构象"
-msgstr ""
+msgid "Auto Sortie Mode"
+msgstr "自动出击模式"
 
-msgid "刷钱本"
-msgstr ""
-
-msgid "大月卡"
-msgstr ""
-
-msgid "尘烟"
-msgstr ""
-
-msgid "手枪"
-msgstr ""
-
-msgid "推图"
-msgstr ""
-
-msgid "收菜"
-msgstr ""
-
-msgid "活动情报补给"
-msgstr ""
-
-msgid "活动自律"
-msgstr ""
-
-msgid "深度搜索"
-msgstr ""
-
-msgid "狙击"
-msgstr ""
-
-msgid "班组"
-msgstr ""
-
-msgid "突击"
-msgstr ""
-
-msgid "竞技场"
-msgstr ""
-
-msgid "自动刷体力"
-msgstr ""
-
-msgid "购买免费礼包"
-msgstr ""
-
-msgid "邮件"
-msgstr ""
-
-msgid "领任务"
-msgstr ""
-
-msgid "Configuration Demo Task"
-msgstr "配置演示任务"
-
-msgid "Demonstrates every configuration widget for English to Chinese translation."
-msgstr "演示英译中任务的全部配置控件。"
-
-msgid "Drop Down Config"
-msgstr "下拉框配置"
-
-msgid "Boolean Config"
-msgstr "bool配置"
-
-msgid "Integer Config"
-msgstr "整数配置"
-
-msgid "Float Config"
-msgstr "浮点数配置"
-
-msgid "String Config"
-msgstr "字符串配置"
-
-msgid "Text Edit Config"
-msgstr "多行文本配置"
-
-msgid "Folder Selector Config"
-msgstr "文件夹选择配置"
-
-msgid "File Selector Config"
-msgstr "文件选择配置"
-
-msgid "List Config"
-msgstr "列表配置"
-
-msgid "Drop Down Options Config"
-msgstr "下拉框选项配置"
-
-msgid "Multi Selection Config"
-msgstr "多选配置"
-
-msgid "Sub Boolean Config"
-msgstr "子bool配置"
-
-msgid "Sub String Config"
-msgstr "子字符串配置"
-
-msgid "Sub Float Config"
-msgstr "子浮点数配置"
-
-msgid "Game Hotkey Config"
-msgstr "游戏快捷键配置"
-
-msgid "Button Config"
-msgstr "按钮配置"
-
-msgid "Button Options Config"
-msgstr "按钮选项配置"
-
-msgid "Drop-down configuration with translated option values."
-msgstr "带有已翻译选项值的下拉框配置。"
-
-msgid "Single-line string configuration with a translated value."
-msgstr "带有已翻译值的单行字符串配置。"
-
-msgid "Multi-line string configuration with a translated value."
-msgstr "带有已翻译值的多行字符串配置。"
-
-msgid "Folder selector configuration that stores the selected folder path."
-msgstr "保存所选文件夹路径的文件夹选择配置。"
-
-msgid "File selector configuration with an optional file filter."
-msgstr "带有可选文件过滤器的文件选择配置。"
-
-msgid "Dropdown option list restricted to available translated values."
-msgstr "仅可从已翻译可用值中选择的下拉框选项列表。"
-
-msgid "Open the shared global configuration example."
-msgstr "打开共享的全局配置示例。"
-
-msgid "Button configuration that displays all current values."
-msgstr "显示全部当前配置值的按钮配置。"
-
-msgid "Button configuration with multiple action buttons."
-msgstr "带有多个操作按钮的按钮配置。"
-
-msgid "Drop Down Value 1"
-msgstr "下拉框值 1"
-
-msgid "Drop Down Value 2"
-msgstr "下拉框值 2"
-
-msgid "Select Demo Folder"
-msgstr "选择演示文件夹"
-
-msgid "Select Demo File"
-msgstr "选择演示文件"
-
-msgid "Multi Selection Value 1"
-msgstr "多选值 1"
-
-msgid "Multi Selection Value 2"
-msgstr "多选值 2"
-
-msgid "Multi Selection Value 3"
-msgstr "多选值 3"
-
-msgid "Button Value"
-msgstr "按钮值"
-
-msgid "Show Config Values"
-msgstr "显示配置值"
-
-msgid "Show Notification"
-msgstr "显示通知"
-
-msgid "Button notification displayed."
-msgstr "已显示按钮通知。"
-
-msgid "Configuration values displayed."
-msgstr "已显示配置值。"
-
-msgid "String Value"
-msgstr "字符串值"
-
-msgid "Text Edit Value"
-msgstr "多行文本值"
-
-msgid "List Value 1"
-msgstr "列表值 1"
-
-msgid "List Value 2"
-msgstr "列表值 2"
-
-msgid "Sub String Value"
-msgstr "子字符串值"
+msgid "Auto mode uses OpenVINO only on Intel devices with at least 12GB of RAM; other devices use ONNX Runtime. Takes effect after restart."
+msgstr "自动模式仅在内存大于等于12GB的Intel设备上使用OpenVINO；其他设备使用ONNX Runtime。重启后生效。"
 
 msgid "Available Drop Down Value 1"
 msgstr "可用下拉框值 1"
@@ -228,204 +62,513 @@ msgstr "可用下拉框值 2"
 msgid "Available Drop Down Value 3"
 msgstr "可用下拉框值 3"
 
-msgid "True"
-msgstr "bool值 True"
+msgid "Boolean Config"
+msgstr "bool配置"
+
+msgid "Button Config"
+msgstr "按钮配置"
+
+msgid "Button Options Config"
+msgstr "按钮选项配置"
+
+msgid "Button Value"
+msgstr "按钮值"
+
+msgid "Button configuration that displays all current values."
+msgstr "显示全部当前配置值的按钮配置。"
+
+msgid "Button configuration with multiple action buttons."
+msgstr "带有多个操作按钮的按钮配置。"
+
+msgid "Button notification displayed."
+msgstr "已显示按钮通知。"
+
+msgid "Card names and descriptions can be partial keywords, but their order must match the game text."
+msgstr "卡牌名称和描述可以是部分关键字，但顺序需与游戏内文本匹配。"
+
+msgid "Configuration Demo Task"
+msgstr "配置演示任务"
+
+msgid "Configuration values displayed."
+msgstr "已显示配置值。"
+
+msgid "Demonstrates every configuration widget for English to Chinese translation."
+msgstr "演示英译中任务的全部配置控件。"
+
+msgid "Dream Border"
+msgstr "梦边"
+
+msgid "Drop Down Config"
+msgstr "下拉框配置"
+
+msgid "Drop Down Options Config"
+msgstr "下拉框选项配置"
+
+msgid "Drop Down Value 1"
+msgstr "下拉框值 1"
+
+msgid "Drop Down Value 2"
+msgstr "下拉框值 2"
+
+msgid "Drop-down configuration with translated option values."
+msgstr "带有已翻译选项值的下拉框配置。"
+
+msgid "Dropdown option list restricted to available translated values."
+msgstr "仅可从已翻译可用值中选择的下拉框选项列表。"
+
+msgid "Echo Key"
+msgstr "回响按键"
+
+msgid "Export Config Code"
+msgstr "导出配置码"
+
+msgid "F10"
+msgstr "F10"
+
+msgid "F11"
+msgstr "F11"
+
+msgid "F12"
+msgstr "F12"
+
+msgid "F9"
+msgstr "F9"
 
 msgid "False"
 msgstr "bool值 False"
 
+msgid "Farm Dream Border"
+msgstr "刷梦边"
+
+msgid "File Selector Config"
+msgstr "文件选择配置"
+
+msgid "File selector configuration with an optional file filter."
+msgstr "带有可选文件过滤器的文件选择配置。"
+
+msgid "Float Config"
+msgstr "浮点数配置"
+
+msgid "Folder Selector Config"
+msgstr "文件夹选择配置"
+
+msgid "Folder selector configuration that stores the selected folder path."
+msgstr "保存所选文件夹路径的文件夹选择配置。"
+
+msgid "Game Hotkey Config"
+msgstr "游戏快捷键配置"
+
+msgid "Global server players: set this to 繁体中文"
+msgstr "国际服玩家请设置为繁体中文"
+
+msgid "Hot Configs"
+msgstr "热门配置"
+
+msgid "Import Config Code"
+msgstr "导入配置码"
+
+msgid "In Game Hotkey for Skills"
+msgstr "游戏内技能快捷键"
+
+msgid "Integer Config"
+msgstr "整数配置"
+
+msgid "Liberation Key"
+msgstr "解放按键"
+
+msgid "List Config"
+msgstr "列表配置"
+
+msgid "List Value 1"
+msgstr "列表值 1"
+
+msgid "List Value 2"
+msgstr "列表值 2"
+
+msgid "Multi Selection Config"
+msgstr "多选配置"
+
+msgid "Multi Selection Value 1"
+msgstr "多选值 1"
+
+msgid "Multi Selection Value 2"
+msgstr "多选值 2"
+
+msgid "Multi Selection Value 3"
+msgstr "多选值 3"
+
+msgid "Multi-line string configuration with a translated value."
+msgstr "带有已翻译值的多行字符串配置。"
+
+msgid "OCR后端"
+msgstr "OCR后端"
+
+msgid "OCR设置"
+msgstr "OCR设置"
+
+msgid "Open the shared global configuration example."
+msgstr "打开共享的全局配置示例。"
+
+msgid "Rerolls the first flash-priority card by default (divine flash possible); auto evacuates if it is not obtained on floor 1"
+msgstr "默认刷新首个闪光优先级卡牌（可能触发神级闪光）；若第1层未获得则自动撤离。"
+
+msgid "Resonance Key"
+msgstr "共鸣按键"
+
+msgid "Save Config"
+msgstr "保存配置"
+
+msgid "Select Demo File"
+msgstr "选择演示文件"
+
+msgid "Select Demo Folder"
+msgstr "选择演示文件夹"
+
 msgid "Select one of the available drop-down values."
 msgstr "请选择可用的下拉框值之一。"
-
-msgid "Select only available multi-selection values."
-msgstr "请只选择可用的多选值。"
 
 msgid "Select only available drop-down option values."
 msgstr "请只选择可用的下拉框选项值。"
 
+msgid "Select only available multi-selection values."
+msgstr "请只选择可用的多选值。"
+
+msgid "Semi-Auto Story Mode"
+msgstr "半自动剧情模式"
+
+msgid "Show Config Values"
+msgstr "显示配置值"
+
+msgid "Show Notification"
+msgstr "显示通知"
+
+msgid "Single-line string configuration with a translated value."
+msgstr "带有已翻译值的单行字符串配置。"
+
+msgid "String Config"
+msgstr "字符串配置"
+
+msgid "String Value"
+msgstr "字符串值"
+
+msgid "Sub Boolean Config"
+msgstr "子bool配置"
+
+msgid "Sub Float Config"
+msgstr "子浮点数配置"
+
+msgid "Sub String Config"
+msgstr "子字符串配置"
+
+msgid "Sub String Value"
+msgstr "子字符串值"
+
+msgid "Switch Config"
+msgstr "切换配置"
+
+msgid "Test Trigger"
+msgstr "测试trigger"
+
+msgid "Text Edit Config"
+msgstr "多行文本配置"
+
+msgid "Text Edit Value"
+msgstr "多行文本值"
+
+msgid "The starting tasks must include \"移除2张\", otherwise the run restarts; cannot be used together with \"刷初始卡牌\"."
+msgstr "初始任务必须包含\"移除2张\"，否则重新开始；不能与\"刷初始卡牌\"同时使用。"
+
+msgid "Tool Key"
+msgstr "工具按键"
+
+msgid "True"
+msgstr "bool值 True"
+
 msgid "export_config"
 msgstr "导出配置"
-
-msgid "import_config"
-msgstr "导入配置"
 
 msgid "hottest_config"
 msgstr "热门配置"
 
-msgid ""
-"1. 自动战斗依赖按键识别，请在游戏设置中打开快捷键显示，提升出牌准确率。\n"
-"2. 国际服玩家请将本模式配置中的\"游戏语言\"设置为繁体中文。"
-msgstr ""
+msgid "import_config"
+msgstr "导入配置"
 
-msgid ""
-"1. 请主动打开游戏内自动战斗和自动剧情功能。\n"
-"2. 国际服玩家请将本模式配置中的\"游戏语言\"设置为繁体中文。"
-msgstr ""
+msgid "一键日常"
+msgstr "一键日常"
 
-msgid ""
-"1.剧情内战斗关卡可手动开启出击模式调用自动战斗功能。\n"
-"2. 遇到卡厄思关卡请手动打开卡厄思模式。\n"
-"3. 剧情战斗关卡队伍需手动配置"
-msgstr ""
-
-msgid "Echo Key"
-msgstr ""
-
-msgid "F10"
-msgstr ""
-
-msgid "F11"
-msgstr ""
-
-msgid "F12"
-msgstr ""
-
-msgid "F9"
-msgstr ""
-
-msgid "In Game Hotkey for Skills"
-msgstr ""
-
-msgid "Liberation Key"
-msgstr ""
-
-msgid "Resonance Key"
-msgstr ""
-
-msgid "Tool Key"
-msgstr ""
+msgid "不暂停"
+msgstr "不暂停"
 
 msgid "丢弃卡牌优先级"
-msgstr ""
+msgstr "丢弃卡牌优先级"
 
 msgid "主战员优先级"
-msgstr ""
+msgstr "主战员优先级"
+
+msgid "事件"
+msgstr "事件"
+
+msgid "从右往左出牌"
+msgstr "从右往左出牌"
+
+msgid "从要推的图的最左边开始"
+msgstr "从要推的图的最左边开始"
 
 msgid "任务优先级"
-msgstr ""
+msgstr "任务优先级"
+
+msgid "休息"
+msgstr "休息"
 
 msgid "优先使用金币治疗"
-msgstr ""
+msgstr "优先使用金币治疗"
 
 msgid "优先移除基础牌"
-msgstr ""
+msgstr "优先移除基础牌"
+
+msgid "体力本"
+msgstr "体力本"
+
+msgid "保留大于多少TB的存档"
+msgstr "保留大于多少TB的存档"
 
 msgid "保留存档"
-msgstr ""
+msgstr "保留存档"
+
+msgid "公共区"
+msgstr "公共区"
+
+msgid "兵棋推演"
+msgstr "兵棋推演"
+
+msgid "军备解析"
+msgstr "军备解析"
+
+msgid "冲锋"
+msgstr "冲锋"
+
+msgid "决策构象"
+msgstr "决策构象"
+
+msgid "几轮后停止(0为不停止)"
+msgstr "几轮后停止(0为不停止)"
 
 msgid "出战主战员优先级"
-msgstr ""
+msgstr "出战主战员优先级"
 
 msgid "出牌优先级"
-msgstr ""
+msgstr "出牌优先级"
+
+msgid "刷初始卡牌"
+msgstr "刷初始卡牌"
+
+msgid "刷存档主战员"
+msgstr "刷存档主战员"
 
 msgid "刷梦边"
-msgstr ""
+msgstr "刷梦边"
+
+msgid "刷空档"
+msgstr "刷空档"
+
+msgid "刷钱本"
+msgstr "刷钱本"
 
 msgid "半自动剧情模式"
-msgstr ""
+msgstr "半自动剧情模式"
 
 msgid "卡牌奖励优先级"
-msgstr ""
+msgstr "卡牌奖励优先级"
 
 msgid "只打第一层"
-msgstr ""
+msgstr "只打第一层"
+
+msgid "国际服请设置为繁体中文"
+msgstr "国际服请设置为繁体中文"
 
 msgid "复制卡牌列表"
-msgstr ""
+msgstr "复制卡牌列表"
+
+msgid "多少信用点以上冥想"
+msgstr "多少信用点以上冥想"
+
+msgid "大月卡"
+msgstr "大月卡"
+
+msgid "存储数据价值大于等于多少层级"
+msgstr "存储数据价值大于等于多少层级"
 
 msgid "导入配置"
-msgstr ""
+msgstr "导入配置"
 
 msgid "导出配置"
-msgstr ""
+msgstr "导出配置"
+
+msgid "小怪"
+msgstr "小怪"
+
+msgid "尘烟"
+msgstr "尘烟"
 
 msgid ""
 "开启后每5分钟自动上传匿名的配置信息和胜率，帮助统计热门配置。\n"
 "不上传任何个人信息、游戏账号、截图、IP地址等隐私数据。\n"
 "仅上传配置内容和胜率统计数据。"
 msgstr ""
+"开启后每5分钟自动上传匿名的配置信息和胜率，帮助统计热门配置。\n"
+"不上传任何个人信息、游戏账号、截图、IP地址等隐私数据。\n"
+"仅上传配置内容和胜率统计数据。"
+
+msgid "手枪"
+msgstr "手枪"
 
 msgid "拉黑主战员"
-msgstr ""
+msgstr "拉黑主战员"
+
+msgid "拉黑任务"
+msgstr "拉黑任务"
 
 msgid "指定面具卡牌"
-msgstr ""
+msgstr "指定面具卡牌"
+
+msgid "推图"
+msgstr "推图"
+
+msgid "收菜"
+msgstr "收菜"
 
 msgid "日文"
-msgstr ""
+msgstr "日文"
 
 msgid "是否上传配置"
-msgstr ""
+msgstr "是否上传配置"
 
 msgid "梦边"
-msgstr ""
+msgstr "梦边"
 
 msgid "治疗崩溃"
-msgstr ""
+msgstr "治疗崩溃"
+
+msgid "活动情报补给"
+msgstr "活动情报补给"
+
+msgid "活动自律"
+msgstr "活动自律"
 
 msgid "测试trigger"
-msgstr ""
+msgstr "测试trigger"
+
+msgid "深度搜索"
+msgstr "深度搜索"
 
 msgid "游戏语言"
-msgstr ""
+msgstr "游戏语言"
 
 msgid "热门配置"
-msgstr ""
+msgstr "热门配置"
+
+msgid "狙击"
+msgstr "狙击"
+
+msgid "班组"
+msgstr "班组"
 
 msgid "生命值大于多少优先闪光(百分比)"
-msgstr ""
+msgstr "生命值大于多少优先闪光(百分比)"
 
 msgid "移除卡牌列表"
-msgstr ""
+msgstr "移除卡牌列表"
+
+msgid "突击"
+msgstr "突击"
+
+msgid "竞技场"
+msgstr "竞技场"
+
+msgid "第几层boss前自动暂停"
+msgstr "第几层boss前自动暂停"
 
 msgid "简体中文"
-msgstr ""
+msgstr "简体中文"
+
+msgid "精英"
+msgstr "精英"
 
 msgid "繁体中文"
-msgstr ""
+msgstr "繁体中文"
+
+msgid "自动"
+msgstr "自动"
 
 msgid "自动出击模式"
-msgstr ""
+msgstr "自动出击模式"
+
+msgid "自动刷体力"
+msgstr "自动刷体力"
 
 msgid "自动卡厄思模式"
-msgstr ""
+msgstr "自动卡厄思模式"
 
 msgid "英文"
-msgstr ""
+msgstr "英文"
 
 msgid "获得卡牌优先级"
-msgstr ""
+msgstr "获得卡牌优先级"
+
+msgid "装备1号位优先级"
+msgstr "装备1号位优先级"
+
+msgid "装备2号位优先级"
+msgstr "装备2号位优先级"
+
+msgid "装备3号位优先级"
+msgstr "装备3号位优先级"
+
+msgid "购买免费礼包"
+msgstr "购买免费礼包"
 
 msgid "路线优先级"
-msgstr ""
+msgstr "路线优先级"
 
 msgid "跳过非优先级卡牌"
-msgstr ""
+msgstr "跳过非优先级卡牌"
 
 msgid "进入商店"
-msgstr ""
+msgstr "进入商店"
 
 msgid "选择游戏客户端语言，影响OCR文本匹配"
-msgstr ""
+msgstr "选择游戏客户端语言，影响OCR文本匹配"
+
+msgid "邮件"
+msgstr "邮件"
 
 msgid "配置上传"
-msgstr ""
+msgstr "配置上传"
+
+msgid "配置操作"
+msgstr "配置操作"
 
 msgid "闪光优先级"
-msgstr ""
+msgstr "闪光优先级"
 
 msgid "闪光卡牌列表"
-msgstr ""
+msgstr "闪光卡牌列表"
+
+msgid "需要冥想的卡牌"
+msgstr "需要冥想的卡牌"
 
 msgid "面具卡牌刻印"
-msgstr ""
+msgstr "面具卡牌刻印"
+
+msgid "领任务"
+msgstr "领任务"
 
 msgid "领取奖励"
-msgstr ""
+msgstr "领取奖励"
 
 msgid "领取奖励(只使用验证卡)"
-msgstr ""
+msgstr "领取奖励(只使用验证卡)"
 
-msgid "国际服请设置为繁体中文"
-msgstr ""
+msgid "首层刷特定闪光"
+msgstr "首层刷特定闪光"
+

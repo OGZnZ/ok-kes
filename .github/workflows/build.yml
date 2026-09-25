@@ -2,13 +2,15 @@ name: Build
 
 on:
   push:
-    # Sequence of patterns matched against refs/tags
+    branches:
+      - master
+      - main
     tags:
       - 'v*'
+  workflow_dispatch:
 
 jobs:
   build:
-
     runs-on: windows-latest
 
     env:
@@ -16,7 +18,7 @@ jobs:
 
     strategy:
       matrix:
-        python-version: [ 3.12 ]
+        python-version: [ '3.12' ]
 
     steps:
       - name: Configure git
@@ -24,19 +26,18 @@ jobs:
           [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
           git config --global core.autocrlf false
           git config --global core.eol lf
-          git config --global user.email "baoxin1100@users.noreply.github.com"
-          git config --global user.name "baoxin1100"
-          echo "action_state=yellow" >> $env:GITHUB_ENV
-          echo "${{ env.action_state }}"
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
 
       - uses: actions/checkout@v4
         with:
           lfs: true
 
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+
       - name: Set UTF-8 encoding
         run: |
           set PYTHONIOENCODING=utf-8
@@ -47,9 +48,9 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: inline_ok_requirements #把ok-script加入源码, 从requirements.txt中删除以提高升级更新速度
+      - name: Inline ok-script requirements
         run: |
-          python -m ok.update.inline_ok_requirements --tag ${{ github.ref_name }}
+          python -m ok.update.inline_ok_requirements --tag ${{ github.ref_name || 'v1.0.0' }}
 
       - name: Run tests
         run: |
@@ -58,8 +59,9 @@ jobs:
               python -m unittest $_.FullName
           }
 
-      - name: Sync Repositories # 同步部分代码(deploy.txt中), 合并tag中间更新日志, 到更新库, 以减少用户更新使用的git库大小
-        id: sync   # Give the step an ID to access its outputs
+      - name: Sync Repositories
+        id: sync
+        if: ${{ secrets.CNB_TOKEN != '' }}
         uses: ok-oldking/partial-sync-repo@master
         with:
           repos: |
@@ -67,34 +69,27 @@ jobs:
           sync_list: 'deploy.txt'
           tag: ${{ github.ref_name }}
           gitignore_file: '.update_repo_gitignore'
-          show_author: true #在更新日志中加入作者
+          show_author: true
 
       - name: Build with PyAppify Action
         id: build-app
-        uses: ok-oldking/pyappify-action@master #使用pyappify打包exe
+        uses: ok-oldking/pyappify-action@master
+
+      - name: Upload Compiled Installer Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: MBG-Kes-Windows-Setup
+          path: pyappify_dist/*
 
       - name: Release
         uses: softprops/action-gh-release@v2
-        if: startsWith(github.ref, 'refs/tags/')
+        if: startsWith(github.ref, 'refs/tags/v')
         with:
           draft: false
+          name: MBG-Kes ${{ github.ref_name }}
           body: |
-            ###  更新日志 ${{ steps.sync.outputs.start_tag }} -> ${{ steps.sync.outputs.end_tag }}:
-              ${{ steps.sync.outputs.changes_with_asterisk }}          
-            ### 下载包说明
-              * [ok-kes-win32-China-setup.exe](https://github.com/baoxin1100/ok-kes/releases/download/${{ github.ref_name }}/ok-kes-win32-China-setup.exe) 完整安装包, 更新使用阿里云+腾讯CNB.               
-            ### 如果无法下载或下载慢, 可以使用其他下载源
-              * [Mirror酱下载渠道](https://mirrorchyan.com/zh/projects?rid=ok-kes), 国内网页直链, 下载需要购买CD-KEY, 已有Mirror酱CD-KEY可免费下载
-              * [夸克网盘](https://pan.quark.cn/s/13b266aa8e80), 免费, 但需要注册并下载夸克网盘客户端
-              * [百度网盘](https://pan.baidu.com/s/156h76VWpUwPIffkZqFy_dw?pwd=okes), 需下载百度网盘客户端，提取码 okes
-              * [UC网盘](https://drive.uc.cn/s/fee4cb3d65cd4?public=1), 免费，需下载UC网盘客户端
+            ### Release Notes ${{ steps.sync.outputs.start_tag }} -> ${{ steps.sync.outputs.end_tag }}:
+            ${{ steps.sync.outputs.changes_with_asterisk }}
+            ### Download
+            * Download the standalone installer package below: `MBG-Kes-win32-China-setup.exe`
           files: pyappify_dist/*
-
-      - name: Trigger MirrorChyanUploading
-        if: startsWith(github.ref, 'refs/tags/')
-        shell: bash
-        run: |
-          gh workflow run --repo $GITHUB_REPOSITORY mirrorchyan_uploading.yml -f tag=${{ github.ref_name }}
-          gh workflow run --repo $GITHUB_REPOSITORY mirrorchyan_release_note.yml -f tag=${{ github.ref_name }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,28 +1,28 @@
-# 打包指南
+# Build Guide
 
-## 前置条件
+## Prerequisites
 
-本项目的打包环境为 conda 的 `oknikke` 环境（Python 3.12），使用该环境的 python 和 pip 执行打包命令。
+The build environment for this project is the conda `oknikke` environment (Python 3.12). Run the build commands with that environment's python and pip.
 
 ```bash
 pip install -r requirements.txt
 pip install pyinstaller
 ```
 
-## 打包步骤
+## Build Steps
 
-### 1. 内联依赖
+### 1. Inline dependencies
 
-将 ok-script 和 pyappify 运行时库内联到项目中：
+Inline the ok-script and pyappify runtime libraries into the project:
 
 ```bash
 python -m ok.update.inline_ok_requirements
 ```
 
-### 2. 执行 PyInstaller 打包
+### 2. Run the PyInstaller build
 
 ```bash
-pyinstaller --onefile --noconsole --uac-admin --noupx --runtime-tmpdir "C:\Temp\ok_kes" --name "ok-kes-win32-portable-v1.3.1" --icon icons/icon.ico ^
+pyinstaller --onefile --noconsole --uac-admin --noupx --runtime-tmpdir "C:\Temp\MBG_Kes" --name "MBG-Kes-win32-portable-v1.3.1" --icon icons/icon.ico ^
   --add-data assets;assets ^
   --add-data i18n;i18n ^
   --add-data ok_tasks;ok_tasks ^
@@ -43,38 +43,38 @@ pyinstaller --onefile --noconsole --uac-admin --noupx --runtime-tmpdir "C:\Temp\
   main.py
 ```
 
-### 3. 清理临时文件
+### 3. Clean up temporary files
 
 ```bash
 rmdir /s /q build
-del "ok-kes-win32-portable-v1.3.1.spec"
+del "MBG-Kes-win32-portable-v1.3.1.spec"
 ```
 
-### 4. 产物
+### 4. Build output
 
-位于 `dist\ok-kes-win32-portable-v1.3.1.exe`，约 265 MB。
+The output is at `dist\MBG-Kes-win32-portable-v1.3.1.exe`, about 265 MB.
 
-## 关键说明
+## Key Notes
 
-> **⚠️ 注意**：`build_exe.bat` 必须使用 **GBK/ANSI 编码**保存，CMD 才能正确解析中文文件名。如果用 UTF-8 编码，打包出来的 exe 名称会显示为乱码。
+> **⚠️ Note**: `build_exe.bat` must be saved with **GBK/ANSI encoding** so CMD can parse Chinese file names correctly. With UTF-8 encoding, the packaged exe name shows up as garbled text.
 
-| 参数 | 作用 |
+| Flag | Purpose |
 |---|---|
-| `--onefile` | 单文件 exe，用户下载即用 |
-| `--noconsole` | 无控制台窗口 |
-| `--uac-admin` | 请求管理员权限 |
-| `--add-data ok_tasks;ok_tasks` | 打包任务文件，运行时通过 `os.chdir(sys._MEIPASS)` 找到 |
-| `--hidden-import src.globals` | 动态引用的全局对象模块 |
-| `--collect-all onnxruntime` | 包含 ONNX Runtime 运行库和 CPU 执行提供程序 |
-| `--collect-all onnxocr` | 包含 OCR 模型文件（.onnx）和代码 |
-| `--runtime-tmpdir` | 指定纯英文临时解压路径，避免中文用户名导致 OpenCC C 库 fopen 失败 |
-| `--add-data opencc\clib;opencc\clib` | 打包 OpenCC 绑定的动态库和字典文件 |
-| `--add-data opencc\lib\share\opencc` | 额外映射字典目录到 lib 路径，解决中文路径下 C 库查找 `t2s.json` 失败 |
-| `--exclude-module PySide6.translations` | 排除 PySide6 翻译文件（.qm），避免某些系统上解压 CRC 校验失败 |
+| `--onefile` | Single-file exe, ready to use after download |
+| `--noconsole` | No console window |
+| `--uac-admin` | Request administrator privileges |
+| `--add-data ok_tasks;ok_tasks` | Bundle task files, located at runtime via `os.chdir(sys._MEIPASS)` |
+| `--hidden-import src.globals` | Dynamically referenced globals module |
+| `--collect-all onnxruntime` | Include the ONNX Runtime libraries and CPU execution provider |
+| `--collect-all onnxocr` | Include OCR model files (.onnx) and code |
+| `--runtime-tmpdir` | Use a pure-ASCII temp extraction path, avoiding OpenCC C library fopen failures under Chinese user names |
+| `--add-data opencc\clib;opencc\clib` | Bundle the OpenCC dynamic libraries and dictionary files |
+| `--add-data opencc\lib\share\opencc` | Extra mapping of the dictionary directory to the lib path, fixing C library `t2s.json` lookup failures under Chinese paths |
+| `--exclude-module PySide6.translations` | Exclude PySide6 translation files (.qm), avoiding extraction CRC check failures on some systems |
 
-## 代码层面的必要修改
+## Required Code Changes
 
-打包前需要确保以下修改已存在：
+Make sure the following changes exist before building:
 
 ### `main.py`
 ```python
@@ -84,15 +84,15 @@ import os
 if __name__ == '__main__':
     if getattr(sys, 'frozen', False):
         exe_dir = os.path.dirname(sys.executable)
-        os.chdir(sys._MEIPASS)  # 切换到临时解压目录，使 ok_tasks 等数据文件可被找到
-        config["config_folder"] = os.path.join(exe_dir, "configs")  # 配置文件保存在 exe 目录下，避免被临时目录清除
+        os.chdir(sys._MEIPASS)  # Switch to the temp extraction dir so data files like ok_tasks can be found
+        config["config_folder"] = os.path.join(exe_dir, "configs")  # Keep config files next to the exe so they are not wiped with the temp dir
 ```
 
 ### `ok/gui/MainWindow.py`
-- 顶部添加 `import sys`
+- Add `import sys` at the top
 
 ### `ok/gui/tasks/TaskManger.py`
-`find_and_instantiate_class` 方法添加编码回退逻辑，解决 GBK/ANSI 编码文件导致 `utf-8' codec can't decode byte` 报错：
+Add an encoding fallback to the `find_and_instantiate_class` method, fixing `utf-8' codec can't decode byte` errors caused by GBK/ANSI-encoded files:
 ```python
 def find_and_instantiate_class(self, file_path, base_class):
     try:

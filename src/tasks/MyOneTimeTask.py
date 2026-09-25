@@ -136,10 +136,10 @@ class MyOneTimeTask(MyBaseTask):
         return value
 
     def find_some_text_on_bottom_right(self):
-        return self.ocr(box="bottom_right",match="商城", log=True) #指定box以提高ocr速度
+        return self.ocr(box="bottom_right",match="商城", log=True) # Specify a box to speed up OCR
 
     def find_some_text_with_relative_box(self):
-        return self.ocr(0.5, 0.5, 1, 1, match=re.compile("招"), log=True) #指定box以提高ocr速度
+        return self.ocr(0.5, 0.5, 1, 1, match=re.compile("招"), log=True) # Specify a box to speed up OCR
 
     def test_find_one_feature(self):
         return self.find_one('this_is_a_place_holder')

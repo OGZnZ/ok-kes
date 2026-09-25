@@ -9,14 +9,331 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "1"
+msgstr "1"
+
+msgid ""
+"1. 自动战斗依赖按键识别，请在游戏设置中打开快捷键显示，提升出牌准确率。\n"
+"2. 国际服玩家请将本模式配置中的\"游戏语言\"设置为繁体中文。"
+msgstr ""
+"1. Auto battle relies on shortcut recognition. Enable shortcut display in the game settings for better accuracy.\n"
+"2. International server players should set Game Language to Traditional Chinese in this mode."
+
+msgid ""
+"1. 请主动打开游戏内自动战斗和自动剧情功能。\n"
+"2. 国际服玩家请将本模式配置中的\"游戏语言\"设置为繁体中文。"
+msgstr ""
+"1. Enable auto battle and auto story in the game.\n"
+"2. International server players should set Game Language to Traditional Chinese in this mode."
+
+msgid ""
+"1.剧情内战斗关卡可手动开启出击模式调用自动战斗功能。\n"
+"2. 遇到卡厄思关卡请手动打开卡厄思模式。\n"
+"3. 剧情战斗关卡队伍需手动配置"
+msgstr ""
+"1. For battle stages in the story, manually enable Sortie Mode to use Auto Battle.\n"
+"2. For Chaos stages, manually enable Chaos Mode.\n"
+"3. Story battle teams must be configured manually."
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid "After entering a target card name, the starting cards are rerolled until it appears; cannot be used together with \"刷空档\"."
+msgstr "After entering a target card name, the starting cards are rerolled until it appears; cannot be used together with \"Farm Empty Slot\"."
+
+msgid "Auto Chaos Mode"
+msgstr "Auto Chaos Mode"
+
+msgid "Auto Sortie Mode"
+msgstr "Auto Sortie Mode"
+
+msgid "Auto mode uses OpenVINO only on Intel devices with at least 12GB of RAM; other devices use ONNX Runtime. Takes effect after restart."
+msgstr "Auto mode uses OpenVINO only on Intel devices with at least 12GB of RAM; other devices use ONNX Runtime. Takes effect after restart."
+
+msgid "Available Drop Down Value 1"
+msgstr "Available Drop Down Value 1"
+
+msgid "Available Drop Down Value 2"
+msgstr "Available Drop Down Value 2"
+
+msgid "Available Drop Down Value 3"
+msgstr "Available Drop Down Value 3"
+
+msgid "Boolean Config"
+msgstr "Boolean Config"
+
+msgid "Button Config"
+msgstr "Button Config"
+
+msgid "Button Options Config"
+msgstr "Button Options Config"
+
+msgid "Button Value"
+msgstr "Button Value"
+
+msgid "Button configuration that displays all current values."
+msgstr "Button configuration that displays all current values."
+
+msgid "Button configuration with multiple action buttons."
+msgstr "Button configuration with multiple action buttons."
+
+msgid "Button notification displayed."
+msgstr "Button notification displayed."
+
+msgid "Card names and descriptions can be partial keywords, but their order must match the game text."
+msgstr "Card names and descriptions can be partial keywords, but their order must match the game text."
+
+msgid "Configuration Demo Task"
+msgstr "Configuration Demo Task"
+
+msgid "Configuration values displayed."
+msgstr "Configuration values displayed."
+
+msgid "Demonstrates every configuration widget for English to Chinese translation."
+msgstr "Demonstrates every configuration widget for English to Chinese translation."
+
+msgid "Dream Border"
+msgstr "Dream Border"
+
+msgid "Drop Down Config"
+msgstr "Drop Down Config"
+
+msgid "Drop Down Options Config"
+msgstr "Drop Down Options Config"
+
+msgid "Drop Down Value 1"
+msgstr "Drop Down Value 1"
+
+msgid "Drop Down Value 2"
+msgstr "Drop Down Value 2"
+
+msgid "Drop-down configuration with translated option values."
+msgstr "Drop-down configuration with translated option values."
+
+msgid "Dropdown option list restricted to available translated values."
+msgstr "Dropdown option list restricted to available translated values."
+
+msgid "Echo Key"
+msgstr "Echo Key"
+
+msgid "Export Config Code"
+msgstr "Export Config Code"
+
+msgid "F10"
+msgstr "F10"
+
+msgid "F11"
+msgstr "F11"
+
+msgid "F12"
+msgstr "F12"
+
+msgid "F9"
+msgstr "F9"
+
+msgid "False"
+msgstr "False"
+
+msgid "Farm Dream Border"
+msgstr "Farm Dream Border"
+
+msgid "File Selector Config"
+msgstr "File Selector Config"
+
+msgid "File selector configuration with an optional file filter."
+msgstr "File selector configuration with an optional file filter."
+
+msgid "Float Config"
+msgstr "Float Config"
+
+msgid "Folder Selector Config"
+msgstr "Folder Selector Config"
+
+msgid "Folder selector configuration that stores the selected folder path."
+msgstr "Folder selector configuration that stores the selected folder path."
+
+msgid "Game Hotkey Config"
+msgstr "Game Hotkey Config"
+
+msgid "Global server players: set this to 繁体中文"
+msgstr "Global server players: set this to Traditional Chinese"
+
+msgid "Hot Configs"
+msgstr "Hot Configs"
+
+msgid "Import Config Code"
+msgstr "Import Config Code"
+
+msgid "In Game Hotkey for Skills"
+msgstr "In Game Hotkey for Skills"
+
+msgid "Integer Config"
+msgstr "Integer Config"
+
+msgid "Liberation Key"
+msgstr "Liberation Key"
+
+msgid "List Config"
+msgstr "List Config"
+
+msgid "List Value 1"
+msgstr "List Value 1"
+
+msgid "List Value 2"
+msgstr "List Value 2"
+
+msgid "Multi Selection Config"
+msgstr "Multi Selection Config"
+
+msgid "Multi Selection Value 1"
+msgstr "Multi Selection Value 1"
+
+msgid "Multi Selection Value 2"
+msgstr "Multi Selection Value 2"
+
+msgid "Multi Selection Value 3"
+msgstr "Multi Selection Value 3"
+
+msgid "Multi-line string configuration with a translated value."
+msgstr "Multi-line string configuration with a translated value."
+
+msgid "OCR后端"
+msgstr "OCR Backend"
+
+msgid "OCR设置"
+msgstr "OCR Settings"
+
+msgid "Open the shared global configuration example."
+msgstr "Open the shared global configuration example."
+
+msgid "Rerolls the first flash-priority card by default (divine flash possible); auto evacuates if it is not obtained on floor 1"
+msgstr "Rerolls the first flash-priority card by default (divine flash possible); auto evacuates if it is not obtained on floor 1"
+
+msgid "Resonance Key"
+msgstr "Resonance Key"
+
+msgid "Save Config"
+msgstr "Save Config"
+
+msgid "Select Demo File"
+msgstr "Select Demo File"
+
+msgid "Select Demo Folder"
+msgstr "Select Demo Folder"
+
+msgid "Select one of the available drop-down values."
+msgstr "Select one of the available drop-down values."
+
+msgid "Select only available drop-down option values."
+msgstr "Select only available drop-down option values."
+
+msgid "Select only available multi-selection values."
+msgstr "Select only available multi-selection values."
+
+msgid "Semi-Auto Story Mode"
+msgstr "Semi-Auto Story Mode"
+
+msgid "Show Config Values"
+msgstr "Show Config Values"
+
+msgid "Show Notification"
+msgstr "Show Notification"
+
+msgid "Single-line string configuration with a translated value."
+msgstr "Single-line string configuration with a translated value."
+
+msgid "String Config"
+msgstr "String Config"
+
+msgid "String Value"
+msgstr "String Value"
+
+msgid "Sub Boolean Config"
+msgstr "Sub Boolean Config"
+
+msgid "Sub Float Config"
+msgstr "Sub Float Config"
+
+msgid "Sub String Config"
+msgstr "Sub String Config"
+
+msgid "Sub String Value"
+msgstr "Sub String Value"
+
+msgid "Switch Config"
+msgstr "Switch Config"
+
+msgid "Test Trigger"
+msgstr "Test Trigger"
+
+msgid "Text Edit Config"
+msgstr "Text Edit Config"
+
+msgid "Text Edit Value"
+msgstr "Text Edit Value"
+
+msgid "The starting tasks must include \"移除2张\", otherwise the run restarts; cannot be used together with \"刷初始卡牌\"."
+msgstr "The starting tasks must include \"Remove 2 Cards\", otherwise the run restarts; cannot be used together with \"Farm Starting Card\"."
+
+msgid "Tool Key"
+msgstr "Tool Key"
+
+msgid "True"
+msgstr "True"
+
+msgid "export_config"
+msgstr "Export Config"
+
+msgid "hottest_config"
+msgstr "Hot Configs"
+
+msgid "import_config"
+msgstr "Import Config"
+
 msgid "一键日常"
 msgstr "One-click Dailies"
+
+msgid "不暂停"
+msgstr "Do Not Pause"
+
+msgid "丢弃卡牌优先级"
+msgstr "Discard Card Priority"
+
+msgid "主战员优先级"
+msgstr "Team Member Priority"
+
+msgid "事件"
+msgstr "Event"
+
+msgid "从右往左出牌"
+msgstr "Play Cards from Right to Left"
 
 msgid "从要推的图的最左边开始"
 msgstr "Start from the leftmost stage to clear"
 
+msgid "任务优先级"
+msgstr "Task Priority"
+
+msgid "休息"
+msgstr "Rest"
+
+msgid "优先使用金币治疗"
+msgstr "Prioritize Gold for Healing"
+
+msgid "优先移除基础牌"
+msgstr "Prioritize Removing Basic Cards"
+
 msgid "体力本"
 msgstr "Stamina Stage"
+
+msgid "保留大于多少TB的存档"
+msgstr "Keep Save Data Above (TB)"
+
+msgid "保留存档"
+msgstr "Keep Save Data"
 
 msgid "公共区"
 msgstr "Public Area"
@@ -33,17 +350,86 @@ msgstr "SMG & MG"
 msgid "决策构象"
 msgstr "Decision Configuration"
 
+msgid "几轮后停止(0为不停止)"
+msgstr "Stop After N Rounds (0 = Never)"
+
+msgid "出战主战员优先级"
+msgstr "Lead Member Priority"
+
+msgid "出牌优先级"
+msgstr "Card Play Priority"
+
+msgid "刷初始卡牌"
+msgstr "Farm Starting Card"
+
+msgid "刷存档主战员"
+msgstr "Save-Farming Member"
+
+msgid "刷梦边"
+msgstr "Farm Dream Border"
+
+msgid "刷空档"
+msgstr "Farm Empty Slot"
+
 msgid "刷钱本"
 msgstr "Gold Farming Stage"
+
+msgid "半自动剧情模式"
+msgstr "Semi-Auto Story Mode"
+
+msgid "卡牌奖励优先级"
+msgstr "Card Reward Priority"
+
+msgid "只打第一层"
+msgstr "Floor 1 Only"
+
+msgid "国际服请设置为繁体中文"
+msgstr "Set this to Traditional Chinese for the international server."
+
+msgid "复制卡牌列表"
+msgstr "Card Duplication List"
+
+msgid "多少信用点以上冥想"
+msgstr "Min Credits for Meditation"
 
 msgid "大月卡"
 msgstr "Premium Monthly Card"
 
+msgid "存储数据价值大于等于多少层级"
+msgstr "Min Save Data Tier"
+
+msgid "导入配置"
+msgstr "Import Config"
+
+msgid "导出配置"
+msgstr "Export Config"
+
+msgid "小怪"
+msgstr "Normal Enemy"
+
 msgid "尘烟"
 msgstr "Dust Smoke"
 
+msgid ""
+"开启后每5分钟自动上传匿名的配置信息和胜率，帮助统计热门配置。\n"
+"不上传任何个人信息、游戏账号、截图、IP地址等隐私数据。\n"
+"仅上传配置内容和胜率统计数据。"
+msgstr ""
+"Automatically uploads anonymous config info and win rates every 5 minutes to help compile popular configs.\n"
+"Uploads no personal info, game accounts, screenshots, IP addresses, or other private data.\n"
+"Only config contents and win-rate statistics are uploaded."
+
 msgid "手枪"
 msgstr "HG"
+
+msgid "拉黑主战员"
+msgstr "Blacklisted Members"
+
+msgid "拉黑任务"
+msgstr "Blacklisted Tasks"
+
+msgid "指定面具卡牌"
+msgstr "Designated Mask Card"
 
 msgid "推图"
 msgstr "Clear Stages"
@@ -51,14 +437,35 @@ msgstr "Clear Stages"
 msgid "收菜"
 msgstr "Collect Resources"
 
+msgid "日文"
+msgstr "Japanese"
+
+msgid "是否上传配置"
+msgstr "Enable Config Upload"
+
+msgid "梦边"
+msgstr "Dream Border"
+
+msgid "治疗崩溃"
+msgstr "Treat Mental Breakdown"
+
 msgid "活动情报补给"
 msgstr "Event Intel Supply"
 
 msgid "活动自律"
 msgstr "Event Auto-Battle"
 
+msgid "测试trigger"
+msgstr "Test Trigger"
+
 msgid "深度搜索"
 msgstr "Deep Search"
+
+msgid "游戏语言"
+msgstr "Game Language"
+
+msgid "热门配置"
+msgstr "Hot Configs"
 
 msgid "狙击"
 msgstr "RF & BLD"
@@ -66,205 +473,102 @@ msgstr "RF & BLD"
 msgid "班组"
 msgstr "Squad"
 
+msgid "生命值大于多少优先闪光(百分比)"
+msgstr "HP Threshold for Flash Priority (%)"
+
+msgid "移除卡牌列表"
+msgstr "Card Removal List"
+
 msgid "突击"
 msgstr "AR & SG"
 
 msgid "竞技场"
 msgstr "Arena"
 
-msgid "自动刷体力"
-msgstr "Auto-Farm Stamina"
-
-msgid "购买免费礼包"
-msgstr "Claim Free Pack"
-
-msgid "邮件"
-msgstr "Mail"
-
-msgid "领任务"
-msgstr "Claim Missions"
-
-msgid "Configuration Demo Task"
-msgstr ""
-
-msgid "Demonstrates every configuration widget for English to Chinese translation."
-msgstr ""
-
-msgid "Drop Down Config"
-msgstr ""
-
-msgid "Boolean Config"
-msgstr ""
-
-msgid "Integer Config"
-msgstr ""
-
-msgid "Float Config"
-msgstr ""
-
-msgid "String Config"
-msgstr ""
-
-msgid "Text Edit Config"
-msgstr ""
-
-msgid "Folder Selector Config"
-msgstr ""
-
-msgid "File Selector Config"
-msgstr ""
-
-msgid "List Config"
-msgstr ""
-
-msgid "Drop Down Options Config"
-msgstr ""
-
-msgid "Multi Selection Config"
-msgstr ""
-
-msgid "Sub Boolean Config"
-msgstr ""
-
-msgid "Sub String Config"
-msgstr ""
-
-msgid "Sub Float Config"
-msgstr ""
-
-msgid "Game Hotkey Config"
-msgstr ""
-
-msgid "Button Config"
-msgstr ""
-
-msgid "Button Options Config"
-msgstr ""
-
-msgid "Drop-down configuration with translated option values."
-msgstr ""
-
-msgid "Single-line string configuration with a translated value."
-msgstr ""
-
-msgid "Multi-line string configuration with a translated value."
-msgstr ""
-
-msgid "Folder selector configuration that stores the selected folder path."
-msgstr ""
-
-msgid "File selector configuration with an optional file filter."
-msgstr ""
-
-msgid "Dropdown option list restricted to available translated values."
-msgstr ""
-
-msgid "Open the shared global configuration example."
-msgstr ""
-
-msgid "Button configuration that displays all current values."
-msgstr ""
-
-msgid "Button configuration with multiple action buttons."
-msgstr ""
-
-msgid "Drop Down Value 1"
-msgstr ""
-
-msgid "Drop Down Value 2"
-msgstr ""
-
-msgid "Select Demo Folder"
-msgstr ""
-
-msgid "Select Demo File"
-msgstr ""
-
-msgid "Multi Selection Value 1"
-msgstr ""
-
-msgid "Multi Selection Value 2"
-msgstr ""
-
-msgid "Multi Selection Value 3"
-msgstr ""
-
-msgid "Button Value"
-msgstr ""
-
-msgid "Show Config Values"
-msgstr ""
-
-msgid "Show Notification"
-msgstr ""
-
-msgid "Button notification displayed."
-msgstr ""
-
-msgid "Configuration values displayed."
-msgstr ""
-
-msgid "String Value"
-msgstr ""
-
-msgid "Text Edit Value"
-msgstr ""
-
-msgid "List Value 1"
-msgstr ""
-
-msgid "List Value 2"
-msgstr ""
-
-msgid "Sub String Value"
-msgstr ""
-
-msgid "Available Drop Down Value 1"
-msgstr ""
-
-msgid "Available Drop Down Value 2"
-msgstr ""
-
-msgid "Available Drop Down Value 3"
-msgstr ""
-
-msgid "True"
-msgstr ""
-
-msgid "False"
-msgstr ""
-
-msgid "Select one of the available drop-down values."
-msgstr ""
-
-msgid "Select only available multi-selection values."
-msgstr ""
-
-msgid "Select only available drop-down option values."
-msgstr ""
-
-msgid "游戏语言"
-msgstr "Game Language"
+msgid "第几层boss前自动暂停"
+msgstr "Auto-Pause Before Floor Boss"
 
 msgid "简体中文"
 msgstr "Simplified Chinese"
 
+msgid "精英"
+msgstr "Elite"
+
 msgid "繁体中文"
 msgstr "Traditional Chinese"
 
-msgid "国际服请设置为繁体中文"
-msgstr "Set this to Traditional Chinese for the international server."
+msgid "自动"
+msgstr "Auto"
 
-msgid ""
-"1. 自动战斗依赖按键识别，请在游戏设置中打开快捷键显示，提升出牌准确率。\n"
-"2. 国际服玩家请将本模式配置中的\"游戏语言\"设置为繁体中文。"
-msgstr ""
-"1. Auto battle relies on shortcut recognition. Enable shortcut display in the game settings for better accuracy.\n"
-"2. International server players should set Game Language to Traditional Chinese in this mode."
+msgid "自动出击模式"
+msgstr "Auto Sortie Mode"
 
-msgid ""
-"1. 请主动打开游戏内自动战斗和自动剧情功能。\n"
-"2. 国际服玩家请将本模式配置中的\"游戏语言\"设置为繁体中文。"
-msgstr ""
-"1. Enable auto battle and auto story in the game.\n"
-"2. International server players should set Game Language to Traditional Chinese in this mode."
+msgid "自动刷体力"
+msgstr "Auto-Farm Stamina"
+
+msgid "自动卡厄思模式"
+msgstr "Auto Chaos Mode"
+
+msgid "英文"
+msgstr "English"
+
+msgid "获得卡牌优先级"
+msgstr "Card Acquisition Priority"
+
+msgid "装备1号位优先级"
+msgstr "Slot 1 Equipment Priority"
+
+msgid "装备2号位优先级"
+msgstr "Slot 2 Equipment Priority"
+
+msgid "装备3号位优先级"
+msgstr "Slot 3 Equipment Priority"
+
+msgid "购买免费礼包"
+msgstr "Claim Free Pack"
+
+msgid "路线优先级"
+msgstr "Route Priority"
+
+msgid "跳过非优先级卡牌"
+msgstr "Skip Non-Priority Cards"
+
+msgid "进入商店"
+msgstr "Enter Shop"
+
+msgid "选择游戏客户端语言，影响OCR文本匹配"
+msgstr "Select game client language, affects OCR text matching"
+
+msgid "邮件"
+msgstr "Mail"
+
+msgid "配置上传"
+msgstr "Config Upload"
+
+msgid "配置操作"
+msgstr "Config Actions"
+
+msgid "闪光优先级"
+msgstr "Flash Priority"
+
+msgid "闪光卡牌列表"
+msgstr "Card Flash List"
+
+msgid "需要冥想的卡牌"
+msgstr "Cards Needing Meditation"
+
+msgid "面具卡牌刻印"
+msgstr "Mask Card Imprint"
+
+msgid "领任务"
+msgstr "Claim Missions"
+
+msgid "领取奖励"
+msgstr "Claim Rewards"
+
+msgid "领取奖励(只使用验证卡)"
+msgstr "Claim Rewards (Verification Cards Only)"
+
+msgid "首层刷特定闪光"
+msgstr "Farm Specific Flash on Floor 1"
+

@@ -1,65 +1,65 @@
 # ok-kes
 
-![ok-kes 图标](https://raw.githubusercontent.com/baoxin1100/ok-kes/master/icons/icon.png){ .hero-logo }
+![ok-kes icon](https://raw.githubusercontent.com/baoxin1100/ok-kes/master/icons/icon.png){ .hero-logo }
 
-一个基于图像识别的《卡厄思梦境》自动化辅助工具，支持后台运行。工具通过 Windows 接口模拟用户操作，不读取游戏内存，也不修改游戏文件。
+An image-recognition-based automation assistant for Chaos Zero Nightmare, with background mode support. The tool simulates user actions through Windows APIs — it never reads game memory and never modifies game files.
 
-!!! warning "使用须知"
-    本项目开源、免费，仅供个人学习和交流。使用者需要自行了解并承担使用第三方自动化工具的风险。
+!!! warning "Please Note"
+    This project is open-source and free, intended for personal learning and communication only. Users must understand and accept the risks of third-party automation tools on their own.
 
-## 快速开始
+## Quick Start
 
-1. 前往 [GitHub Releases](https://github.com/baoxin1100/ok-kes/releases) 下载最新的 `ok-kes-win32-portable-v*.exe`，不要下载 Source Code。
-2. 以管理员身份运行程序。
-3. 国际服玩家在所使用的自动模式配置中将“游戏语言”设为繁体中文。
-4. 根据使用场景启用自动卡厄思模式、自动出击模式或半自动剧情模式。
+1. Go to [GitHub Releases](https://github.com/baoxin1100/ok-kes/releases) and download the latest `ok-kes-win32-portable-v*.exe`; do not download the Source Code archive.
+2. Run the program as administrator.
+3. International server players: set "Game Language" to Traditional Chinese in the automation mode you use.
+4. Enable Auto Chaos Mode, Auto Sortie Mode, or Semi-Auto Story Mode as needed.
 
-## 主要功能
+## Main Features
 
-### 自动卡厄思模式
+### Auto Chaos Mode
 
-- 自动处理路线、事件、战斗、休息、商店和奖励结算。
-- 按配置管理卡牌的获取、移除、复制和闪光。
-- 支持装备选择、目标主战员、面具卡牌和存档相关流程。
-- 支持配置导入、导出及热门配置。
+- Auto handle routes, events, battles, rest areas, shops, and reward settlement.
+- Manage card acquisition, removal, copying, and flashing per your configuration.
+- Support equipment selection, target members, mask cards, and save-data flows.
+- Support config import, export, and hot configs.
 
-### 自动出击模式
+### Auto Sortie Mode
 
-- 根据卡牌优先级自动战斗和出牌。
-- 自动选择主战员、卡牌及路线节点。
-- 自动处理休息、商店、资源补充和奖励结算。
+- Auto Battle and play cards by card priority.
+- Auto select battle members, cards, and route nodes.
+- Auto handle rest areas, shops, supply refills, and reward settlement.
 
-### 半自动剧情模式
+### Semi-Auto Story Mode
 
-- 自动推进对话和查看事件。
-- 遇到战斗或卡厄思关卡时，可手动切换对应的自动模式。
+- Auto advance dialogues and view events.
+- When hitting battles or chaos stages, manually switch to the matching automation mode.
 
-## 使用要求
+## Requirements
 
-- Windows 系统，游戏使用 16:9 分辨率。
-- 推荐 1920×1080，也支持 1600×900 和 1280×720。
-- 关闭显卡滤镜、锐化和覆盖在游戏画面上的监控信息。
-- 卡厄思模式需要在游戏内开启自动战斗和自动剧情。
-- 自动战斗依赖快捷键识别，请在游戏设置中显示快捷键。
+- Windows with the game running at a 16:9 resolution.
+- 1920×1080 recommended; 1600×900 and 1280×720 also supported.
+- Disable GPU filters, sharpening, and monitoring overlays drawn over the game screen.
+- Chaos Mode requires auto-battle and auto-story to be enabled in the game.
+- Auto Battle depends on hotkey recognition; show hotkeys in the game settings.
 
-## 常见问题
+## FAQ
 
-### 工具无法识别游戏画面
+### The tool cannot recognize the game screen
 
-确认游戏语言配置正确，并关闭显卡滤镜、HDR 强化、锐化和画面覆盖层。游戏画面需要保持受支持的 16:9 分辨率。
+Check that the game language is configured correctly, and disable GPU filters, HDR enhancement, sharpening, and screen overlays. The game must stay at a supported 16:9 resolution.
 
-### 程序文件被拦截或删除
+### Program files get blocked or deleted
 
-将程序目录添加到 Windows Defender 或其他杀毒软件的信任区，并重新下载完整程序。
+Add the program directory to the exclusions of Windows Defender or your antivirus software, then re-download the full program.
 
-### 如何分享配置
+### How to share configs
 
-在模式配置页使用“导出配置”复制配置文本；其他用户可通过“导入配置”应用。也可以在开启配置上传后使用热门配置功能。
+Use "Export Config" on the mode config page to copy the config text; other users can apply it via "Import Config". You can also use hot configs after enabling config upload.
 
-## 社区与反馈
+## Community & Feedback
 
-- QQ 交流群：`901988096`（入群答案：`烟火焰`）
-- [QQ 频道](https://pd.qq.com/s/eopggnxcu)
+- QQ Group: `901988096` (Join answer: `烟火焰`)
+- [QQ Channel](https://pd.qq.com/s/eopggnxcu)
 - [GitHub Issues](https://github.com/baoxin1100/ok-kes/issues)
 
-开发者可继续阅读[开发指南](../development/index.md)和[软件需求与设计](../srd.md)。
+Developers can continue with the [development guide](../development/index.md) and [software requirements and design](../srd.md).

@@ -1,16 +1,16 @@
 """
-配置同步模块：Supabase 匿名上传/下载热门配置
+Config sync module: anonymous Supabase upload/download of hot configs.
 
-功能：
-1. 每5分钟自动上传匿名配置 + 胜率到 Supabase
-2. 获取热门配置列表（按胜率或使用人数排序）
-3. 应用热门配置到本地
+Features:
+1. Auto-upload anonymous config + win rate to Supabase every 5 minutes
+2. Fetch the hot config list (sorted by win rate or user count)
+3. Apply a hot config locally
 
-不上传任何个人信息，仅上传：
-- 配置的 base64 编码
-- 胜率统计数据
-- 配置版本号
-- 匿名用户标识（机器特征的哈希）
+Uploads no personal info, only:
+- base64-encoded config
+- win-rate statistics
+- config version
+- anonymous user id (hash of machine traits)
 """
 import os
 import hashlib
@@ -25,21 +25,21 @@ from config_io import (
     refresh_task_config_widgets,
 )
 
-# Supabase 配置
+# Supabase config
 SUPABASE_URL = "https://curzwmogotwmltaprmin.supabase.co"
 SUPABASE_ANON_KEY = "sb_publishable_9Kn7mcglnMHGPEkJbxZhuA_erescsdk"
 TABLE_NAME = "configs"
 
-# 上传间隔（秒）
-UPLOAD_INTERVAL = 300  # 5分钟
+# Upload interval (seconds)
+UPLOAD_INTERVAL = 300  # 5 minutes
 
-# 有效数据最低场数（后期用户多了可以改大）
+# Minimum runs for valid data (raise later once there are more users)
 MIN_ROUNDS = 5
 SUPPORTED_GAME_LANGUAGES = ("简体中文", "繁体中文")
 
 
 def _get_version():
-    """从 src/config.py 读取当前版本号。"""
+    """Read the current version from src/config.py."""
     try:
         from src.config import version
         return version
@@ -48,10 +48,11 @@ def _get_version():
 
 
 def _get_user_hash() -> str:
-    """生成匿名用户标识：基于机器特征的一次性哈希。
-    
-    组合 MAC 地址、主机名、用户名，取 SHA256 的前 16 位作为用户标识。
-    每次启动后缓存，保证同一台机器标识不变。
+    """Generate an anonymous user id: a one-time hash of machine traits.
+
+    Combines MAC address, host name and user name, taking the first 16 hex
+    chars of SHA256 as the user id. Cached after startup so one machine
+    keeps the same id.
     """
     if not hasattr(_get_user_hash, '_cache'):
         try:
@@ -67,21 +68,21 @@ def _get_user_hash() -> str:
 
 
 def _get_win_rate(task: TriggerTask) -> float:
-    """从 task.node_status 读取当前胜率。"""
+    """Read the current win rate from task.node_status."""
     ns = getattr(task, 'node_status', None)
     if not ns:
         return 0.0
     total = ns.get('total_rounds', 0)
     success = ns.get('success_rounds', 0)
     if total < MIN_ROUNDS:
-        return -1.0  # 数据不足
+        return -1.0  # not enough data
     return success / total if total > 0 else 0.0
 
 
 def _should_upload(task: TriggerTask) -> bool:
-    """检查是否满足上传条件：
-    1. 全局配置"是否上传配置"为 True
-    2. 有足够的战斗场数
+    """Check upload conditions:
+    1. Global config "是否上传配置" is True
+    2. Enough battle runs recorded
     """
     try:
         lang_config = task.executor.global_config.get_config('配置上传')
@@ -90,20 +91,20 @@ def _should_upload(task: TriggerTask) -> bool:
         enabled = True
     win_rate = _get_win_rate(task)
     if win_rate < 0:
-        task.log_debug(f"[配置同步] 数据不足{MIN_ROUNDS}场，跳过上传")
+        task.log_debug(f"[Config Sync] Fewer than {MIN_ROUNDS} runs, skipping upload")
         return False
     return bool(enabled)
 
 
 def upload_config(task: TriggerTask, mode: str) -> bool:
-    """上传当前配置到 Supabase。
-    
+    """Upload the current config to Supabase.
+
     Args:
-        task: TriggerTask 实例
-        mode: "chaos" 或 "sortie"
-    
+        task: TriggerTask instance
+        mode: "chaos" or "sortie"
+
     Returns:
-        bool: 是否上传成功
+        bool: whether the upload succeeded
     """
     if not _should_upload(task):
         return False
@@ -122,10 +123,10 @@ def upload_config(task: TriggerTask, mode: str) -> bool:
     user_hash = _get_user_hash()
     config_ver = _get_version()
 
-    # 读取当前模式配置的游戏语言
+    # Read the game language of the current mode config
     game_lang = str(task.config.get('游戏语言', '简体中文')).strip() or '简体中文'
 
-    # 出击模式记录首选主战员，卡厄思模式记录刷存档主战员
+    # Sortie Mode records the first lead member, Chaos Mode records the save-farming member
     first_member = ""
     if mode == "sortie":
         try:
@@ -166,13 +167,13 @@ def upload_config(task: TriggerTask, mode: str) -> bool:
             timeout=10,
         )
         if resp.status_code in (200, 201, 204):
-            task.log_debug(f"[配置同步] 上传成功 (mode={mode}, win_rate={win_rate:.1%})")
+            task.log_debug(f"[Config Sync] Upload succeeded (mode={mode}, win_rate={win_rate:.1%})")
             return True
         else:
-            task.log_info(f"[配置同步] 上传失败: HTTP {resp.status_code} {resp.text[:200]}")
+            task.log_info(f"[Config Sync] Upload failed: HTTP {resp.status_code} {resp.text[:200]}")
             return False
     except requests.RequestException as e:
-        task.log_info(f"[配置同步] 上传异常: {e}")
+        task.log_info(f"[Config Sync] Upload error: {e}")
         return False
 
 
@@ -182,23 +183,23 @@ def fetch_popular_configs(
     limit: int = 20,
     version: str = None,
 ) -> list:
-    """从 Supabase 获取热门配置列表。
-    
+    """Fetch the hot config list from Supabase.
+
     Args:
-        mode: "chaos" 或 "sortie"
-        sort_by: "winrate"（按平均胜率降序）或 "users"（按使用人数降序）
-        limit: 返回条数
-        version: 可选，过滤配置版本
-    
+        mode: "chaos" or "sortie"
+        sort_by: "winrate" (avg win rate desc) or "users" (user count desc)
+        limit: number of entries to return
+        version: optional config version filter
+
     Returns:
-        list[dict]: 每个元素包含 config_b64, avg_win_rate, user_count 等
+        list[dict]: each entry holds config_b64, avg_win_rate, user_count, etc.
     """
     headers = {
         "apikey": SUPABASE_ANON_KEY,
         "Authorization": f"Bearer {SUPABASE_ANON_KEY}",
     }
 
-    # 每种语言分别获取数据，避免全局按胜率截断后小语种完全进不了客户端
+    # Fetch per language so global win-rate truncation cannot wipe out smaller languages
     base_params = {
         "select": "config_b64,config_ver,game_lang,first_member,win_rate,total_rounds,user_hash",
         "mode": f"eq.{mode}",
@@ -229,7 +230,7 @@ def fetch_popular_configs(
     if not records:
         return []
 
-    # 相同配置按游戏语言分别聚合，避免简体和繁体数据互相覆盖
+    # Aggregate identical configs per game language so Simplified and Traditional data don't overwrite each other
     groups = {}
     for r in records:
         game_lang = r.get("game_lang") or "简体中文"
@@ -246,7 +247,7 @@ def fetch_popular_configs(
         groups[key]["win_rates"].append(r["win_rate"])
         groups[key]["users"].add(r["user_hash"])
 
-    # 计算聚合结果
+    # Compute aggregated results
     result = []
     for key, g in groups.items():
         user_count = len(g["users"])
@@ -262,13 +263,13 @@ def fetch_popular_configs(
             "total_submissions": len(g["win_rates"]),
         })
 
-    # 排序
+    # Sort
     if sort_by == "users":
         result.sort(key=lambda x: (-x["user_count"], -x["avg_win_rate"]))
     else:  # winrate
         result.sort(key=lambda x: (-x["avg_win_rate"], -x["user_count"]))
 
-    # 每种语言分别保留 limit 条，避免最终排序再次淘汰数据量较少的语言
+    # Keep limit entries per language so the final sort cannot drop smaller languages again
     language_counts = {}
     limited_result = []
     for r in result:
@@ -283,7 +284,7 @@ def fetch_popular_configs(
 
 
 def check_upload_disabled_and_warn(task: TriggerTask) -> bool:
-    """检查配置上传是否已关闭，若关闭则弹窗提示并返回 True。"""
+    """Warn when config upload is disabled; return True in that case."""
     try:
         lang_config = task.executor.global_config.get_config('配置上传')
         upload_enabled = lang_config.get('是否上传配置', True)
@@ -292,16 +293,16 @@ def check_upload_disabled_and_warn(task: TriggerTask) -> bool:
     if not upload_enabled:
         from PySide6.QtWidgets import QMessageBox
         QMessageBox.warning(
-            None, "热门配置不可用",
-            "请先在左下角设置页中开启「配置上传」功能，才能使用热门配置。\n\n"
-            "开启后，您可以浏览和下载其他高胜率玩家分享的配置。"
+            None, "Hot Configs Unavailable",
+            "Enable \"配置上传\" in the settings page at the bottom left first to use Hot Configs.\n\n"
+            "Once enabled, you can browse and download configs shared by high-win-rate players."
         )
         return True
     return False
 
 
 def check_upload_if_needed(task: TriggerTask, mode: str):
-    """每 UPLOAD_INTERVAL 秒自动上传一次配置。"""
+    """Auto-upload the config every UPLOAD_INTERVAL seconds."""
     import time
     now = time.time()
     if now - getattr(task, '_last_upload_time', 0) >= UPLOAD_INTERVAL:
@@ -310,11 +311,11 @@ def check_upload_if_needed(task: TriggerTask, mode: str):
 
 
 def show_hot_configs_dialog(task: TriggerTask, mode: str):
-    """弹出热门配置选择对话框。
-    
+    """Pop up the hot config picker dialog.
+
     Args:
-        task: TriggerTask 实例
-        mode: "chaos" 或 "sortie"
+        task: TriggerTask instance
+        mode: "chaos" or "sortie"
     """
     from PySide6.QtWidgets import (
         QDialog, QVBoxLayout, QHBoxLayout, QLabel, QListWidget,
@@ -325,76 +326,76 @@ def show_hot_configs_dialog(task: TriggerTask, mode: str):
     if check_upload_disabled_and_warn(task):
         return
 
-    mode_name = "卡厄思模式" if mode == "chaos" else "出击模式"
+    mode_name = "Chaos Mode" if mode == "chaos" else "Sortie Mode"
     dialog = QDialog()
-    dialog.setWindowTitle(f"热门配置 - {mode_name}")
+    dialog.setWindowTitle(f"Hot Configs - {mode_name}")
     dialog.resize(650, 500)
 
     layout = QVBoxLayout(dialog)
 
-    # 筛选行：排序方式 + 出战主战员筛选
+    # Filter row: sort order + lead member filter
     filter_layout = QHBoxLayout()
-    sort_label = QLabel("排序方式：")
+    sort_label = QLabel("Sort by:")
     sort_combo = QComboBox()
-    sort_combo.addItem("按胜率降序", "winrate")
-    sort_combo.addItem("按使用人数降序", "users")
+    sort_combo.addItem("Win rate (desc)", "winrate")
+    sort_combo.addItem("User count (desc)", "users")
     filter_layout.addWidget(sort_label)
     filter_layout.addWidget(sort_combo)
 
-    # 语言筛选
-    lang_filter_label = QLabel("语言：")
+    # Language filter
+    lang_filter_label = QLabel("Language:")
     lang_filter_combo = QComboBox()
-    lang_filter_combo.addItem("不限", "")
+    lang_filter_combo.addItem("All", "")
     filter_layout.addWidget(lang_filter_label)
     filter_layout.addWidget(lang_filter_combo)
 
-    # 成员筛选：出击模式筛选首选主战员，卡厄思模式筛选刷存档主战员
+    # Member filter: first lead member for Sortie Mode, save-farming member for Chaos Mode
     member_filter_label = QLabel(
-        "出战主战员：" if mode == "sortie" else "刷存档主战员："
+        "Lead Member:" if mode == "sortie" else "Save-farming Member:"
     )
     member_filter_combo = QComboBox()
-    member_filter_combo.addItem("不限", "")
+    member_filter_combo.addItem("All", "")
     filter_layout.addWidget(member_filter_label)
     filter_layout.addWidget(member_filter_combo)
 
     filter_layout.addStretch()
     layout.addLayout(filter_layout)
 
-    # 加载提示
-    loading_label = QLabel("正在加载热门配置，请稍候...")
+    # Loading hint
+    loading_label = QLabel("Loading hot configs, please wait...")
     loading_label.setStyleSheet("color: gray; padding: 20px;")
     loading_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
     layout.addWidget(loading_label)
 
-    # 列表
+    # List
     config_list = QListWidget()
     config_list.setVisible(False)
     layout.addWidget(config_list)
 
-    # 按钮
+    # Buttons
     btn_layout = QHBoxLayout()
-    refresh_btn = QPushButton("刷新")
-    apply_btn = QPushButton("应用所选配置")
+    refresh_btn = QPushButton("Refresh")
+    apply_btn = QPushButton("Apply Selected Config")
     apply_btn.setEnabled(False)
-    cancel_btn = QPushButton("取消")
+    cancel_btn = QPushButton("Cancel")
     btn_layout.addWidget(refresh_btn)
     btn_layout.addStretch()
     btn_layout.addWidget(apply_btn)
     btn_layout.addWidget(cancel_btn)
     layout.addLayout(btn_layout)
 
-    # 缓存所有结果
+    # Cache all results
     all_results = []
 
     def load_configs():
         nonlocal all_results
         sort_by = sort_combo.currentData()
         all_results = fetch_popular_configs(mode=mode, sort_by=sort_by, limit=200)
-        # 更新语言筛选下拉框选项
+        # Refresh language filter options
         current_lang = lang_filter_combo.currentData() or ""
         lang_filter_combo.blockSignals(True)
         lang_filter_combo.clear()
-        lang_filter_combo.addItem("不限", "")
+        lang_filter_combo.addItem("All", "")
         langs = sorted(set(r.get("game_lang", "简体中文") for r in all_results if r.get("game_lang")))
         for lang in langs:
             lang_filter_combo.addItem(lang, lang)
@@ -402,16 +403,16 @@ def show_hot_configs_dialog(task: TriggerTask, mode: str):
         if idx >= 0:
             lang_filter_combo.setCurrentIndex(idx)
         lang_filter_combo.blockSignals(False)
-        # 更新成员筛选下拉框选项
+        # Refresh member filter options
         if member_filter_combo is not None:
             current_member = member_filter_combo.currentData() or ""
             member_filter_combo.blockSignals(True)
             member_filter_combo.clear()
-            member_filter_combo.addItem("不限", "")
+            member_filter_combo.addItem("All", "")
             members = sorted(set(r.get("first_member", "") for r in all_results if r.get("first_member")))
             for m in members:
                 member_filter_combo.addItem(m, m)
-            # 恢复之前选择的筛选项
+            # Restore the previous filter selection
             idx = member_filter_combo.findData(current_member)
             if idx >= 0:
                 member_filter_combo.setCurrentIndex(idx)
@@ -420,18 +421,18 @@ def show_hot_configs_dialog(task: TriggerTask, mode: str):
 
     def apply_filters():
         filtered = all_results
-        # 语言筛选
+        # Language filter
         selected_lang = lang_filter_combo.currentData()
         if selected_lang:
             filtered = [r for r in filtered if r.get("game_lang", "简体中文") == selected_lang]
-        # 成员筛选
+        # Member filter
         selected_member = member_filter_combo.currentData() if member_filter_combo else ""
         if selected_member:
             filtered = [r for r in filtered if r.get("first_member", "") == selected_member]
         config_list.clear()
         loading_label.setVisible(False)
         if not filtered:
-            item = QListWidgetItem("暂无热门配置数据（至少需要5场有效数据才会被统计）")
+            item = QListWidgetItem("No hot config data yet (at least 5 valid runs are required)")
             config_list.addItem(item)
             return
         for i, r in enumerate(filtered[:20], 1):
@@ -441,10 +442,10 @@ def show_hot_configs_dialog(task: TriggerTask, mode: str):
             gl = r.get("game_lang", "简体中文")
             fm = r.get("first_member", "")
             if fm:
-                member_label = "主战员" if mode == "sortie" else "刷存档主战员"
-                text = f"#{i}  胜率: {wr:.0%}  使用人数: {uc}  {member_label}: {fm}  语言: {gl}  版本: {ver}"
+                member_label = "Member" if mode == "sortie" else "Save-farming member"
+                text = f"#{i}  Win rate: {wr:.0%}  Users: {uc}  {member_label}: {fm}  Language: {gl}  Version: {ver}"
             else:
-                text = f"#{i}  胜率: {wr:.0%}  使用人数: {uc}  语言: {gl}  版本: {ver}"
+                text = f"#{i}  Win rate: {wr:.0%}  Users: {uc}  Language: {gl}  Version: {ver}"
             item = QListWidgetItem(text)
             item.setData(0x100, r)  # 36 = Qt.UserRole
             config_list.addItem(item)
@@ -463,20 +464,20 @@ def show_hot_configs_dialog(task: TriggerTask, mode: str):
         if not r:
             return
         reply = QMessageBox.question(
-            dialog, "确认应用",
-            f"将应用所选配置（胜率: {r['avg_win_rate']:.0%}, 使用人数: {r['user_count']}）\n当前配置将被覆盖。\n\n是否继续？",
+            dialog, "Confirm Apply",
+            f"Apply the selected config (win rate: {r['avg_win_rate']:.0%}, users: {r['user_count']})\nThe current config will be overwritten.\n\nContinue?",
             QMessageBox.Yes | QMessageBox.No,
         )
         if reply == QMessageBox.Yes:
             success = _import_config_from_text(task, r["config_b64"])
             if success:
-                QMessageBox.information(dialog, "导入成功", "热门配置已成功应用！")
+                QMessageBox.information(dialog, "Import Successful", "Hot config applied!")
                 refresh_task_config_widgets(task)
                 dialog.accept()
             else:
-                QMessageBox.warning(dialog, "导入失败", "配置解析失败，请重试。")
+                QMessageBox.warning(dialog, "Import Failed", "Config parse failed, please retry.")
 
-    # 绑定事件
+    # Bind events
     sort_combo.currentIndexChanged.connect(on_filter_changed)
     lang_filter_combo.currentIndexChanged.connect(on_filter_changed)
     if member_filter_combo is not None:
@@ -486,7 +487,7 @@ def show_hot_configs_dialog(task: TriggerTask, mode: str):
     apply_btn.clicked.connect(on_apply)
     cancel_btn.clicked.connect(dialog.reject)
 
-    # 初始加载
+    # Initial load
     loading_label.setVisible(True)
     load_configs()
     config_list.setVisible(True)
