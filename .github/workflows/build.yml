@@ -71,7 +71,9 @@ jobs:
 
       - name: Sync Repositories
         id: sync
-        if: ${{ secrets.CNB_TOKEN != '' }}
+        env:
+          CNB_TOKEN: ${{ secrets.CNB_TOKEN }}
+        if: env.CNB_TOKEN != ''
         uses: ok-oldking/partial-sync-repo@master
         with:
           repos: |
