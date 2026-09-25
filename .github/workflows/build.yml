@@ -8,6 +8,16 @@ on:
     tags:
       - 'v*'
   workflow_dispatch:
+    inputs:
+      publish_release:
+        description: 'Publish as a GitHub Release'
+        required: true
+        type: boolean
+        default: true
+      version_tag:
+        description: 'Version tag (e.g. v1.0.0)'
+        required: false
+        default: 'v1.0.0'
 
 jobs:
   build:
@@ -83,13 +93,16 @@ jobs:
 
       - name: Release
         uses: softprops/action-gh-release@v2
-        if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && inputs.publish_release)
         with:
+          tag_name: ${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || inputs.version_tag || 'v1.0.0' }}
+          name: MBG-Kes ${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || inputs.version_tag || 'v1.0.0' }}
           draft: false
-          name: MBG-Kes ${{ github.ref_name }}
+          prerelease: false
           body: |
-            ### Release Notes ${{ steps.sync.outputs.start_tag }} -> ${{ steps.sync.outputs.end_tag }}:
-            ${{ steps.sync.outputs.changes_with_asterisk }}
+            ### MBG-Kes Release
+            Automated standalone build for MBG-Kes (*Chaos Zero Nightmare* Assistant).
+
             ### Download
             * Download the standalone installer package below: `MBG-Kes-win32-China-setup.exe`
           files: pyappify_dist/*
