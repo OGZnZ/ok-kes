@@ -184,10 +184,9 @@ config = {
     },
     'links': { # Links shown in the About page, optional
             'default': {
-                'github': 'https://github.com/baoxin1100/ok-kes',
-                'share': 'GitHub: https://github.com/baoxin1100/ok-kes/releases; MirrorChyan: https://mirrorchyan.com/zh/projects?rid=ok-kes; Baidu Netdisk: https://pan.baidu.com/s/156h76VWpUwPIffkZqFy_dw?pwd=okes; Quark Netdisk: https://pan.quark.cn/s/13b266aa8e80',
-                'qq_channel': 'https://pd.qq.com/s/eopggnxcu',
-                'faq': 'https://github.com/baoxin1100/ok-kes',
+                'github': 'https://github.com/OGZnZ/ok-kes',
+                'share': 'GitHub: https://github.com/OGZnZ/ok-kes/releases',
+                'faq': 'https://github.com/OGZnZ/ok-kes',
                 'sponsor': 'local'
             }
         },

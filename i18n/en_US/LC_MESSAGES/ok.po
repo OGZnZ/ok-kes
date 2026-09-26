@@ -578,3 +578,123 @@ msgstr "Upload Config"
 msgid "Upload Config Info"
 msgstr "Upload Config Info"
 
+
+msgid "任务"
+msgstr "Tasks"
+
+msgid "设置"
+msgstr "Settings"
+
+msgid "日志"
+msgstr "Logs"
+
+msgid "开始"
+msgstr "Start"
+
+msgid "暂停"
+msgstr "Pause"
+
+msgid "停止"
+msgstr "Stop"
+
+msgid "运行中"
+msgstr "Running"
+
+msgid "已停止"
+msgstr "Stopped"
+
+msgid "出击模式"
+msgstr "Auto Sortie Mode"
+
+msgid "剧情模式"
+msgstr "Auto Story Mode"
+
+msgid "刷梦之边境"
+msgstr "Farm Dream Border Card"
+
+msgid "测试触发任务"
+msgstr "Test Trigger Task"
+
+msgid "QQ群"
+msgstr "QQ Group"
+
+msgid "QQ频道"
+msgstr "QQ Channel"
+
+msgid "启动游戏"
+msgstr "Launch Game"
+
+msgid "启动应用"
+msgstr "Launch App"
+
+msgid "主界面"
+msgstr "Home"
+
+msgid "关于"
+msgstr "About"
+
+msgid "更新"
+msgstr "Update"
+
+msgid "检查更新"
+msgstr "Check for updates"
+
+msgid "版本"
+msgstr "Version"
+
+msgid "确定"
+msgstr "Confirm"
+
+msgid "取消"
+msgstr "Cancel"
+
+msgid "重置配置"
+msgstr "Reset Config"
+
+msgid "添加开始菜单快捷方式"
+msgstr "Add Start Menu Shortcut"
+
+msgid "操作"
+msgstr "Operation"
+
+msgid "计划任务"
+msgstr "Schedule Tasks"
+
+msgid "触发任务"
+msgstr "Trigger Tasks"
+
+msgid "一键任务"
+msgstr "One-Time Tasks"
+
+msgid "清空日志"
+msgstr "Clear Logs"
+
+msgid "导出日志"
+msgstr "Export Logs"
+
+msgid "打开日志目录"
+msgstr "Open Log Directory"
+
+msgid "截图"
+msgstr "Screenshot"
+
+msgid "已连接"
+msgstr "Connected"
+
+msgid "未连接"
+msgstr "Disconnected"
+
+msgid "连接失败"
+msgstr "Connection Failed"
+
+msgid "游戏窗口"
+msgstr "Game Window"
+
+msgid "模拟器"
+msgstr "Emulator"
+
+msgid "QQ Group"
+msgstr "QQ Group"
+
+msgid "QQ Channel"
+msgstr "QQ Channel"
