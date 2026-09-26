@@ -807,3 +807,1455 @@ msgstr "Magna"
 msgid "黛安娜"
 msgstr "Diana"
 
+
+msgid "0"
+msgstr "0"
+
+msgid "0节奏"
+msgstr "0 Rhythm"
+
+msgid "Call & Response"
+msgstr "Call & Response"
+
+msgid "G和弦"
+msgstr "G Chord"
+
+msgid "NA：攻击反应"
+msgstr "NA: Attack Reaction"
+
+msgid "NA：防御反应"
+msgstr "NA: Defensive Reaction"
+
+msgid "一縷光芒"
+msgstr "A Ray of Light"
+
+msgid "万人的英雄"
+msgstr "Hero of Ten Thousand"
+
+msgid "万人英雄"
+msgstr "Hero of Ten Thousand"
+
+msgid "万众"
+msgstr "Masses"
+
+msgid "万用卡牌"
+msgstr "Universal Card"
+
+msgid "万能卡牌"
+msgstr "Universal Card"
+
+msgid "主动控制"
+msgstr "Active Control"
+
+msgid "之根源"
+msgstr "Source Of"
+
+msgid "之雨"
+msgstr "Rain Of"
+
+msgid "事件视界"
+msgstr "Event Horizon"
+
+msgid "人的英雄"
+msgstr "Hero of People"
+
+msgid "众英"
+msgstr "All Heroes"
+
+msgid "众英雄"
+msgstr "All Heroes"
+
+msgid "作戰分析"
+msgstr "Combat Analysis"
+
+msgid "保护我"
+msgstr "Protect Me"
+
+msgid "儘管尖叫吧"
+msgstr "Scream All You Want"
+
+msgid "尽情尖叫吧"
+msgstr "Scream All You Want"
+
+msgid "光之意志"
+msgstr "Will of Light"
+
+msgid "光之治愈"
+msgstr "Healing of Light"
+
+msgid "光剑"
+msgstr "Light Sword"
+
+msgid "共鸣之暗"
+msgstr "Resonating Darkness"
+
+msgid "冰霜护盾"
+msgstr "Frost Shield"
+
+msgid "准备发射"
+msgstr "Prepare to Fire"
+
+msgid "凝結極光"
+msgstr "Condense Aurora"
+
+msgid "凝结"
+msgstr "Condense"
+
+msgid "凝结极光"
+msgstr "Condense Aurora"
+
+msgid "凝霜之拳"
+msgstr "Frost Fist"
+
+msgid "刀背"
+msgstr "Blade Back"
+
+msgid "刀背格挡"
+msgstr "Blade Back Block"
+
+msgid "创造与破坏"
+msgstr "Creation & Destruction"
+
+msgid "剑"
+msgstr "Sword"
+
+msgid "剑为"
+msgstr "Sword As"
+
+msgid "剑之"
+msgstr "Sword Of"
+
+msgid "剑之雨"
+msgstr "Rain of Swords"
+
+msgid "剑叶"
+msgstr "Sword Leaf"
+
+msgid "剑号"
+msgstr "Sword Mark"
+
+msgid "剑慕"
+msgstr "Sword Curtain"
+
+msgid "剑摹"
+msgstr "Sword Curtain"
+
+msgid "劍之雨"
+msgstr "Rain of Swords"
+
+msgid "劍光"
+msgstr "Sword Light"
+
+msgid "劍幕"
+msgstr "Sword Curtain"
+
+msgid "卡牌"
+msgstr "Card"
+
+msgid "双重造物"
+msgstr "Double Creation"
+
+msgid "哀鸣吧"
+msgstr "Wail Aloud"
+
+msgid "喘息"
+msgstr "Catch Breath"
+
+msgid "喘气"
+msgstr "Gasp"
+
+msgid "回应呼唤"
+msgstr "Answer the Call"
+
+msgid "基本攻击"
+msgstr "Basic Attack"
+
+msgid "基本攻寫"
+msgstr "Basic Attack"
+
+msgid "基本攻撃"
+msgstr "Basic Attack"
+
+msgid "基本攻擎"
+msgstr "Basic Attack"
+
+msgid "基本攻整"
+msgstr "Basic Attack"
+
+msgid "基本攻敷"
+msgstr "Basic Attack"
+
+msgid "基本攻繁"
+msgstr "Basic Attack"
+
+msgid "基本攻雪"
+msgstr "Basic Attack"
+
+msgid "基础技"
+msgstr "Basic Skill"
+
+msgid "基础技能"
+msgstr "Basic Skill"
+
+msgid "多重射擊"
+msgstr "Multi-Shot"
+
+msgid "多重箭"
+msgstr "Multi-Arrow"
+
+msgid "契母的祝福"
+msgstr "Mother's Blessing"
+
+msgid "孤胆游侠"
+msgstr "Lone Ranger"
+
+msgid "孤胆游侠抽取2"
+msgstr "Lone Ranger: Draw 2"
+
+msgid "安可"
+msgstr "Encore"
+
+msgid "安息"
+msgstr "Rest in Peace"
+
+msgid "寄生孢子"
+msgstr "Parasitic Spore"
+
+msgid "展开"
+msgstr "Deploy"
+
+msgid "展开屏障"
+msgstr "Deploy Barrier"
+
+msgid "展開極光"
+msgstr "Deploy Aurora"
+
+msgid "幕"
+msgstr "Curtain"
+
+msgid "开极光"
+msgstr "Deploy Aurora"
+
+msgid "开极子"
+msgstr "Deploy Aurora"
+
+msgid "弓箭护卫"
+msgstr "Bow Guard"
+
+msgid "弓護"
+msgstr "Bow Guard"
+
+msgid "强力和弦"
+msgstr "Power Chord"
+
+msgid "形态凝"
+msgstr "Form Condensation"
+
+msgid "形态凝聚"
+msgstr "Form Condensation"
+
+msgid "恶魔骰子"
+msgstr "Demon Dice"
+
+msgid "慢板"
+msgstr "Adagio"
+
+msgid "扩音治疗"
+msgstr "Amplified Healing"
+
+msgid "扰乱射击"
+msgstr "Disruptive Shot"
+
+msgid "抽取&释放"
+msgstr "Draw & Release"
+
+msgid "抽取&释放抽取2张先导卡牌"
+msgstr "Draw & Release: Draw 2 Vanguard Cards"
+
+msgid "抽取&释放抽取同等数量的卡牌"
+msgstr "Draw & Release: Draw Equal Number of Cards"
+
+msgid "拉弓&放箭"
+msgstr "Draw Bow & Shoot Arrow"
+
+msgid "拉弓&放箭抽取2"
+msgstr "Draw Bow & Shoot Arrow: Draw 2"
+
+msgid "拍照时间"
+msgstr "Photo Time"
+
+msgid "摧残束缚"
+msgstr "Cruel Binding"
+
+msgid "攻击反应"
+msgstr "Attack Reaction"
+
+msgid "散刃"
+msgstr "Scattered Blades"
+
+msgid "文击"
+msgstr "Attack"
+
+msgid "斗志"
+msgstr "Fighting Spirit"
+
+msgid "斜綫斬擊"
+msgstr "Slanted Slash"
+
+msgid "斜線斩擊"
+msgstr "Slanted Slash"
+
+msgid "斜線斬擊"
+msgstr "Slanted Slash"
+
+msgid "斜线斩"
+msgstr "Slanted Slash"
+
+msgid "斩击"
+msgstr "Slash"
+
+msgid "斬月"
+msgstr "Zangetsu"
+
+msgid "断绝之隙"
+msgstr "Rift of Severance"
+
+msgid "旋涡"
+msgstr "Vortex"
+
+msgid "无尽贪欲"
+msgstr "Endless Greed"
+
+msgid "无限的饥饿"
+msgstr "Infinite Hunger"
+
+msgid "暗影凝聚"
+msgstr "Shadow Condensation"
+
+msgid "暗物质"
+msgstr "Dark Matter"
+
+msgid "暗黑之刃"
+msgstr "Dark Blade"
+
+msgid "月讀"
+msgstr "Tsukuyomi"
+
+msgid "极光"
+msgstr "Aurora"
+
+msgid "根深蒂固"
+msgstr "Deeply Rooted"
+
+msgid "检查声音"
+msgstr "Sound Check"
+
+msgid "業火"
+msgstr "Hellfire"
+
+msgid "極光劍"
+msgstr "Aurora Blade"
+
+msgid "欲焰飞散"
+msgstr "Scattered Flames of Desire"
+
+msgid "止渴"
+msgstr "Quench Thirst"
+
+msgid "水之根源"
+msgstr "Source of Water"
+
+msgid "水之箭"
+msgstr "Water Arrow"
+
+msgid "水箭"
+msgstr "Water Arrow"
+
+msgid "水護盾"
+msgstr "Water Shield"
+
+msgid "泛滥"
+msgstr "Inundation"
+
+msgid "洗牌"
+msgstr "Shuffle"
+
+msgid "海浪的庇佑"
+msgstr "Blessing of Waves"
+
+msgid "海潮的庇佑"
+msgstr "Shelter of the Tide"
+
+msgid "消除杂音"
+msgstr "Noise Elimination"
+
+msgid "深红领域"
+msgstr "Crimson Domain"
+
+msgid "漩涡"
+msgstr "Vortex"
+
+msgid "火力全开"
+msgstr "Full Firepower"
+
+msgid "灭烬斩"
+msgstr "Ash Extermination Slash"
+
+msgid "灵魂律动"
+msgstr "Soul Rhythm"
+
+msgid "点心时间"
+msgstr "Snack Time"
+
+msgid "物质分解"
+msgstr "Matter Decomposition"
+
+msgid "疾驰散刃"
+msgstr "Galloping Scattered Blades"
+
+msgid "的卫束"
+msgstr "Guard's Binding"
+
+msgid "的英"
+msgstr "Hero"
+
+msgid "的英雄"
+msgstr "Hero"
+
+msgid "盡管尖叫吧"
+msgstr "Scream All You Want"
+
+msgid "破碎"
+msgstr "Shatter"
+
+msgid "破镜重圆"
+msgstr "Broken Mirror Reunited"
+
+msgid "础技"
+msgstr "Basic Skill"
+
+msgid "础技能"
+msgstr "Basic Skill"
+
+msgid "科沃斯基爵士"
+msgstr "Sir Kowalski"
+
+msgid "等离子之雨"
+msgstr "Plasma Rain"
+
+msgid "粉丝应援"
+msgstr "Fan Support"
+
+msgid "粉丝福利"
+msgstr "Fan Perks"
+
+msgid "紧急掩体"
+msgstr "Emergency Bunker"
+
+msgid "縷光芒"
+msgstr "A Ray of Light"
+
+msgid "缕"
+msgstr "A Ray"
+
+msgid "缕光"
+msgstr "A Ray of Light"
+
+msgid "老练一击"
+msgstr "Veteran Strike"
+
+msgid "聚光灯"
+msgstr "Spotlight"
+
+msgid "致命一击"
+msgstr "Fatal Strike"
+
+msgid "致命伤口"
+msgstr "Fatal Wound"
+
+msgid "节奏"
+msgstr "Rhythm"
+
+msgid "节奏开始"
+msgstr "Rhythm Starts"
+
+msgid "英雄"
+msgstr "Hero"
+
+msgid "萬人的英雄"
+msgstr "Hero of Ten Thousand"
+
+msgid "葛人的英雄"
+msgstr "Hero of the Masses"
+
+msgid "虐待性束縛"
+msgstr "Abusive Binding"
+
+msgid "虐待性束缚"
+msgstr "Abusive Binding"
+
+msgid "虚无审判"
+msgstr "Void Judgment"
+
+msgid "虚无宣判"
+msgstr "Void Sentence"
+
+msgid "虛無宣判"
+msgstr "Void Sentence"
+
+msgid "血色領域"
+msgstr "Blood Red Domain"
+
+msgid "装载箭筒"
+msgstr "Load Quiver"
+
+msgid "装载箭筒生成4张追踪箭"
+msgstr "Load Quiver: Generate 4 Tracking Arrows"
+
+msgid "裝填箭袋"
+msgstr "Reload Quiver"
+
+msgid "裝填箭袋生成4張"
+msgstr "Reload Quiver: Generate 4"
+
+msgid "觀察之樂"
+msgstr "Joy of Observation"
+
+msgid "观察游戏"
+msgstr "Observation Game"
+
+msgid "解放"
+msgstr "Release"
+
+msgid "解放标"
+msgstr "Release Mark"
+
+msgid "解放極光"
+msgstr "Release Aurora"
+
+msgid "贪婪领域"
+msgstr "Domain of Greed"
+
+msgid "贫血"
+msgstr "Anemia"
+
+msgid "购英雄"
+msgstr "Hero"
+
+msgid "逆转之刃"
+msgstr "Reversal Blade"
+
+msgid "速射弩"
+msgstr "Quick-Fire Crossbow"
+
+msgid "释放"
+msgstr "Release"
+
+msgid "量子晶种"
+msgstr "Quantum Seed"
+
+msgid "金仙花"
+msgstr "Golden Narcissus"
+
+msgid "金仙花吊坠"
+msgstr "Golden Narcissus Pendant"
+
+msgid "金仙花结界"
+msgstr "Golden Narcissus Barrier"
+
+msgid "金仙花结蕾"
+msgstr "Golden Narcissus Bud"
+
+msgid "防御反应"
+msgstr "Defensive Reaction"
+
+msgid "防御系统"
+msgstr "Defense System"
+
+msgid "雨"
+msgstr "Rain"
+
+msgid "電漿雨"
+msgstr "Plasma Rain"
+
+msgid "音乐开始"
+msgstr "Music Starts"
+
+msgid "頂級遊俠抽取2"
+msgstr "Top Ranger: Draw 2"
+
+msgid "顶级游侠"
+msgstr "Top Ranger"
+
+msgid "饥饿的枷锁"
+msgstr "Shackles of Hunger"
+
+msgid "饭光命"
+msgstr "Life of Light"
+
+msgid "骰子戏法"
+msgstr "Dice Trick"
+
+msgid "鬼怪狩獵"
+msgstr "Monster Hunt"
+
+msgid "魂火的保護"
+msgstr "Protection of Soulfire"
+
+msgid "魔力场"
+msgstr "Mana Field"
+
+msgid "魔术表演"
+msgstr "Magic Show"
+
+msgid "麻烦不断"
+msgstr "Nonstop Trouble"
+
+msgid "黃昏的羈絆"
+msgstr "Dusk Bond"
+
+msgid "黑暗斩击"
+msgstr "Dark Slash"
+
+msgid "海德玛"
+msgstr "Heidemarie"
+
+msgid "德玛丽"
+msgstr "Heidemarie"
+
+msgid "尼雅"
+msgstr "Nia"
+
+msgid "妮雅"
+msgstr "Nia"
+
+msgid "麥格納"
+msgstr "Magna"
+
+msgid "黛安"
+msgstr "Diana"
+
+msgid "阿黛海特"
+msgstr "Adelheid"
+
+msgid "阿黛尔"
+msgstr "Adelheid"
+
+msgid "阿黛"
+msgstr "Adelheid"
+
+msgid "维罗妮卡"
+msgstr "Veronica"
+
+msgid "维若妮卡"
+msgstr "Veronica"
+
+msgid "赛琳娜"
+msgstr "Selena"
+
+msgid "欧文"
+msgstr "Owen"
+
+msgid "玛丽贝尔"
+msgstr "Maribel"
+
+msgid "玛利贝尔"
+msgstr "Maribel"
+
+msgid "玛丽贝儿"
+msgstr "Maribel"
+
+msgid "贝丽尔"
+msgstr "Beryl"
+
+msgid "小春"
+msgstr "Koharu"
+
+msgid "艾米尔"
+msgstr "Emil"
+
+msgid "卡利佩"
+msgstr "Calippe"
+
+msgid "卡莉佩"
+msgstr "Calippe"
+
+msgid "蕾伊"
+msgstr "Raye"
+
+msgid "雷伊"
+msgstr "Raye"
+
+msgid "特莱莎"
+msgstr "Teresa"
+
+msgid "凛"
+msgstr "Rin"
+
+msgid "卢卡斯"
+msgstr "Lucas"
+
+msgid "卢克"
+msgstr "Lucas"
+
+msgid "凯隆"
+msgstr "Kayron"
+
+msgid "友纪"
+msgstr "Yuki"
+
+msgid "千鹤"
+msgstr "Chizuru"
+
+msgid "丽塔"
+msgstr "Rita"
+
+msgid "莉妲"
+msgstr "Rita"
+
+msgid "雨果"
+msgstr "Hugo"
+
+msgid "梅林"
+msgstr "Merlin"
+
+msgid "梅铃"
+msgstr "Merlin"
+
+msgid "娜嘉"
+msgstr "Nadja"
+
+msgid "泰妮"
+msgstr "Tenebria"
+
+msgid "泰妮布里雅"
+msgstr "Tenebria"
+
+msgid "奥莱娅"
+msgstr "Aurelia"
+
+msgid "奥尔莱亚"
+msgstr "Aurelia"
+
+msgid "維托"
+msgstr "Vito"
+
+msgid "异端石碑"
+msgstr "Heresy Stele"
+
+msgid "夢之邊境"
+msgstr "Dream's Border"
+
+msgid "梦之"
+msgstr "Dream's Border"
+
+msgid "裝備包"
+msgstr "Equipment Pack"
+
+msgid "装备"
+msgstr "Equipment"
+
+msgid "裝備"
+msgstr "Equipment"
+
+msgid "翠绿之夜"
+msgstr "Verdant Night"
+
+msgid "翠綠之夜"
+msgstr "Verdant Night"
+
+msgid "獲得裝備[翠綠之夜]"
+msgstr "Obtain Equipment [Verdant Night]"
+
+msgid "獲得裝備"
+msgstr "Obtain Equipment"
+
+msgid "翠绿的枷锁"
+msgstr "Verdant Shackles"
+
+msgid "翠綠的枷鎖"
+msgstr "Verdant Shackles"
+
+msgid "翠綠之書"
+msgstr "Verdant Book"
+
+msgid "脉动之卵"
+msgstr "Pulsing Egg"
+
+msgid "脈動之卵"
+msgstr "Pulsing Egg"
+
+msgid "跳动之卵"
+msgstr "Pulsing Egg"
+
+msgid "跳動之卵"
+msgstr "Pulsing Egg"
+
+msgid "脑波阻断头盔"
+msgstr "Brainwave Blocking Helmet"
+
+msgid "腦波阻斷頭盔"
+msgstr "Brainwave Blocking Helmet"
+
+msgid "欺骗暗影的匕首"
+msgstr "Dagger that Cheats Shadows"
+
+msgid "欺騙暗影的匕首"
+msgstr "Dagger that Cheats Shadows"
+
+msgid "妖精王的金冠"
+msgstr "Fairy King's Golden Crown"
+
+msgid "妖精王的王冠"
+msgstr "Fairy King's Crown"
+
+msgid "精灵王的金冠"
+msgstr "Elven King's Golden Crown"
+
+msgid "精灵王的王冠"
+msgstr "Elven King's Crown"
+
+msgid "森林三叶草"
+msgstr "Forest Clover"
+
+msgid "迷雾水晶球"
+msgstr "Mist Crystal Ball"
+
+msgid "迷霧水晶球"
+msgstr "Mist Crystal Ball"
+
+msgid "过电流冲击器"
+msgstr "Overcurrent Shocker"
+
+msgid "過電流衝擊器"
+msgstr "Overcurrent Shocker"
+
+msgid "阿萨辛之牙"
+msgstr "Assassin's Fang"
+
+msgid "黄金之巢"
+msgstr "Golden Nest"
+
+msgid "黃金巢穴"
+msgstr "Golden Nest"
+
+msgid "黄金律"
+msgstr "Golden Rule"
+
+msgid "黑曜石剑"
+msgstr "Obsidian Sword"
+
+msgid "深渊虫之牙"
+msgstr "Abyssal Worm's Fang"
+
+msgid "深淵蟲之牙"
+msgstr "Abyssal Worm's Fang"
+
+msgid "甲虫之角"
+msgstr "Beetle's Horn"
+
+msgid "甲蟲之角"
+msgstr "Beetle's Horn"
+
+msgid "精华残片项链"
+msgstr "Essence Shard Necklace"
+
+msgid "非典型方块"
+msgstr "Atypical Cube"
+
+msgid "非典型方塊"
+msgstr "Atypical Cube"
+
+msgid "非典型立方体"
+msgstr "Atypical Cube"
+
+msgid "平行宇宙耦合体"
+msgstr "Parallel Universe Coupler"
+
+msgid "时间调节器"
+msgstr "Time Regulator"
+
+msgid "次元方块"
+msgstr "Dimensional Cube"
+
+msgid "污染之茧斗篷"
+msgstr "Contaminated Cocoon Cloak"
+
+msgid "被污染的繭披風"
+msgstr "Contaminated Cocoon Cloak"
+
+msgid "被汙染的繭披風"
+msgstr "Contaminated Cocoon Cloak"
+
+msgid "蕾皮朵拉的鞭子"
+msgstr "Lepidora's Whip"
+
+msgid "深绿桎梏"
+msgstr "Deep Green Shackles"
+
+msgid "深绿白昼"
+msgstr "Deep Green Daylight"
+
+msgid "深绿黑夜"
+msgstr "Deep Green Night"
+
+msgid "光明之翼"
+msgstr "Wings of Light"
+
+msgid "凝视碎片"
+msgstr "Gaze Shard"
+
+msgid "嘲笑的短刀"
+msgstr "Mocking Dagger"
+
+msgid "讥笑匕首"
+msgstr "Sneering Dagger"
+
+msgid "扭曲的钻头"
+msgstr "Twisted Drill"
+
+msgid "永恆楔子"
+msgstr "Eternal Wedge"
+
+msgid "閃耀核心"
+msgstr "Shining Core"
+
+msgid "複製"
+msgstr "Duplicate"
+
+msgid "信用點增加"
+msgstr "Credits Increase"
+
+msgid "信用点"
+msgstr "Credits"
+
+msgid "信用點"
+msgstr "Credits"
+
+msgid "信用"
+msgstr "Credits"
+
+msgid "获得10信用点"
+msgstr "Gain 10 Credits"
+
+msgid "获得25信用点"
+msgstr "Gain 25 Credits"
+
+msgid "移除2"
+msgstr "Remove 2"
+
+msgid "移除2张"
+msgstr "Remove 2 Cards"
+
+msgid "移除2張"
+msgstr "Remove 2 Cards"
+
+msgid "2张"
+msgstr "2 Cards"
+
+msgid "咒術卡牌"
+msgstr "Curse Card"
+
+msgid "詛咒卡牌"
+msgstr "Curse Card"
+
+msgid "詛咒"
+msgstr "Curse"
+
+msgid "壓力"
+msgstr "Stress"
+
+msgid "压力增加重复"
+msgstr "Stress Increase Repeated"
+
+msgid "選取隨機3條命運"
+msgstr "Pick 3 Random Fates"
+
+msgid "随机3条命运"
+msgstr "3 Random Fates"
+
+msgid "随机命运"
+msgstr "Random Fates"
+
+msgid "隨機命運從3條"
+msgstr "Random Fates from 3"
+
+msgid "隨機稀有命運從3條"
+msgstr "Random Rare Fates from 3"
+
+msgid "选取随机"
+msgstr "Pick Random"
+
+msgid "随机"
+msgstr "Random"
+
+msgid "事件结束"
+msgstr "Event End"
+
+msgid "结束事件"
+msgstr "End Event"
+
+msgid "事後分析"
+msgstr "Post-Analysis"
+
+msgid "战斗"
+msgstr "Battle"
+
+msgid "商店"
+msgstr "Shop"
+
+msgid "boss"
+msgstr "Boss"
+
+msgid "中立"
+msgstr "Neutral"
+
+msgid "不信者之路"
+msgstr "Path of the Faithless"
+
+msgid "侵略者观察记录"
+msgstr "Invader Observation Record"
+
+msgid "侵略者觀察紀錄"
+msgstr "Invader Observation Record"
+
+msgid "侵略者觀察記錄"
+msgstr "Invader Observation Record"
+
+msgid "入侵者观察记录"
+msgstr "Invader Observation Record"
+
+msgid "禁忌假说"
+msgstr "Forbidden Hypothesis"
+
+msgid "禁忌假說"
+msgstr "Forbidden Hypothesis"
+
+msgid "继承的残痕"
+msgstr "Inherited Remnants"
+
+msgid "繼承的殘痕"
+msgstr "Inherited Remnants"
+
+msgid "灵光一闪"
+msgstr "Flash of Inspiration"
+
+msgid "靈光一閃"
+msgstr "Flash of Inspiration"
+
+msgid "卡牌闪光"
+msgstr "Card Flash"
+
+msgid "闪光"
+msgstr "Flash"
+
+msgid "閃光1"
+msgstr "Flash 1"
+
+msgid "闪光1次"
+msgstr "Flash 1 Time"
+
+msgid "闪光弹"
+msgstr "Flashbang"
+
+msgid "选择1张卡牌闪光"
+msgstr "Choose 1 Card to Flash"
+
+msgid "选中主站员闪光1次"
+msgstr "Selected Combatant Flash 1 Time"
+
+msgid "获得1张欲望卡牌"
+msgstr "Gain 1 Desire Card"
+
+msgid "欲望卡牌"
+msgstr "Desire Card"
+
+msgid "乱世之触"
+msgstr "Touch of Troubled Times"
+
+msgid "混沌之识"
+msgstr "Consciousness of Chaos"
+
+msgid "混沌指控"
+msgstr "Accusation of Chaos"
+
+msgid "混沌触手"
+msgstr "Tentacles of Chaos"
+
+msgid "最大生命值增加"
+msgstr "Max HP Increase"
+
+msgid "减少生命"
+msgstr "Lose HP"
+
+msgid "生命值变为1"
+msgstr "HP Becomes 1"
+
+msgid "异形生命值变为1"
+msgstr "Alien HP Becomes 1"
+
+msgid "叛亂處決"
+msgstr "Rebellion Execution"
+
+msgid "回答是死亡"
+msgstr "Answer is Death"
+
+msgid "採集樣本"
+msgstr "Collect Samples"
+
+msgid "收集标本"
+msgstr "Collect Specimens"
+
+msgid "探寻"
+msgstr "Search"
+
+msgid "控制"
+msgstr "Control"
+
+msgid "佔有"
+msgstr "Possess"
+
+msgid "占有"
+msgstr "Possess"
+
+msgid "擁有"
+msgstr "Own"
+
+msgid "執著"
+msgstr "Obsession"
+
+msgid "执念"
+msgstr "Obsession"
+
+msgid "统统归我"
+msgstr "All Mine"
+
+msgid "斩断尘缘"
+msgstr "Sever Mortal Ties"
+
+msgid "斷尾"
+msgstr "Cut Tail"
+
+msgid "清除關係"
+msgstr "Clear Relationship"
+
+msgid "求知若渴"
+msgstr "Thirst for Knowledge"
+
+msgid "第二手段"
+msgstr "Secondary Means"
+
+msgid "自戀"
+msgstr "Narcissism"
+
+msgid "額外打擊1次"
+msgstr "Extra Strike 1 Time"
+
+msgid "一缕光芒：连接安息"
+msgstr "A Ray of Light: Connect Rest in Peace"
+
+msgid "万人英雄：连接安息"
+msgstr "Hero of Ten Thousand: Connect Rest in Peace"
+
+msgid "万众英雄连接安息"
+msgstr "Hero of the Masses: Connect Rest in Peace"
+
+msgid "万众英雄：连接"
+msgstr "Hero of the Masses: Connect"
+
+msgid "下一次使用的月影、月影+ 额外打撃2次"
+msgstr "Next Tsukikage/Tsukikage+ strikes 2 extra times"
+
+msgid "主动控制技能：则将其移动至手牌"
+msgstr "Active Control Skill: Move it to hand"
+
+msgid "主动控制技能：每次使用基础攻击卡牌"
+msgstr "Active Control Skill: Each time basic attack card is used"
+
+msgid "主动控制技能：选择1张攻击卡牌"
+msgstr "Active Control Skill: Choose 1 attack card"
+
+msgid "作战分析：士气"
+msgstr "Combat Analysis: Morale"
+
+msgid "儘管尖叫吧：持續1回合"
+msgstr "Scream All You Want: Lasts 1 turn"
+
+msgid "儘管尖叫吧：自身卡牌抽取"
+msgstr "Scream All You Want: Draw own card"
+
+msgid "光芒：全体"
+msgstr "Ray of Light: All Enemies"
+
+msgid "准备发射强化：大型弩炮"
+msgstr "Prepare to Fire Buff: Heavy Ballista"
+
+msgid "准备发射强化：强化弩炮"
+msgstr "Prepare to Fire Buff: Enhanced Ballista"
+
+msgid "准备发射强化：生成一张连射弩炮加入手牌"
+msgstr "Prepare to Fire Buff: Generate Rapid-Fire Ballista to hand"
+
+msgid "准备发射：大型弩炮"
+msgstr "Prepare to Fire: Heavy Ballista"
+
+msgid "剑雨生成2张极光剑"
+msgstr "Rain of Swords: Generate 2 Aurora Blades"
+
+msgid "剑雨连接安息"
+msgstr "Rain of Swords: Connect Rest in Peace"
+
+msgid "剑雨：感应"
+msgstr "Rain of Swords: Induction"
+
+msgid "剑雨：生成1张极光剑"
+msgstr "Rain of Swords: Generate 1 Aurora Blade"
+
+msgid "剑雨：生成2张极光剑"
+msgstr "Rain of Swords: Generate 2 Aurora Blades"
+
+msgid "剑雨：连接安息"
+msgstr "Rain of Swords: Connect Rest in Peace"
+
+msgid "哀鸣吧抽取2张自身卡牌"
+msgstr "Wail Aloud: Draw 2 own cards"
+
+msgid "哀鸣吧：裂隙6"
+msgstr "Wail Aloud: Rift 6"
+
+msgid "喘息技能：抽取2张队友的卡牌"
+msgstr "Catch Breath Skill: Draw 2 teammate cards"
+
+msgid "喘气抽取两张队友的卡牌"
+msgstr "Gasp: Draw 2 teammate cards"
+
+msgid "喘气：抽取2张队友的卡牌"
+msgstr "Gasp: Draw 2 teammate cards"
+
+msgid "回应呼唤发动节奏卡牌时此卡费用减少1"
+msgstr "Answer the Call: Cost reduced by 1 when playing Rhythm card"
+
+msgid "回应呼唤抽取2张节奏卡牌"
+msgstr "Answer the Call: Draw 2 Rhythm cards"
+
+msgid "回应呼唤攻击：抽取2张节奏卡牌"
+msgstr "Answer the Call Attack: Draw 2 Rhythm cards"
+
+msgid "回应呼唤攻击：若此卡在抽牌堆和手牌"
+msgstr "Answer the Call Attack: If this card is in draw pile or hand"
+
+msgid "在隨機使用2張卡牌之前"
+msgstr "Before randomly playing 2 cards"
+
+msgid "安可则再将其发动2次"
+msgstr "Encore: Trigger 2 more times"
+
+msgid "安可抽取1"
+msgstr "Encore: Draw 1"
+
+msgid "安可攻击：抽取1"
+msgstr "Encore Attack: Draw 1"
+
+msgid "安可攻击：每发动1张节奏卡牌"
+msgstr "Encore Attack: For each Rhythm card played"
+
+msgid "安可攻击：牌费用减少"
+msgstr "Encore Attack: Card cost reduced"
+
+msgid "定位雷射"
+msgstr "Targeting Laser"
+
+msgid "對HP最高的敵人造成龜裂擴散1"
+msgstr "Inflict Rift Spread 1 on enemy with highest HP"
+
+msgid "展开极光安息唯回合开始"
+msgstr "Deploy Aurora: Rest in Peace (Only at turn start)"
+
+msgid "展开极光：安息"
+msgstr "Deploy Aurora: Rest in Peace"
+
+msgid "展开极光：连接"
+msgstr "Deploy Aurora: Connect"
+
+msgid "展开极光：连接安息"
+msgstr "Deploy Aurora: Connect Rest in Peace"
+
+msgid "拉弓&放箭：對所有敵人"
+msgstr "Draw Bow & Shoot Arrow: To All Enemies"
+
+msgid "接下來使用的凝聚卡牌"
+msgstr "Next Condense card used"
+
+msgid "摧残束缚本回合每触发一次自身裂隙"
+msgstr "Cruel Binding: Per self Rift triggered this turn"
+
+msgid "摧残束缚：本回合每次触发1次自身裂隙"
+msgstr "Cruel Binding: Per self Rift triggered this turn"
+
+msgid "断绝之隙：行动计数"
+msgstr "Rift of Severance: Action Count"
+
+msgid "无尽贪欲：每回合4"
+msgstr "Endless Greed: 4 per turn"
+
+msgid "无限的饥饿技能：在1回合内费用减少"
+msgstr "Infinite Hunger Skill: Cost reduced within 1 turn"
+
+msgid "欲焰飞散：痛苦2"
+msgstr "Scattered Flames of Desire: Agony 2"
+
+msgid "水之源：士气"
+msgstr "Source of Water: Morale"
+
+msgid "水之源：浪潮"
+msgstr "Source of Water: Tidal Wave"
+
+msgid "海潮的庇护：士气"
+msgstr "Shelter of the Tide: Morale"
+
+msgid "海潮的庇护：抽取"
+msgstr "Shelter of the Tide: Draw"
+
+msgid "海潮的庇护：浪潮"
+msgstr "Shelter of the Tide: Tidal Wave"
+
+msgid "涡流箭"
+msgstr "Vortex Arrow"
+
+msgid "漩涡：士气"
+msgstr "Vortex: Morale"
+
+msgid "漩涡：抽取"
+msgstr "Vortex: Draw"
+
+msgid "电浆雨"
+msgstr "Plasma Rain"
+
+msgid "盡管尖叫吧自身卡牌抽取2"
+msgstr "Scream All You Want: Draw 2 own cards"
+
+msgid "破碎：全体敌人"
+msgstr "Shatter: All Enemies"
+
+msgid "破碎：护盾"
+msgstr "Shatter: Shield"
+
+msgid "破镜重圆：敌人痛苦4"
+msgstr "Broken Mirror Reunited: Enemy Agony 4"
+
+msgid "破镜重圆：敌人裂隙2"
+msgstr "Broken Mirror Reunited: Enemy Rift 2"
+
+msgid "科沃斯基爵士技能：抽取2"
+msgstr "Sir Kowalski Skill: Draw 2"
+
+msgid "科沃斯基爵士抽取2"
+msgstr "Sir Kowalski: Draw 2"
+
+msgid "科沃斯基爵士：抽取"
+msgstr "Sir Kowalski: Draw"
+
+msgid "等离子雨"
+msgstr "Plasma Rain"
+
+msgid "缕光芒180%"
+msgstr "A Ray of Light: 180%"
+
+msgid "缕光芒直接使用时"
+msgstr "A Ray of Light: When used directly"
+
+msgid "聚光灯2张节奏卡牌"
+msgstr "Spotlight: 2 Rhythm cards"
+
+msgid "聚光灯2张节奏卡牌移动至手牌"
+msgstr "Spotlight: Move 2 Rhythm cards to hand"
+
+msgid "聚光灯攻击：将1张节奏卡牌移动至手牌"
+msgstr "Spotlight Attack: Move 1 Rhythm card to hand"
+
+msgid "聚光灯攻击：并将其发动"
+msgstr "Spotlight Attack: And trigger it"
+
+msgid "聚光灯攻击：选择抽牌堆和墓地中"
+msgstr "Spotlight Attack: Choose from draw pile and discard pile"
+
+msgid "虐待性束縛：抽取1張自身"
+msgstr "Abusive Binding: Draw 1 own card"
+
+msgid "虐待性束縛：抽取1張自身的卡牌"
+msgstr "Abusive Binding: Draw 1 own card"
+
+msgid "虐待性束縛：隨機敵人"
+msgstr "Abusive Binding: Random Enemy"
+
+msgid "虐待性束缚依發動的自身龜裂數量"
+msgstr "Abusive Binding: Based on self Rift count triggered"
+
+msgid "虚无宣判裂隙扩张：触发自身裂隙"
+msgstr "Void Sentence Rift Spread: Trigger self Rift"
+
+msgid "虚无宣判：赋予裂隙3，触发自身裂隙"
+msgstr "Void Sentence: Grant Rift 3, trigger self Rift"
+
+msgid "虛無宣判：此卡牌費用減少"
+msgstr "Void Sentence: This card's cost reduced"
+
+msgid "虛無宣判：發動自身的龜裂"
+msgstr "Void Sentence: Trigger self Rift"
+
+msgid "虛無宣判：：發動自身的龜裂"
+msgstr "Void Sentence: Trigger self Rift"
+
+msgid "装填箭袋"
+msgstr "Reload Quiver"
+
+msgid "裝填箭袋：抽取"
+msgstr "Reload Quiver: Draw"
+
+msgid "觀察之樂：友軍擊殺敵人"
+msgstr "Joy of Observation: Ally kills enemy"
+
+msgid "觀察之樂：回合開始時"
+msgstr "Joy of Observation: At turn start"
+
+msgid "观察游戏赋予生命值最高的敌人裂隙扩张1"
+msgstr "Observation Game: Grant Rift Spread 1 to highest HP enemy"
+
+msgid "观察游戏：随机敌人"
+msgstr "Observation Game: Random Enemy"
+
+msgid "逆转之刃：破碎"
+msgstr "Reversal Blade: Shatter"
+
+msgid "金仙花吊坠：使用队友的技能卡牌时"
+msgstr "Golden Narcissus Pendant: When using teammate's skill card"
+
+msgid "電漿雨：抽取"
+msgstr "Plasma Rain: Draw"
+
+msgid "音乐开始强化：节奏：极强"
+msgstr "Music Starts Buff: Rhythm: Fortissimo"
+
+msgid "音乐开始强化：节奏：琴音"
+msgstr "Music Starts Buff: Rhythm: Harp Tone"
+
+msgid "音乐开始强化：节奏：琶音"
+msgstr "Music Starts Buff: Rhythm: Arpeggio"
+
+msgid "音乐开始强化：节奏：提高"
+msgstr "Music Starts Buff: Rhythm: Increase"
+
+msgid "音乐开始生成2张节奏：极强"
+msgstr "Music Starts: Generate 2 Rhythm: Fortissimo"
+
+msgid "音乐开始节奏:极强各1张"
+msgstr "Music Starts: 1 each of Rhythm: Fortissimo"
+
+msgid "饥饿的枷锁攻击：每减少1层即可重复获得"
+msgstr "Shackles of Hunger Attack: Repeat per stack reduced"
+
+msgid "饥饿的枷锁攻击：触发贪婪大于等于"
+msgstr "Shackles of Hunger Attack: Trigger Greed >="
+
+msgid "饥饿的枷锁攻击：贪婪6"
+msgstr "Shackles of Hunger Attack: Greed 6"
