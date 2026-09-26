@@ -1,39 +1,19 @@
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.0\n"
-"Report-Msgid-Bugs-To: you@example.com\n"
-"Last-Translator: you@example.com\n"
-"Language-Team: English\n"
-"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "1"
 msgstr "1"
 
-msgid ""
-"1. 自动战斗依赖按键识别，请在游戏设置中打开快捷键显示，提升出牌准确率。\n"
-"2. 国际服玩家请将本模式配置中的\"游戏语言\"设置为繁体中文。"
-msgstr ""
-"1. Auto battle relies on shortcut recognition. Enable shortcut display in the game settings for better accuracy.\n"
-"2. International server players should set Game Language to Traditional Chinese in this mode."
+msgid "1. 自动战斗依赖按键识别，请在游戏设置中打开快捷键显示，提升出牌准确率。\n2. 国际服玩家请将本模式配置中的\"游戏语言\"设置为繁体中文。"
+msgstr "1. Auto battle relies on shortcut recognition. Enable shortcut display in the game settings for better accuracy.\n2. International server players should set Game Language to Traditional Chinese in this mode."
 
-msgid ""
-"1. 请主动打开游戏内自动战斗和自动剧情功能。\n"
-"2. 国际服玩家请将本模式配置中的\"游戏语言\"设置为繁体中文。"
-msgstr ""
-"1. Enable auto battle and auto story in the game.\n"
-"2. International server players should set Game Language to Traditional Chinese in this mode."
+msgid "1. 请主动打开游戏内自动战斗和自动剧情功能。\n2. 国际服玩家请将本模式配置中的\"游戏语言\"设置为繁体中文。"
+msgstr "1. Enable auto battle and auto story in the game.\n2. International server players should set Game Language to Traditional Chinese in this mode."
 
-msgid ""
-"1.剧情内战斗关卡可手动开启出击模式调用自动战斗功能。\n"
-"2. 遇到卡厄思关卡请手动打开卡厄思模式。\n"
-"3. 剧情战斗关卡队伍需手动配置"
-msgstr ""
-"1. For battle stages in the story, manually enable Sortie Mode to use Auto Battle.\n"
-"2. For Chaos stages, manually enable Chaos Mode.\n"
-"3. Story battle teams must be configured manually."
+msgid "1.剧情内战斗关卡可手动开启出击模式调用自动战斗功能。\n2. 遇到卡厄思关卡请手动打开卡厄思模式。\n3. 剧情战斗关卡队伍需手动配置"
+msgstr "1. For battle stages in the story, manually enable Sortie Mode to use Auto Battle.\n2. For Chaos stages, manually enable Chaos Mode.\n3. Story battle teams must be configured manually."
 
 msgid "2"
 msgstr "2"
@@ -209,6 +189,18 @@ msgstr "OCR Settings"
 msgid "Open the shared global configuration example."
 msgstr "Open the shared global configuration example."
 
+msgid "QQ Channel"
+msgstr "QQ Channel"
+
+msgid "QQ Group"
+msgstr "QQ Group"
+
+msgid "QQ群"
+msgstr "QQ Group"
+
+msgid "QQ频道"
+msgstr "QQ Channel"
+
 msgid "Rerolls the first flash-priority card by default (divine flash possible); auto evacuates if it is not obtained on floor 1"
 msgstr "Rerolls the first flash-priority card by default (divine flash possible); auto evacuates if it is not obtained on floor 1"
 
@@ -284,6 +276,12 @@ msgstr "Tool Key"
 msgid "True"
 msgstr "True"
 
+msgid "Upload Config"
+msgstr "Upload Config"
+
+msgid "Upload Config Info"
+msgstr "Upload Config Info"
+
 msgid "export_config"
 msgstr "Export Config"
 
@@ -293,8 +291,17 @@ msgstr "Hot Configs"
 msgid "import_config"
 msgstr "Import Config"
 
+msgid "一缕光芒"
+msgstr "A Ray of Light"
+
+msgid "一键任务"
+msgstr "One-Time Tasks"
+
 msgid "一键日常"
 msgstr "One-click Dailies"
+
+msgid "万众英雄"
+msgstr "Hero of All"
 
 msgid "不暂停"
 msgstr "Do Not Pause"
@@ -302,8 +309,17 @@ msgstr "Do Not Pause"
 msgid "丢弃卡牌优先级"
 msgstr "Discard Card Priority"
 
+msgid "丢弃最多2张卡牌"
+msgstr "Discard up to 2 cards"
+
 msgid "主战员优先级"
 msgstr "Team Member Priority"
+
+msgid "主界面"
+msgstr "Home"
+
+msgid "九"
+msgstr "Nine"
 
 msgid "事件"
 msgstr "Event"
@@ -313,6 +329,9 @@ msgstr "Play Cards from Right to Left"
 
 msgid "从要推的图的最左边开始"
 msgstr "Start from the leftmost stage to clear"
+
+msgid "任务"
+msgstr "Tasks"
 
 msgid "任务优先级"
 msgstr "Task Priority"
@@ -329,14 +348,26 @@ msgstr "Prioritize Removing Basic Cards"
 msgid "体力本"
 msgstr "Stamina Stage"
 
+msgid "作战分析"
+msgstr "Combat Analysis"
+
 msgid "保留大于多少TB的存档"
 msgstr "Keep Save Data Above (TB)"
 
 msgid "保留存档"
 msgstr "Keep Save Data"
 
+msgid "信用点增加"
+msgstr "Credit Increase"
+
+msgid "停止"
+msgstr "Stop"
+
 msgid "公共区"
 msgstr "Public Area"
+
+msgid "关于"
+msgstr "About"
 
 msgid "兵棋推演"
 msgstr "War Chess Simulation"
@@ -350,8 +381,14 @@ msgstr "SMG & MG"
 msgid "决策构象"
 msgstr "Decision Configuration"
 
+msgid "凝聚极光"
+msgstr "Condense Aurora"
+
 msgid "几轮后停止(0为不停止)"
 msgstr "Stop After N Rounds (0 = Never)"
+
+msgid "出击模式"
+msgstr "Auto Sortie Mode"
 
 msgid "出战主战员优先级"
 msgstr "Lead Member Priority"
@@ -365,6 +402,9 @@ msgstr "Farm Starting Card"
 msgid "刷存档主战员"
 msgstr "Save-Farming Member"
 
+msgid "刷梦之边境"
+msgstr "Farm Dream Border Card"
+
 msgid "刷梦边"
 msgstr "Farm Dream Border"
 
@@ -374,17 +414,59 @@ msgstr "Farm Empty Slot"
 msgid "刷钱本"
 msgstr "Gold Farming Stage"
 
+msgid "剑光"
+msgstr "Sword Light"
+
+msgid "剑幕"
+msgstr "Sword Curtain"
+
+msgid "剑雨"
+msgstr "Sword Rain"
+
+msgid "剑雨感应：生成2张极光剑"
+msgstr "Sword Rain Induction: Generate 2 Aurora Swords"
+
+msgid "剑雨赋予其回收"
+msgstr "Sword Rain grants Recycle"
+
+msgid "剧情模式"
+msgstr "Auto Story Mode"
+
+msgid "力"
+msgstr "Li"
+
 msgid "半自动剧情模式"
 msgstr "Semi-Auto Story Mode"
+
+msgid "卡修斯"
+msgstr "Cassius"
 
 msgid "卡牌奖励优先级"
 msgstr "Card Reward Priority"
 
+msgid "压力"
+msgstr "Stress"
+
+msgid "取消"
+msgstr "Cancel"
+
 msgid "只打第一层"
 msgstr "Floor 1 Only"
 
+msgid "启动应用"
+msgstr "Launch App"
+
+msgid "启动游戏"
+msgstr "Launch Game"
+
+msgid "咒术卡牌"
+msgstr "Spell Cards"
+
 msgid "国际服请设置为繁体中文"
 msgstr "Set this to Traditional Chinese for the international server."
+
+msgid "复制"
+msgstr "Duplication"
 
 msgid "复制卡牌列表"
 msgstr "Card Duplication List"
@@ -401,6 +483,9 @@ msgstr "Min Save Data Tier"
 msgid "导入配置"
 msgstr "Import Config"
 
+msgid "导出日志"
+msgstr "Export Logs"
+
 msgid "导出配置"
 msgstr "Export Config"
 
@@ -410,17 +495,44 @@ msgstr "Normal Enemy"
 msgid "尘烟"
 msgstr "Dust Smoke"
 
-msgid ""
-"开启后每5分钟自动上传匿名的配置信息和胜率，帮助统计热门配置。\n"
-"不上传任何个人信息、游戏账号、截图、IP地址等隐私数据。\n"
-"仅上传配置内容和胜率统计数据。"
-msgstr ""
-"Automatically uploads anonymous config info and win rates every 5 minutes to help compile popular configs.\n"
-"Uploads no personal info, game accounts, screenshots, IP addresses, or other private data.\n"
-"Only config contents and win-rate statistics are uploaded."
+msgid "尼娅"
+msgstr "Nia"
+
+msgid "展开极光"
+msgstr "Deploy Aurora"
+
+msgid "展开极光200%"
+msgstr "Deploy Aurora 200%"
+
+msgid "展开极光70%"
+msgstr "Deploy Aurora 70%"
+
+msgid "展开极光安息唯一"
+msgstr "Deploy Aurora Rest Unique"
+
+msgid "已停止"
+msgstr "Stopped"
+
+msgid "已连接"
+msgstr "Connected"
+
+msgid "开启后每5分钟自动上传匿名的配置信息和胜率，帮助统计热门配置。\n不上传任何个人信息、游戏账号、截图、IP地址等隐私数据。\n仅上传配置内容和胜率统计数据。"
+msgstr "Automatically uploads anonymous config info and win rates every 5 minutes to help compile popular configs.\nUploads no personal info, game accounts, screenshots, IP addresses, or other private data.\nOnly config contents and win-rate statistics are uploaded."
+
+msgid "开始"
+msgstr "Start"
+
+msgid "异象石碑"
+msgstr "Anomaly Stele"
+
+msgid "截图"
+msgstr "Screenshot"
 
 msgid "手枪"
 msgstr "HG"
+
+msgid "打开日志目录"
+msgstr "Open Log Directory"
 
 msgid "拉黑主战员"
 msgstr "Blacklisted Members"
@@ -428,14 +540,23 @@ msgstr "Blacklisted Members"
 msgid "拉黑任务"
 msgstr "Blacklisted Tasks"
 
+msgid "拷问工具箱"
+msgstr "Torture Toolbox"
+
 msgid "指定面具卡牌"
 msgstr "Designated Mask Card"
 
 msgid "推图"
 msgstr "Clear Stages"
 
+msgid "操作"
+msgstr "Operation"
+
 msgid "收菜"
 msgstr "Collect Resources"
+
+msgid "日志"
+msgstr "Logs"
 
 msgid "日文"
 msgstr "Japanese"
@@ -443,8 +564,35 @@ msgstr "Japanese"
 msgid "是否上传配置"
 msgstr "Enable Config Upload"
 
+msgid "暂停"
+msgstr "Pause"
+
+msgid "更新"
+msgstr "Update"
+
+msgid "未连接"
+msgstr "Disconnected"
+
+msgid "极光剑"
+msgstr "Aurora Sword"
+
+msgid "梦之边境"
+msgstr "Border of Dreams"
+
 msgid "梦边"
 msgstr "Dream Border"
+
+msgid "检查更新"
+msgstr "Check for updates"
+
+msgid "模拟器"
+msgstr "Emulator"
+
+msgid "水之伞"
+msgstr "Water Umbrella"
+
+msgid "水之源"
+msgstr "Source of Water"
 
 msgid "治疗崩溃"
 msgstr "Treat Mental Breakdown"
@@ -458,14 +606,35 @@ msgstr "Event Auto-Battle"
 msgid "测试trigger"
 msgstr "Test Trigger"
 
+msgid "测试触发任务"
+msgstr "Test Trigger Task"
+
+msgid "海德玛丽"
+msgstr "Heidemarie"
+
+msgid "海潮的庇护"
+msgstr "Tidal Shelter"
+
 msgid "深度搜索"
 msgstr "Deep Search"
+
+msgid "添加开始菜单快捷方式"
+msgstr "Add Start Menu Shortcut"
+
+msgid "清空日志"
+msgstr "Clear Logs"
+
+msgid "游戏窗口"
+msgstr "Game Window"
 
 msgid "游戏语言"
 msgstr "Game Language"
 
 msgid "热门配置"
 msgstr "Hot Configs"
+
+msgid "版本"
+msgstr "Version"
 
 msgid "狙击"
 msgstr "RF & BLD"
@@ -475,6 +644,12 @@ msgstr "Squad"
 
 msgid "生命值大于多少优先闪光(百分比)"
 msgstr "HP Threshold for Flash Priority (%)"
+
+msgid "确定"
+msgstr "Confirm"
+
+msgid "移除"
+msgstr "Removal"
 
 msgid "移除卡牌列表"
 msgstr "Card Removal List"
@@ -491,11 +666,26 @@ msgstr "Auto-Pause Before Floor Boss"
 msgid "简体中文"
 msgstr "Simplified Chinese"
 
+msgid "米卡"
+msgstr "Mika"
+
 msgid "精英"
 msgstr "Elite"
 
 msgid "繁体中文"
 msgstr "Traditional Chinese"
+
+msgid "绯"
+msgstr "Fei"
+
+msgid "缕光芒"
+msgstr "Ray of Light"
+
+msgid "缕光芒216%"
+msgstr "Ray of Light 216%"
+
+msgid "缕光芒80%"
+msgstr "Ray of Light 80%"
 
 msgid "自动"
 msgstr "Auto"
@@ -509,11 +699,20 @@ msgstr "Auto-Farm Stamina"
 msgid "自动卡厄思模式"
 msgstr "Auto Chaos Mode"
 
+msgid "自身攻击卡牌伤害总量提升30%"
+msgstr "Increase own attack card total damage by 30%"
+
 msgid "英文"
 msgstr "English"
 
 msgid "获得卡牌优先级"
 msgstr "Card Acquisition Priority"
+
+msgid "蒂菲拉"
+msgstr "Tiphira"
+
+msgid "蚀化臂铠"
+msgstr "Corroded Gauntlet"
 
 msgid "装备1号位优先级"
 msgstr "Slot 1 Equipment Priority"
@@ -524,6 +723,21 @@ msgstr "Slot 2 Equipment Priority"
 msgid "装备3号位优先级"
 msgstr "Slot 3 Equipment Priority"
 
+msgid "装备包"
+msgstr "Equipment Pack"
+
+msgid "解放极光"
+msgstr "Release Aurora"
+
+msgid "触发任务"
+msgstr "Trigger Tasks"
+
+msgid "计划任务"
+msgstr "Schedule Tasks"
+
+msgid "设置"
+msgstr "Settings"
+
 msgid "购买免费礼包"
 msgstr "Claim Free Pack"
 
@@ -533,8 +747,17 @@ msgstr "Route Priority"
 msgid "跳过非优先级卡牌"
 msgstr "Skip Non-Priority Cards"
 
+msgid "运行中"
+msgstr "Running"
+
 msgid "进入商店"
 msgstr "Enter Shop"
+
+msgid "连接失败"
+msgstr "Connection Failed"
+
+msgid "选取随机3条命运"
+msgstr "Select 3 Random Destinies"
 
 msgid "选择游戏客户端语言，影响OCR文本匹配"
 msgstr "Select game client language, affects OCR text matching"
@@ -548,11 +771,17 @@ msgstr "Config Upload"
 msgid "配置操作"
 msgstr "Config Actions"
 
+msgid "重置配置"
+msgstr "Reset Config"
+
 msgid "闪光优先级"
 msgstr "Flash Priority"
 
 msgid "闪光卡牌列表"
 msgstr "Card Flash List"
+
+msgid "阿黛尔海特"
+msgstr "Adelheid"
 
 msgid "需要冥想的卡牌"
 msgstr "Cards Needing Meditation"
@@ -572,129 +801,9 @@ msgstr "Claim Rewards (Verification Cards Only)"
 msgid "首层刷特定闪光"
 msgstr "Farm Specific Flash on Floor 1"
 
-msgid "Upload Config"
-msgstr "Upload Config"
+msgid "麦格纳"
+msgstr "Magna"
 
-msgid "Upload Config Info"
-msgstr "Upload Config Info"
+msgid "黛安娜"
+msgstr "Diana"
 
-
-msgid "任务"
-msgstr "Tasks"
-
-msgid "设置"
-msgstr "Settings"
-
-msgid "日志"
-msgstr "Logs"
-
-msgid "开始"
-msgstr "Start"
-
-msgid "暂停"
-msgstr "Pause"
-
-msgid "停止"
-msgstr "Stop"
-
-msgid "运行中"
-msgstr "Running"
-
-msgid "已停止"
-msgstr "Stopped"
-
-msgid "出击模式"
-msgstr "Auto Sortie Mode"
-
-msgid "剧情模式"
-msgstr "Auto Story Mode"
-
-msgid "刷梦之边境"
-msgstr "Farm Dream Border Card"
-
-msgid "测试触发任务"
-msgstr "Test Trigger Task"
-
-msgid "QQ群"
-msgstr "QQ Group"
-
-msgid "QQ频道"
-msgstr "QQ Channel"
-
-msgid "启动游戏"
-msgstr "Launch Game"
-
-msgid "启动应用"
-msgstr "Launch App"
-
-msgid "主界面"
-msgstr "Home"
-
-msgid "关于"
-msgstr "About"
-
-msgid "更新"
-msgstr "Update"
-
-msgid "检查更新"
-msgstr "Check for updates"
-
-msgid "版本"
-msgstr "Version"
-
-msgid "确定"
-msgstr "Confirm"
-
-msgid "取消"
-msgstr "Cancel"
-
-msgid "重置配置"
-msgstr "Reset Config"
-
-msgid "添加开始菜单快捷方式"
-msgstr "Add Start Menu Shortcut"
-
-msgid "操作"
-msgstr "Operation"
-
-msgid "计划任务"
-msgstr "Schedule Tasks"
-
-msgid "触发任务"
-msgstr "Trigger Tasks"
-
-msgid "一键任务"
-msgstr "One-Time Tasks"
-
-msgid "清空日志"
-msgstr "Clear Logs"
-
-msgid "导出日志"
-msgstr "Export Logs"
-
-msgid "打开日志目录"
-msgstr "Open Log Directory"
-
-msgid "截图"
-msgstr "Screenshot"
-
-msgid "已连接"
-msgstr "Connected"
-
-msgid "未连接"
-msgstr "Disconnected"
-
-msgid "连接失败"
-msgstr "Connection Failed"
-
-msgid "游戏窗口"
-msgstr "Game Window"
-
-msgid "模拟器"
-msgstr "Emulator"
-
-msgid "QQ Group"
-msgstr "QQ Group"
-
-msgid "QQ Channel"
-msgstr "QQ Channel"

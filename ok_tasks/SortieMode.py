@@ -79,6 +79,16 @@ class SortieMode(TriggerTask):
                 ],
             },
             '第几层boss前自动暂停': {'type': 'drop_down', 'options': ['不暂停', '1', '2', '3']},
+            '任务优先级': {'options_available': ["选取随机3条命运", "信用点增加", "移除", "复制"]},
+            '拉黑任务': {'options_available': ["咒术卡牌", "压力", "精英"]},
+            '路线优先级': {'options_available': ["休息", "事件", "小怪", "精英"]},
+            '装备1号位优先级': {'options_available': ["蚀化臂铠", "拷问工具箱", "异象石碑"]},
+            '装备2号位优先级': {'options_available': ["蚀化臂铠", "拷问工具箱", "异象石碑"]},
+            '装备3号位优先级': {'options_available': ["蚀化臂铠", "拷问工具箱", "异象石碑"]},
+            '卡牌奖励优先级': {'options_available': ["梦之边境", "装备包"]},
+            '出战主战员优先级': {'options_available': ["海德玛丽", "九", "力", "绯", "米卡", "尼娅", "蒂菲拉", "麦格纳", "卡修斯", "黛安娜", "阿黛尔海特"]},
+            '主战员优先级': {'options_available': ["米卡", "尼娅", "蒂菲拉", "麦格纳", "卡修斯", "海德玛丽", "九", "力", "绯", "黛安娜", "阿黛尔海特"]},
+            '拉黑主战员': {'options_available': ["黛安娜", "阿黛尔海特", "海德玛丽", "九", "力", "绯", "米卡", "尼娅", "蒂菲拉", "麦格纳", "卡修斯"]},
         }
         self.config_description['游戏语言'] = "Global server players: set this to Traditional Chinese (繁体中文)"
 

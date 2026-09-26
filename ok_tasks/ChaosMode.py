@@ -101,6 +101,14 @@ class ChaosMode(TriggerTask):
             },
             '第几层boss前自动暂停': {'type': 'drop_down', 'options': ['不暂停', '1', '2']},
             '存储数据价值大于等于多少层级': {'min': 0, 'max': 15},
+            '任务优先级': {'options_available': ["复制", "信用点增加", "移除", "选取随机3条命运"]},
+            '拉黑任务': {'options_available': ["咒术卡牌", "压力", "精英"]},
+            '路线优先级': {'options_available': ["休息", "事件", "小怪", "精英"]},
+            '装备1号位优先级': {'options_available': ["蚀化臂铠", "拷问工具箱", "异象石碑"]},
+            '装备2号位优先级': {'options_available': ["蚀化臂铠", "拷问工具箱", "异象石碑"]},
+            '装备3号位优先级': {'options_available': ["蚀化臂铠", "拷问工具箱", "异象石碑"]},
+            '卡牌奖励优先级': {'options_available': ["梦之边境", "装备包"]},
+            '刷存档主战员': {'type': 'drop_down', 'options': ["海德玛丽", "九", "力", "绯", "米卡", "尼娅", "蒂菲拉", "麦格纳", "卡修斯", "黛安娜", "阿黛尔海特"]},
         }
         self.config_description['游戏语言'] = "Global server players: set this to Traditional Chinese (繁体中文)"
         self.config_description['闪光优先级'] = (
