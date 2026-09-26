@@ -4,10 +4,12 @@ import os
 import traceback
 from src.config import config
 from src.ui.SponsorDialog import install_sponsor_dialog
+from src.ui.i18n_patch import install_i18n_patch
 
 if __name__ == '__main__':
     try:
         install_sponsor_dialog()
+        install_i18n_patch()
         # PyInstaller --onefile mode: switch the data directory, but keep config files next to the exe
         if getattr(sys, 'frozen', False):
             exe_dir = os.path.dirname(sys.executable)
