@@ -656,8 +656,8 @@ def recognize_map_connections(
                 and special_feature["x"] < passed_feature_x_limit
             ):
                 task.log_info(
-                    f"小地图特殊标志{feature_name}位于已走过区域，"
-                    f"X={special_feature['x']:.4f}，排除"
+                    f"Minimap special feature {feature_name} is in visited area, "
+                    f"X={special_feature['x']:.4f}, excluded"
                 )
                 continue
             special_features.append(special_feature)
@@ -1069,22 +1069,22 @@ def _mark_selected_card_by_gold_border(
         card_bottom = center_y + frame_height * 0.330
 
         edge_scores = {
-            "上": gold_ratio(
+            "top": gold_ratio(
                 card_left, card_top - band_y, card_right, card_top + band_y
             ),
-            "下": gold_ratio(
+            "bottom": gold_ratio(
                 card_left, card_bottom - band_y, card_right, card_bottom + band_y
             ),
-            "左": gold_ratio(
+            "left": gold_ratio(
                 card_left - band_x, card_top, card_left + band_x, card_bottom
             ),
-            "右": gold_ratio(
+            "right": gold_ratio(
                 card_right - band_x, card_top, card_right + band_x, card_bottom
             ),
         }
         visible_edge_scores = [
-            edge_scores["左"],
-            edge_scores["右"],
+            edge_scores["left"],
+            edge_scores["right"],
         ]
         score = sum(visible_edge_scores) / len(visible_edge_scores)
         strong_edge_count = sum(value >= 0.08 for value in visible_edge_scores)
@@ -1100,7 +1100,7 @@ def _mark_selected_card_by_gold_border(
     for card in cards:
         edge_scores = card["gold_border_edges"]
         task.log_info(
-            f"{prefix}Card '{card['name']}' selected={card['selected']}, gold border score={card['gold_border_score']:.4f}, top={edge_scores['上']:.4f}, bottom={edge_scores['下']:.4f}, left={edge_scores['左']:.4f}, right={edge_scores['右']:.4f}"
+            f"{prefix}Card '{card['name']}' selected={card['selected']}, gold border score={card['gold_border_score']:.4f}, top={edge_scores['top']:.4f}, bottom={edge_scores['bottom']:.4f}, left={edge_scores['left']:.4f}, right={edge_scores['right']:.4f}"
         )
 
     if not any(card["selected"] for card in cards):
@@ -1767,9 +1767,9 @@ def log_node_status(task: TriggerTask):
             for slot in range(3)
         ]
         task.info_set(
-            "装备信息",
-            "，".join(
-                f"{slot + 1}号位：{name or '空'}"
+            "Equipment Info",
+            ", ".join(
+                f"Slot {slot + 1}: {name or 'Empty'}"
                 for slot, name in enumerate(equipment_names)
             ),
         )
@@ -2341,10 +2341,10 @@ def _find_member_level_tags(task: TriggerTask, region, page="Member selection pa
     )
     for index, level_tag in enumerate(kept_level_tags, 1):
         task.log_info(
-            f"第{index}号主战员leveltag: "
-            f"中心=({(level_tag.x + level_tag.width / 2) / task.width:.4f}, "
-            f"{(level_tag.y + level_tag.height / 2) / task.height:.4f})，"
-            f"置信度={level_tag.confidence:.4f}"
+            f"Member #{index} leveltag: "
+            f"center=({(level_tag.x + level_tag.width / 2) / task.width:.4f}, "
+            f"{(level_tag.y + level_tag.height / 2) / task.height:.4f}), "
+            f"confidence={level_tag.confidence:.4f}"
         )
     return kept_level_tags
 
@@ -2613,7 +2613,7 @@ def handle_equipment(task: TriggerTask):
         candidate["click_position"] = click_position
         candidates.append(candidate)
     task.log_info(
-        f"检测到选择装备界面，候选装备: "
+        f"Detected equipment selection screen, candidate equipment: "
         f"{[(candidate['ocr_name'], candidate['slot'] + 1) for candidate in candidates]}"
     )
 
@@ -3350,7 +3350,7 @@ def handle_route_selection(task: TriggerTask):
     priority = _get_route_priority(task)
     task.log_info(f"Route priority config: {priority}")
     task.log_info(
-        f"识别到的路线节点: "
+        f"Recognized route nodes: "
         f"{[(node['node_type'], node['special_features']) for node in nodes]}"
     )
 
@@ -4039,8 +4039,8 @@ def handle_card_assign(task: TriggerTask):
         if price_box:
             card_price = _parse_discounted_price(price_box.name)
         task.log_info(
-            f"购买卡牌页面: 当前信用点={current_credit}，"
-            f"OCR价格=「{price_box.name if price_box else ''}」，实际价格={card_price}"
+            f"Card purchase page: current credits={current_credit}, "
+            f"OCR price='{price_box.name if price_box else ''}', actual price={card_price}"
         )
 
         if not (cancel_box and purchase_box):

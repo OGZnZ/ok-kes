@@ -286,15 +286,15 @@ def fetch_popular_configs(
 def check_upload_disabled_and_warn(task: TriggerTask) -> bool:
     """Warn when config upload is disabled; return True in that case."""
     try:
-        lang_config = task.executor.global_config.get_config('配置上传')
-        upload_enabled = lang_config.get('是否上传配置', True)
+        lang_config = task.executor.global_config.get_config('Upload Config') or task.executor.global_config.get_config('配置上传')
+        upload_enabled = lang_config.get('Upload Config Info', lang_config.get('是否上传配置', True)) if lang_config else True
     except Exception:
         upload_enabled = True
     if not upload_enabled:
         from PySide6.QtWidgets import QMessageBox
         QMessageBox.warning(
             None, "Hot Configs Unavailable",
-            "Enable \"配置上传\" in the settings page at the bottom left first to use Hot Configs.\n\n"
+            "Enable \"Upload Config\" in the settings page at the bottom left first to use Hot Configs.\n\n"
             "Once enabled, you can browse and download configs shared by high-win-rate players."
         )
         return True

@@ -21,7 +21,7 @@ class ChaosMode(TriggerTask):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.name = "Auto Chaos Mode"
-        self.description = "1. Please enable Auto Battle and Auto Story in the game settings.\n2. Global server players: set \"游戏语言\" to 繁体中文 in this mode's config."
+        self.description = "1. Please enable Auto Battle and Auto Story in the game settings.\n2. Global server players: set \"Game Language\" to Traditional Chinese in this mode's config."
         self.instructions = """<a href="https://github.com/ok-oldking/ok-py">ok-py</a>"""
         self.trigger_interval = 1
         self.all_texts = []
@@ -102,15 +102,15 @@ class ChaosMode(TriggerTask):
             '第几层boss前自动暂停': {'type': 'drop_down', 'options': ['不暂停', '1', '2']},
             '存储数据价值大于等于多少层级': {'min': 0, 'max': 15},
         }
-        self.config_description['游戏语言'] = "Global server players: set this to 繁体中文"
+        self.config_description['游戏语言'] = "Global server players: set this to Traditional Chinese (繁体中文)"
         self.config_description['闪光优先级'] = (
             "Card names and descriptions can be partial keywords, but their order must match the game text."
         )
         self.config_description['刷初始卡牌'] = (
-            "After entering a target card name, the starting cards are rerolled until it appears; cannot be used together with \"刷空档\"."
+            "After entering a target card name, the starting cards are rerolled until it appears; cannot be used together with \"Farm Empty Slot\"."
         )
         self.config_description['刷空档'] = (
-            "The starting tasks must include \"移除2张\", otherwise the run restarts; cannot be used together with \"刷初始卡牌\"."
+            "The starting tasks must include \"Remove 2 Cards\", otherwise the run restarts; cannot be used together with \"Farm Starting Card\"."
         )
         self.config_description['首层刷特定闪光'] = (
             "Rerolls the first flash-priority card by default (divine flash possible); auto evacuates if it is not obtained on floor 1"

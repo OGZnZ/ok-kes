@@ -21,7 +21,7 @@ class SortieMode(TriggerTask):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.name = "Auto Sortie Mode"
-        self.description = "1. Auto Battle relies on keybind recognition; enable shortcut key display in the game settings for better card-play accuracy.\n2. Global server players: set \"游戏语言\" to 繁体中文 in this mode's config."
+        self.description = "1. Auto Battle relies on keybind recognition; enable shortcut key display in the game settings for better card-play accuracy.\n2. Global server players: set \"Game Language\" to Traditional Chinese in this mode's config."
         self.instructions = """<a href="https://github.com/ok-oldking/ok-py">ok-py</a>"""
         self.trigger_interval = 1
         self.all_texts = []
@@ -80,7 +80,7 @@ class SortieMode(TriggerTask):
             },
             '第几层boss前自动暂停': {'type': 'drop_down', 'options': ['不暂停', '1', '2', '3']},
         }
-        self.config_description['游戏语言'] = "Global server players: set this to 繁体中文"
+        self.config_description['游戏语言'] = "Global server players: set this to Traditional Chinese (繁体中文)"
 
     def load_config(self):
         migrate_game_language_config_file(self)
