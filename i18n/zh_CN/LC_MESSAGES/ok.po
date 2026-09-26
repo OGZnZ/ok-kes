@@ -572,3 +572,9 @@ msgstr "领取奖励(只使用验证卡)"
 msgid "首层刷特定闪光"
 msgstr "首层刷特定闪光"
 
+msgid "Upload Config"
+msgstr "配置上传"
+
+msgid "Upload Config Info"
+msgstr "是否上传配置"
+

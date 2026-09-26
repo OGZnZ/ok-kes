@@ -9,7 +9,7 @@ from ok import ConfigOption
 version = "dev"
 # Do not modify version; the GitHub Action updates it automatically when packaging
 
-OCR_BACKEND_AUTO = "自动"
+OCR_BACKEND_AUTO = "Auto"
 OCR_BACKEND_ONNX = "ONNX Runtime"
 OCR_BACKEND_OPENVINO = "OpenVINO"
 
@@ -23,12 +23,19 @@ def _get_config_folder():
 
 def _read_ocr_backend():
     """OCR is created before GUI init, so read the global config file early."""
-    config_path = os.path.join(_get_config_folder(), "OCR设置.json")
-    try:
-        with open(config_path, "r", encoding="utf-8") as config_file:
-            value = json.load(config_file).get("OCR后端", OCR_BACKEND_AUTO)
-    except (FileNotFoundError, OSError, ValueError, TypeError):
-        value = OCR_BACKEND_AUTO
+    config_names = ["OCR Settings.json", "OCR设置.json"]
+    value = OCR_BACKEND_AUTO
+    for c_name in config_names:
+        config_path = os.path.join(_get_config_folder(), c_name)
+        try:
+            with open(config_path, "r", encoding="utf-8") as config_file:
+                data = json.load(config_file)
+                value = data.get("OCR Backend", data.get("OCR后端", OCR_BACKEND_AUTO))
+                break
+        except (FileNotFoundError, OSError, ValueError, TypeError):
+            continue
+    if value in {"自动", "Auto"}:
+        return OCR_BACKEND_AUTO
     if value not in {OCR_BACKEND_AUTO, OCR_BACKEND_ONNX, OCR_BACKEND_OPENVINO}:
         return OCR_BACKEND_AUTO
     return value
@@ -83,14 +90,14 @@ key_config_option = ConfigOption('Game Hotkey Config', { # Global config example
 }, description='In Game Hotkey for Skills')
 
 # Config upload options
-upload_config_option = ConfigOption('配置上传', {
-    '是否上传配置': True,
+upload_config_option = ConfigOption('Upload Config', {
+    'Upload Config Info': True,
 }, description='Automatically uploads anonymous config info and win rates every 5 minutes to help compile popular configs.\nUploads no personal info, game accounts, screenshots, IP addresses, or other private data.\nOnly config contents and win-rate statistics are uploaded.')
 
-ocr_backend_option = ConfigOption('OCR设置', {
-    'OCR后端': OCR_BACKEND_AUTO,
+ocr_backend_option = ConfigOption('OCR Settings', {
+    'OCR Backend': OCR_BACKEND_AUTO,
 }, config_type={
-    'OCR后端': {
+    'OCR Backend': {
         'type': 'drop_down',
         'options': [OCR_BACKEND_AUTO, OCR_BACKEND_ONNX, OCR_BACKEND_OPENVINO],
     },

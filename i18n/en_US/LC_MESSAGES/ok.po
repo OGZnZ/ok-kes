@@ -572,3 +572,9 @@ msgstr "Claim Rewards (Verification Cards Only)"
 msgid "首层刷特定闪光"
 msgstr "Farm Specific Flash on Floor 1"
 
+msgid "Upload Config"
+msgstr "Upload Config"
+
+msgid "Upload Config Info"
+msgstr "Upload Config Info"
+

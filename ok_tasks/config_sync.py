@@ -81,12 +81,12 @@ def _get_win_rate(task: TriggerTask) -> float:
 
 def _should_upload(task: TriggerTask) -> bool:
     """Check upload conditions:
-    1. Global config "是否上传配置" is True
+    1. Global config "Upload Config Info" is True
     2. Enough battle runs recorded
     """
     try:
-        lang_config = task.executor.global_config.get_config('配置上传')
-        enabled = lang_config.get('是否上传配置', True)
+        lang_config = task.executor.global_config.get_config('Upload Config') or task.executor.global_config.get_config('配置上传')
+        enabled = lang_config.get('Upload Config Info', lang_config.get('是否上传配置', True)) if lang_config else True
     except Exception:
         enabled = True
     win_rate = _get_win_rate(task)
